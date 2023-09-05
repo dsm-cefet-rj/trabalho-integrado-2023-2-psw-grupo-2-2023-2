@@ -3,13 +3,13 @@ import "../styles/Botao.css"
 
 const Botao = ({Text, onClick, Type = "button"}) => {
     return(
-        <Button
+        <button
         className = "Botao"
         type ={Type}
         onClick ={onClick}
         >
             {Text}
-        </Button>    
+        </button>    
 
         
     ) 

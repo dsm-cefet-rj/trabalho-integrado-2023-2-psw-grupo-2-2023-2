@@ -1,10 +1,13 @@
+import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
 import '../styles/Cadastro.css'
 function Cadastro(){
     return(
-        <div className = "Pagina">
-            <Cabecalho/>
+    <div>
+        <Cabecalho/>
+        <div className='Fundo'>
         </div>
+    </div>
     )
 }
 

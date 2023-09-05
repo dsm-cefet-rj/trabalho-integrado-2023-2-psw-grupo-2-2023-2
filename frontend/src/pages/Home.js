@@ -1,10 +1,13 @@
+import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
 import '../styles/Home.css'
 function Home(){
     return(
-        <div className = "Pagina">
-            <Cabecalho/>
+    <div>
+        <Cabecalho/>
+        <div className='Fundo'>
         </div>
+    </div>
     )
 }
 

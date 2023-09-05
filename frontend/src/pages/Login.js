@@ -1,6 +1,6 @@
 import '../styles/Login.css'
+import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
-
 import Form from '../components/Form/LoginForm' 
 import {Link, useNavigate} from "react-router-dom"
  
@@ -8,12 +8,9 @@ const Login = () => {
     return (
      <div>
         <Cabecalho/>
-        <body className='Pagina'>
-            <div className='form'>
-               <Form/>
-            </div>
-        </body>
-       
+        <div className='Fundo'>
+            <Form/>
+        </div>
      </div> 
     );
   }
