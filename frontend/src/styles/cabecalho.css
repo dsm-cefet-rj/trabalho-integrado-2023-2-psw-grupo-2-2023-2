@@ -1,0 +1,11 @@
+.Cabecalho{
+    background:#232323;
+    height: 70px;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    margin-right: 50px;
+    position: fixed;
+    z-index: 1;
+  }
+

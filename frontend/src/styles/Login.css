@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Inter:wght@900&family=Oswald&display=swap');
+.Pagina{
+    background: linear-gradient(180deg, rgba(77,77,77,1) 16%, rgba(14,14,14,1) 100%);
+    background-size: 100%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1;
+}
+
+.form{
+    background: transparent;
+    height: 800px;
+    width: 500px;
+    padding: 43px;
+
+}
+
+
+.Subtitulo{
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    color: #F8CF2C;
+    margin-top:10% ;
+    margin-left: 2%;
+    font-size: 200%;
+}
