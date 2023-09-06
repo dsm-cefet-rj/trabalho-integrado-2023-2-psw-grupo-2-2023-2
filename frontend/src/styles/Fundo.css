@@ -1,5 +1,5 @@
 .Fundo{
-    background: linear-gradient(180deg, #4d4d4d 16%, rgb(13, 13, 13) 100%);
+    background: linear-gradient(180deg, #4d4d4d 5%, #000000 100%);
     display: flex; 
     justify-content: center; 
     align-items: center; 
