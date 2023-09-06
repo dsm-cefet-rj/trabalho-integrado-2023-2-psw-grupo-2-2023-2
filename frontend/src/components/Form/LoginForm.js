@@ -2,7 +2,7 @@ import '../../styles/LoginForm.css'
 import React, { useState } from "react";
 import Input from '../Input';
 import Botao from '../Botao';
-import imagem from '../../assets/images/bolaamarelaLogin.png'
+import Logo from '../../assets/images/logo.png'
 import '../../styles/LoginForm.css'
 
 const LoginForm = () => {
@@ -12,35 +12,36 @@ const LoginForm = () => {
         setText(event.target.value);
     };
     return(
-        <div className='Form'>
-            <form className = "Formulario">
+        <div className='container'> 
+            <div className='logo-Container'>
+                 <img className = "logo" src = {Logo} alt = "Logo Site"/>
+            </div>
+            <div className='Form'>
+                <form className = "Formulario">
+                    
+                    <Input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="Username"
+                        onChange={(event) => handleChange(event, setUsername)}
+                    />
 
-                <h1 className='TituloInput'>Usuário</h1>
+                    <Input
+                        type="text"
+                        name="password"
+                        id="password"
+                        placeholder="Senha"
+                        onChange={(event) => handleChange(event, setUsername)}
+                    />
 
-                <Input
-                    type="text"
-                    name="username"
-                    id="username"
-                    placeholder=""
-                    onChange={(event) => handleChange(event, setUsername)}
-                />
-
-                <h1 className='TituloInput'>Senha</h1>
-
-                <Input
-                    type="text"
-                    name="password"
-                    id="password"
-                    placeholder=""
-                    onChange={(event) => handleChange(event, setUsername)}
-                />
-
-                <div className = "Butoes">
-                    <Botao Text = "Login"/>
-                    <Botao Text= "Cadastrar"/>  
-                </div>
-            </form>
-        </div>
+                    <div className = "Butoes">
+                        <Botao Text = "Login"/>
+                        <Botao Text= "Cadastrar"/>  
+                    </div>
+                </form>
+            </div>
+        </div>    
     )
  
 }

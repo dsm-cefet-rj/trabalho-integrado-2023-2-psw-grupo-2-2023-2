@@ -1,7 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.container{
+  /* border:1px solid red; */
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+}
+
+.logo-Container{
+  /* border:1px solid blue; */
+  display: flex;
+  justify-content: center;
+}
+
+.logo{
+  
+  height: 90px; 
+}
+
 .Form{
-  background: transparent;  
-  width: 20%;  
+   
+}
+
+.Formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:26px;
 }
 
 .TituloInput{
@@ -12,5 +40,7 @@
 
 .Butoes{
   width: 100%;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
