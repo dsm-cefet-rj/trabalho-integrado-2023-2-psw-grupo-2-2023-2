@@ -3,6 +3,7 @@ import Cabecalho from '../components/cabecalho'
 import '../styles/Time.css'
 import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate } from "react-router-dom";
+import 
 function Time() {
     const navigate = useNavigate();
     return (
