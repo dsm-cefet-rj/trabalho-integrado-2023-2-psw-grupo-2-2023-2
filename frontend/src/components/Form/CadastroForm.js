@@ -73,7 +73,7 @@ const CadastroForm = () => {
                     <Lista obrigatorio = {true} label = "Times" itens = {Times}/>
 
                     <div className = "Butoes">
-                        <Botao Text = "Salvar"/>
+                        <Botao onClick={() => navigate("/home")} Text = "Salvar"/>
                         <Botao onClick={() => navigate("/")} Text= "Cancelar"/>  
                     </div>
                 </form>

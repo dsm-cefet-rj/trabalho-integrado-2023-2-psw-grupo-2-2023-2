@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.pesquisa{
+    border: 1px solid #999999;
+    width: 200px;
+    height: 25px;
+    border-radius: 8px;
+    font-size:10px;
+    background-color: transparent;
+    outline: none;
+    padding-left: 17px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    margin-left: -60%;
+}

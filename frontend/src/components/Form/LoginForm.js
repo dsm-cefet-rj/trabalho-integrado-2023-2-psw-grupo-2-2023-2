@@ -46,7 +46,7 @@ const LoginForm = () => {
                      }
 
                     <div className = "Butoes">
-                        <Botao Text = "Login"/>
+                        <Botao onClick={() => navigate("/home")} Text = "Login"/>
                         <Botao onClick={() => navigate("/cadastro")} Text= "Cadastrar"/>  
                     </div>
                 </form>

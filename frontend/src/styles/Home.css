@@ -4,3 +4,8 @@
     background: rgb(77,77,77);
     background: linear-gradient(180deg, rgba(77,77,77,1) 16%, rgba(14,14,14,1) 100%);
 }
+
+.Perfil{
+    margin-left: 90%;
+    margin-top: -37%;
+}

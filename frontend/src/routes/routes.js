@@ -4,6 +4,7 @@ import Home from '../pages/Home.js'
 import Login from '../pages/Login.js'
 import Cadastro from '../pages/Cadastro.js'
 import Perfil from '../pages/Perfil.js'
+import Time from '../pages/Time.js'
 
 const RoutesApp = () => {
     return(
@@ -14,6 +15,7 @@ const RoutesApp = () => {
                     <Route path = "/cadastro" element = {<Cadastro/>}/>
                     <Route path = "/perfil" element = {<Perfil/>}/>
                     <Route path = "/home" element = {<Home/>}/>
+                    <Route path = "/time" element = {<Time/>}/>
                     <Route path = "*" element = {<Login/>}/>
                 </Routes>
             </Fragment>

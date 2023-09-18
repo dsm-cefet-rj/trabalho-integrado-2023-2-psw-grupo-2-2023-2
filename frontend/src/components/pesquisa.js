@@ -1,14 +1,13 @@
 import "../styles/pesquisa.css"
-import Input from "../Input"
 import { useState } from "react"
 function Pesquisa(){
 const[textoDigitado, setTextoDigitado] = useState('')
     
     return(
-        <section>
-            <h2>Pesquisa</h2>
-            <Input
+        <section className="local">
+            <input className="pesquisa"
                 onBlur ={evento => setTextoDigitado(evento.target.value)}
+                placeholder="Digite aqui"
             />
         </section>
         

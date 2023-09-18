@@ -1,9 +1,8 @@
 import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
-import '../styles/Home.css'
+import '../styles/Time.css'
 import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate } from "react-router-dom";
-import Pesquisa from '../components/pesquisa.js'
 function Home(){
     const navigate = useNavigate();
     return(
