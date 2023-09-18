@@ -1,4 +1,4 @@
-import '../../styles/LoginForm.css'
+import '../../styles/CadastroForm.css'
 import React, { useState } from "react";
 import Input from '../Input';
 import Botao from '../Botao';
@@ -7,14 +7,20 @@ import '../../styles/LoginForm.css'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
 
-const LoginForm = () => {
+
+const CadastroForm = () => {
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [showSenha, setShowSenha] = useState(false);
+    const [verificaSenha, setVerificaSenha] = useState("");
+    const [showVerificaSenha, setShowVerificaSenha] = useState(false);
     const navigate = useNavigate();
     const handleSenhaToggle = () => {
         setShowSenha(!showSenha);
-      };
+    };
+     const handleVerificaSenhaToggle = () => {
+        setShowVerificaSenha(!showVerificaSenha);
+    };  
     const handleChange = (event, setText) => {
         setText(event.target.value);
     };
@@ -23,7 +29,7 @@ const LoginForm = () => {
             <div className='logo-Container'>
                  <img className = "logo" src = {Logo} alt = "Logo Site"/>
             </div>
-            <div >
+            <div>
                 <form className = "Formulario">
                     
                     <Input
@@ -46,9 +52,21 @@ const LoginForm = () => {
                           : <Eye size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
                      }
 
+                    <Input
+                        type={showVerificaSenha ? "text" : "password"}
+                        name="verificaPassword"
+                        id="verificaPassword"
+                        placeholder="Confirmar Senha"
+                        onChange={(event) => handleChange(event, setVerificaSenha)}
+                    />
+                     {showVerificaSenha
+                          ? <EyeSlash size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
+                          : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
+                     }  
+
                     <div className = "Butoes">
-                        <Botao Text = "Login"/>
-                        <Botao onClick={() => navigate("/cadastro")} Text= "Cadastrar"/>  
+                        <Botao Text = "Salvar"/>
+                        <Botao onClick={() => navigate("/")} Text= "Cancelar"/>  
                     </div>
                 </form>
             </div>
@@ -57,4 +75,4 @@ const LoginForm = () => {
  
 }
 
-export default LoginForm
+export default CadastroForm
