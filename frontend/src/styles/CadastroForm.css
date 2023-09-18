@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 .container{
-  /* border:1px solid red; */
   margin-bottom: 150px;
   display: flex;
   flex-direction: column;
@@ -10,14 +9,12 @@
 }
 
 .logo-Container{
-  /* border:1px solid blue; */
   display: flex;
   justify-content: center;
   margin-bottom: 10%;
 }
 
 .logo{
-  
   height: 90px; 
 }
 
@@ -29,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: -13%;
+  color: #FFFFFF;
 }
 
 .Formulario{

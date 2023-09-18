@@ -3,12 +3,18 @@ import React, { useState } from "react";
 import Input from '../Input';
 import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png'
-import '../../styles/LoginForm.css'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
-
+import Lista from '../ListaSuspensa'
 
 const CadastroForm = () => {
+    const Times = [
+        'Botafogo',
+        'Flamengo',
+        'Fluminense',
+        'Vasco'
+
+    ]
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [showSenha, setShowSenha] = useState(false);
@@ -63,6 +69,8 @@ const CadastroForm = () => {
                           ? <EyeSlash size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                           : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                      }  
+
+                    <Lista obrigatorio = {true} label = "Times" itens = {Times}/>
 
                     <div className = "Butoes">
                         <Botao Text = "Salvar"/>

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Input from '../Input';
 import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png'
-import '../../styles/LoginForm.css'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
 
