@@ -4,6 +4,7 @@ import '../styles/Campeonato.css'
 import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate } from "react-router-dom";
 
+
 function Campeonato(){
     const navigate = useNavigate();
     return(

@@ -38,6 +38,7 @@
     display: flex;
     border-radius: 8px;
     box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
+    
 }
 
 .Container-Search input{
@@ -46,6 +47,8 @@
     color: #fff;
     outline: none;
     margin-right: 8px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
 }
 .Container-Search input::placeholder{
     color: #f1f1f1;
@@ -57,11 +60,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 48%;
+    margin-left: 60%;
     transition: transform 0.5s;
 }
 
 .Search:hover{
     transform: scale(1.3);
 }
-   
+.Jogo{
+    background-color: #905d5d75;
+    width:433px;
+    color: White;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+}
+
+.Escudo{
+    height: 40px;
+}
+
+.Home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.X{
+    color: #F8CF2C;
+    margin-right: -10%;
+    margin-left: 10%;
+}
+
+.Away{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+}

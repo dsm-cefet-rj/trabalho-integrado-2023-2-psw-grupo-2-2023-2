@@ -3,7 +3,8 @@ import Cabecalho from '../components/cabecalho'
 import '../styles/Home.css'
 import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate } from "react-router-dom";
-import { MagnifyingGlass } from 'phosphor-react';
+import { MagnifyingGlass, X } from 'phosphor-react';
+import escudo from '../assets/images/Al Mir sem fundo.png'
 
 function Home(){
     const navigate = useNavigate();
@@ -28,6 +29,11 @@ function Home(){
                 
                 <div className='Campeonato'>
                     <div onClick={() => navigate("/campeonato")}>Campeonato CEFET</div>
+                </div>
+                <div className='Jogo'>
+                    <div className='Home' onClick={() => navigate("/time")} >Al Mir<img  className = "Escudo" onClick={() => navigate("/time")}  src = {escudo} alt = "escudoTime"/>  </div> 
+                    <X size={24}  className='X'/>
+                    <div className='Away' onClick={() => navigate("/time")} >Al Mir<img  className = "Escudo" onClick={() => navigate("/time")}  src = {escudo} alt = "escudoTime"/>  </div> 
                 </div>
           
             </div>    
