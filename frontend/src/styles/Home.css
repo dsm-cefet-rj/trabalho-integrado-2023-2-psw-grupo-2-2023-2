@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 .Pagina{
     width:100vw;
     height: 100vh;
@@ -5,7 +6,62 @@
     background: linear-gradient(180deg, rgba(77,77,77,1) 16%, rgba(14,14,14,1) 100%);
 }
 
-.Perfil{
-    margin-left: 90%;
-    margin-top: -37%;
+.Container{
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
+.Perfil{
+    margin-top: -15%;
+    margin-left: 230%;
+}
+
+.Campeonato{
+    background-color: #3113137b;
+    width:433px;
+    color: White;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 20%;
+}
+.Container-Search{
+    background-color: #3113137b  ;
+    height: 20px;
+    padding: 10px;
+    margin: 34px 0 ;
+    margin-top: -90%;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
+}
+
+.Container-Search input{
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    outline: none;
+    margin-right: 8px;
+}
+.Container-Search input::placeholder{
+    color: #f1f1f1;
+}
+.Search{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 48%;
+    transition: transform 0.5s;
+}
+
+.Search:hover{
+    transform: scale(1.3);
+}
+   

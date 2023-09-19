@@ -9,11 +9,7 @@ import Lista from '../ListaSuspensa'
 
 const CadastroForm = () => {
     const Times = [
-        'Botafogo',
-        'Flamengo',
-        'Fluminense',
-        'Vasco'
-
+        'Al mir'
     ]
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
