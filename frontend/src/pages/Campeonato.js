@@ -2,10 +2,18 @@ import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
 import perfil from "../assets/images/imagemPerfil.png"
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import '../styles/Campeonato.css'
 import { useLocation } from 'react-router-dom';
+import dadosBrasil from '../dados/Jogadores/DadosJogadoresBrasileiro.json'
+import dadosAlemanha from '../dados/Jogadores/DadosJogadoresAlemanha.json'
+import dadosFranca from '../dados/Jogadores/DadosJogadoresFrances.json'
+import dadosInglaterra from   '../'
+
+
+
+
 function Campeonato(){
     const navigate = useNavigate();
     const { id } = useParams();
@@ -31,25 +39,25 @@ function Campeonato(){
         <div className='Fundo'>
                
         <img className = "ImagemPerfil" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/> 
-
+            if(){
                 <div>
                 {jsonTime && (
-                    <div>
-                 
+                <div>
                     <ul className='Times' >
                         {jsonTime.response.map((time) => (
                         <li className='teste' key={time.team.id}>
                             <button className='linkTimes'>
                                 <img className = "logo" src={time.team.logo} alt={time.team.name} />
-                            
+                                
                                 <div className='Nomes'>{time.team.name}</div>
                             </button>
                         </li>
                         ))}
                     </ul>
-                    </div>
+                </div>
                 )}
                 </div>
+                }
 
                 {/*
                     Api sem ser beta
