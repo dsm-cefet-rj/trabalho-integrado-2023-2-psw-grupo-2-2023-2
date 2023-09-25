@@ -9,9 +9,6 @@ import Lista from '../ListaSuspensa'
 import ListaTimes from '../ListaTimes'
 
 const CadastroForm = () => {
-    const Times=[
-        "vasco"
-    ]
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [showSenha, setShowSenha] = useState(false);
@@ -27,6 +24,7 @@ const CadastroForm = () => {
     const handleChange = (event, setText) => {
         setText(event.target.value);
     };
+
     return(
         <div className='container'> 
             <div className='logo-Container'>
@@ -67,7 +65,7 @@ const CadastroForm = () => {
                           : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                      }  
 
-                    <Lista obrigatorio = {true} label = "Times" itens = {Times}/>
+                    <Lista obrigatorio = {true} />
 
                     <div className = "Butoes">
                         <Botao onClick={() => navigate("/home")} Text = "Salvar"/>
