@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import '../styles/Campeonato.css'
 import { useLocation } from 'react-router-dom';
-function Campeonato(props){
+function Campeonato(){
     const navigate = useNavigate();
     const { id } = useParams();
     const location = useLocation();
@@ -36,11 +36,14 @@ function Campeonato(props){
                 {jsonTime && (
                     <div>
                  
-                    <ul>
+                    <ul className='Times' >
                         {jsonTime.response.map((time) => (
-                        <li key={time.team.id}>
-                            <img src={time.team.logo} alt={time.team.name} />
-                            {time.team.name}
+                        <li className='teste' key={time.team.id}>
+                            <button className='linkTimes'>
+                                <img className = "logo" src={time.team.logo} alt={time.team.name} />
+                            
+                                <div className='Nomes'>{time.team.name}</div>
+                            </button>
                         </li>
                         ))}
                     </ul>
@@ -56,7 +59,7 @@ function Campeonato(props){
                 */}
 
 
-            {/* <div className = "jogos" 
+             <div className = "jogos" 
                 id="wg-api-football-games"
                 data-host="api-football-beta.p.rapidapi.com"          
                 data-key="85e13ac972msh0a28d2865f77831p138879jsnbbd24a9f2d99"
@@ -71,7 +74,7 @@ function Campeonato(props){
                 data-modal-game="true"
                 data-modal-standings="true"
                 data-modal-show-logos="true">
-            </div>      */}
+            </div>      
                       
           
         </div>

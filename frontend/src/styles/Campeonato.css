@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 .ImagemPerfil{
     margin-left: 40%;
     margin-bottom: 35%;
@@ -8,4 +9,47 @@
     margin-left: -45%;
     margin-top: -10%;
     width:450px
+}
+.logo{
+    height: 20px;
+   
+}
+
+.Times{
+    margin-left: -1200;   
+    justify-content:flex-start;
+    align-self:flex-start;
+    height: 50%; 
+    width: 100px;
+    margin-top: 80%;
+}
+
+.Nomes{
+    color: #F8CF2C; 
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    margin-left: 30%;
+}
+.teste{
+    color: transparent;
+    
+}
+.linkTimes{
+        display: flex;
+        align-items: center;
+        margin: 10px auto; 
+        padding: 10px 20px; 
+        background-color: #31131386; 
+        color: #F8CF2C; 
+        border: 1px solid #F8CF2C;
+        border-radius: 5px; 
+        font-size: 16px;
+        cursor: pointer;
+        width: 250px ;
+        height: 30px ;
+        font-weight: bold;
+        font-family: 'Oswald', sans-serif;
+        font-size: 10px;
+        margin-left: -1200%;
 }
