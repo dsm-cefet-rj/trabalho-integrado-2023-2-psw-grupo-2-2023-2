@@ -51,20 +51,23 @@ function Time() {
   
     return (
       <div>
-        <Cabecalho />
+        <Cabecalho/>
         <div className='Fundo'>
-          <img onClick={() => navigate("/perfil")} className="Perfil" src={perfil} alt="ImagemPerfil" />
-       
+        <img className="PerfilTimes" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/>
         <div className="ListaJogadores">
-          <h2>Jogadores do Time</h2>
-          <ul>
-            {jogadores.map((jogador) => (
-              <li key={jogador.player.id}>
-                <img src={jogador.player.photo} alt={jogador.player.name} />
-                <p>{jogador.player.name}</p>
-              </li>
-            ))}
-          </ul>
+          <body className="CorpoLista">
+            <ul clasName = "Container-teste">
+              {jogadores.map((jogador) => (
+                <li className = "LocalJogadores" key={jogador.player.id}>
+                  <button className = "ImagemNomeJogador">
+                    <img className="FotoJogadores" src={jogador.player.photo} alt={jogador.player.name} />
+                    <p className = "NomesJogadores">{jogador.player.name}</p>
+                  </button>  
+                  
+                </li>
+              ))}
+            </ul>
+          </body>
           </div>
         </div>
       </div>

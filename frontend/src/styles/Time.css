@@ -1,0 +1,67 @@
+.FotoJogadores{
+    height: 30px;
+}
+.Container-teste{
+    list-style: none;
+    padding: 0;
+    list-style: none;
+    padding: 0;
+    
+}
+.LocalJogadores{
+    display: inline-block;
+    margin-right: 10px;    
+}
+.CorpoLista{
+    display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Define a altura da tela inteira */
+  margin: 0;
+  padding: 0;
+  margin-left: -80%;
+  margin-top: 20%;
+}
+
+.ImagemNomeJogador{
+    margin: 10px;
+    display: flex;
+    align-items: center;  
+    background-color: #31131386; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px ;
+    height: 35px ;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+}
+.NomesJogadores{
+    margin-left: 30%;
+}
+.Titulo-Times{
+    font-size: 50px;
+    margin-bottom: -20%;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    color: #F8CF2C; 
+}
+
+.TituloTimes{
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    color: #F8CF2C; 
+    margin-bottom: 44%;
+    margin-left: 50%;
+}
+
+
+.PerfilTimes{
+    margin-left: 48%;
+   margin-bottom: 30%;
+}
+
+
