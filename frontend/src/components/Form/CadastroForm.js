@@ -6,7 +6,6 @@ import Logo from '../../assets/images/logo.png'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
 import Lista from '../ListaSuspensa'
-import ListaTimes from '../ListaTimes'
 
 const CadastroForm = () => {
     const [username, setUsername] = useState("");
@@ -32,7 +31,6 @@ const CadastroForm = () => {
             </div>
             <div>
                 <form className = "Formulario">
-                    
                     <Input
                         type="text"
                         name="username"
