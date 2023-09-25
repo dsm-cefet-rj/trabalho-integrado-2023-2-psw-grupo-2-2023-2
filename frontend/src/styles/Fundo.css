@@ -1,9 +1,10 @@
 .Fundo{
+    height: 200vh; /* Defina a altura maior do que a tela */
     background: linear-gradient(180deg, #4d4d4d 5%, #000000 100%);
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
-    position:fixed;
+    position: sticky;
 }

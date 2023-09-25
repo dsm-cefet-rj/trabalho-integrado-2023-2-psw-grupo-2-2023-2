@@ -25,7 +25,7 @@ function Campeonato(){
         <Cabecalho/>
         <div className='Fundo'>
            
-            {/* <div id="wg-api-football-standings"
+            {/*<div  id="wg-api-football-standings"
                 data-host="api-football-v1.p.rapidapi.com"
                 data-key="85e13ac972msh0a28d2865f77831p138879jsnbbd24a9f2d99"
                 data-league="71"
