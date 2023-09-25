@@ -1,7 +1,6 @@
 import '../styles/ListaSuspensa.css'
 
 const ListaSuspensa = (props) => {
-    console.log(props.itens)
     return(
         <div >
             <select required={props.obrigatorio} className='Lista'>
@@ -14,3 +13,7 @@ const ListaSuspensa = (props) => {
 }
 
 export default ListaSuspensa
+
+
+
+

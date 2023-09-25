@@ -6,10 +6,11 @@ import Logo from '../../assets/images/logo.png'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
 import Lista from '../ListaSuspensa'
+import ListaTimes from '../ListaTimes'
 
 const CadastroForm = () => {
-    const Times = [
-        'Al mir'
+    const Times=[
+        "vasco"
     ]
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");

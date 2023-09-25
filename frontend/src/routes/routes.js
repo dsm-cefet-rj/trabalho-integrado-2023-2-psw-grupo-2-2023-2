@@ -8,6 +8,7 @@ import Time from '../pages/Time.js'
 import Campeonato from '../pages/Campeonato.js'
 
 
+
 const RoutesApp = () => {
     return(
         <BrowserRouter>
