@@ -6,7 +6,6 @@ import Cadastro from '../pages/Cadastro.js'
 import Perfil from '../pages/Perfil.js'
 import Time from '../pages/Time.js'
 import Campeonato from '../pages/Campeonato.js'
-import DetalhesTime from '../components/DetalhesTime.js';
 
 
 
@@ -21,7 +20,6 @@ const RoutesApp = () => {
                     <Route path = "/home" element={<Home/>}/>
                     <Route path = "/time" element = {<Time/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
-                    <Route path="/time/:timeId" element={<DetalhesTime />} />
                     <Route path = "*" element = {<Login/>}/>
                 </Routes>
             </Fragment>

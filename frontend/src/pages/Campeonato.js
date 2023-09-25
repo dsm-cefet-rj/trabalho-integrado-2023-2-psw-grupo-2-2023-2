@@ -6,14 +6,6 @@ import { useNavigate,Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import '../styles/Campeonato.css'
 import { useLocation } from 'react-router-dom';
-import dadosBrasil from '../dados/Jogadores/DadosJogadoresBrasileiro.json'
-import dadosAlemanha from '../dados/Jogadores/DadosJogadoresAlemanha.json'
-import dadosFranca from '../dados/Jogadores/DadosJogadoresFrances.json'
-import dadosInglaterra from   '../'
-
-
-
-
 function Campeonato(){
     const navigate = useNavigate();
     const { id } = useParams();
@@ -43,6 +35,7 @@ function Campeonato(){
                 <div>
                 {jsonTime && (
                 <div>
+                 
                     <ul className='Times' >
                         {jsonTime.response.map((time) => (
                         <li className='teste' key={time.team.id}>
