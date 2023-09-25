@@ -31,7 +31,7 @@ function Campeonato(){
         <div className='Fundo'>
                
         <img className = "ImagemPerfil" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/> 
-            if(){
+            
                 <div>
                 {jsonTime && (
                 <div>
@@ -39,8 +39,8 @@ function Campeonato(){
                     <ul className='Times' >
                         {jsonTime.response.map((time) => (
                         <li className='teste' key={time.team.id}>
-                            <button className='linkTimes'>
-                                <img className = "logo" src={time.team.logo} alt={time.team.name} />
+                            <button onClick={() => navigate(`/time/${id}/${time.team.id}`)} className='linkTimes'>
+                                <img  className = "logoTimes" src={time.team.logo} alt={time.team.name} />
                                 
                                 <div className='Nomes'>{time.team.name}</div>
                             </button>
@@ -50,7 +50,7 @@ function Campeonato(){
                 </div>
                 )}
                 </div>
-                }
+                
 
                 {/*
                     Api sem ser beta

@@ -18,7 +18,7 @@ const RoutesApp = () => {
                     <Route path = "/cadastro" element = {<Cadastro/>}/>
                     <Route path = "/perfil" element = {<Perfil/>}/>
                     <Route path = "/home" element={<Home/>}/>
-                    <Route path = "/time" element = {<Time/>}/>
+                    <Route path = "/time/:id/:idteam" element = {<Time/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
                     <Route path = "*" element = {<Login/>}/>
                 </Routes>

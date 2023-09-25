@@ -21,7 +21,7 @@ function Home(){
     const navigate = useNavigate();
     return(
     <div>
-        <Cabecalho/>61
+        <Cabecalho/>
         <div className='Fundo'>
         <img className = "Perfil" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/> 
             <div className='Campeonatos'> 
