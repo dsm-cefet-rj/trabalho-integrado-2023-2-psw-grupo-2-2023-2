@@ -22,7 +22,7 @@ function Campeonato(){
                 */}
 
 
-            <div className = "jogos" 
+            {/* <div className = "jogos" 
                 id="wg-api-football-games"
                 data-host="api-football-beta.p.rapidapi.com"          
                 data-key="85e13ac972msh0a28d2865f77831p138879jsnbbd24a9f2d99"
@@ -37,7 +37,7 @@ function Campeonato(){
                 data-modal-game="true"
                 data-modal-standings="true"
                 data-modal-show-logos="true">
-            </div>    
+            </div>     */}
                       
           
         </div>
