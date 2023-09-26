@@ -7,6 +7,7 @@ import Perfil from '../pages/Perfil.js'
 import Time from '../pages/Time.js'
 import Campeonato from '../pages/Campeonato.js'
 import Estatisticas from '../pages/estatísticas.js'
+import EditarPerfil from '../pages/EditarPerfil.js'
 
 
 
@@ -18,6 +19,7 @@ const RoutesApp = () => {
                     <Route path = "/" element = {<Login/>}/>
                     <Route path = "/cadastro" element = {<Cadastro/>}/>
                     <Route path = "/perfil" element = {<Perfil/>}/>
+                    <Route path = "/editarperfil" element = {<EditarPerfil/>}/>
                     <Route path = "/home" element={<Home/>}/>
                     <Route path = "/time/:id/:idteam" element = {<Time/>}/>
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
