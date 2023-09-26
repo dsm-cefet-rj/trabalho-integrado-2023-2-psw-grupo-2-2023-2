@@ -50,5 +50,45 @@
     color: #F8CF2C; 
     border: 1px solid #F8CF2C;
     width: 200px;
-    height: 26px;
+    height: 25px;
+}
+
+.Fundo{
+    height: 200vh; /* Defina a altura maior do que a tela */
+    background: linear-gradient(180deg, #4d4d4d 5%, #000000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    
+  }
+
+  .Link{
+    display: flex;
+    align-items: center;
+    margin: 10px auto; 
+    padding: 10px 20px; 
+    background-color: #31131386; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+    width: 400px ;
+    height: 50px ;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    
+}
+
+.Logo{
+    height: 30px;
+    width: 20px;
+    justify-content:flex-start;
+    align-self:flex-start;
+    margin-left: 5px;
+    margin-right: 100px;
 }

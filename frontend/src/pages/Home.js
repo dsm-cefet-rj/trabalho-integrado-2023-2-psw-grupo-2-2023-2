@@ -32,7 +32,7 @@ function Home(){
     const [idJogador, setIdJogador] = useState('');
     const buscarTime = () => {
       if (nomePesquisa.trim() === '') {
-        // Nome do time está vazio, não faça nada
+
         setLigaDoTime('');
         setIdDoTime(null);
       } else {
