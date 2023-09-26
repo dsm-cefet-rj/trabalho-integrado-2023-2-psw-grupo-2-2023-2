@@ -19,7 +19,6 @@ function Time() {
     useEffect(() => {
       const carregarDadosPorLiga = (id) => {
         if (id === '71') {
-          console.log("Vasco");
           return dadosBrasil;
         } else if (id === '78') {
           return dadosAlemanha;

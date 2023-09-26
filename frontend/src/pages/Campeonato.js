@@ -52,18 +52,10 @@ function Campeonato(){
                 </div>
                 
 
-                {/*
-                    Api sem ser beta
-                    api-football-v1.p.rapidapi.com 
-                    Api  beta
-                    api-football-beta.p.rapidapi.com" 
-                */}
-
-
-             <div className = "jogos" 
+              <div className = "jogos" 
                 id="wg-api-football-games"
-                data-host="api-football-beta.p.rapidapi.com"          
-                data-key="85e13ac972msh0a28d2865f77831p138879jsnbbd24a9f2d99"
+                data-host="api-football-v1.p.rapidapi.com "          
+                data-key="7230cd40b3msh4c82dec94320fe8p146a87jsnb08449a06425"
                 data-date="24/09/2023"
                 data-league={id}
                 data-season="2023"
@@ -75,7 +67,7 @@ function Campeonato(){
                 data-modal-game="true"
                 data-modal-standings="true"
                 data-modal-show-logos="true">
-            </div>      
+            </div>       
                       
           
         </div>

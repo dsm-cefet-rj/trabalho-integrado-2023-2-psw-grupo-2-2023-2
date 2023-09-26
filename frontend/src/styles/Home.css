@@ -19,6 +19,36 @@
 .Campeonatos{
     text-align: center;
     margin-top: -5%;
-    margin-left: -45%;
+    margin-left: -30%;
+   
 }
 
+.Container-Pesquisa{
+    margin-left: -15%;
+    margin-top: -30%;
+    margin-right: -30%;
+    margin-bottom: 20%;
+    
+}
+
+.Body{
+    margin-left: -33%
+}
+.BotaoPesquisa{
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    background-color: #31131386; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    width: 100px;
+    height: 30px;
+}
+.InputPesquisa{
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    background-color: #31131386; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    width: 200px;
+    height: 25px;
+}
