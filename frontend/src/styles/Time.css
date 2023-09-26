@@ -39,6 +39,31 @@
     font-family: 'Oswald', sans-serif;
     font-size: 15px;
 }
+
+.ImagemNomeJogadorStats{
+    margin: 10px;
+    display: flex;
+    align-items: center;  
+    background-color: #410a471f; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px ;
+    height: 35px ;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5%;
+
+}
+.BotoesJogadoresStats{
+    display: flex; 
+    justify-content: space-between;
+    margin-top: -40%;
+}
+
 .NomesJogadores{
     margin-left: 30%;
 }
@@ -50,18 +75,37 @@
     color: #F8CF2C; 
 }
 
+
 .TituloTimes{
     font-weight: bold;
     font-family: 'Oswald', sans-serif;
     color: #F8CF2C; 
-    margin-bottom: 44%;
-    margin-left: 50%;
+    margin-left: 45%;
+    margin-bottom: 40%;
+    font-size: 40px
+}
+
+.ContainerFotoStats{
+    display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  height: 100vh; 
+  margin-top: -50%;
+  color: #F8CF2C; 
+  border-radius: 5px; 
 }
 
 
-.PerfilTimes{
-    margin-left: 48%;
-   margin-bottom: 30%;
-}
-
-
+.EstatisticasContainer {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    color: #F8CF2C; 
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    background-color: #410a471f; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+  }

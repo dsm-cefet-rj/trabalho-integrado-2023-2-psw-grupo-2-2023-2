@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
 import '../styles/Time.css'
-import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import dadosBrasil from '../dados/Jogadores/DadosJogadoresBrasileiro.json'
@@ -12,12 +11,11 @@ import dadosFranca from '../dados/Jogadores/DadosJogadoresFrances.json'
 import dadosEspanha from '../dados/Jogadores/DadosJogadoresEspanhol.json'
 import dadosItalia from '../dados/Jogadores/DadosJogadoresItaliano.json'
 
+
 function Time() {
     const { id, idteam } = useParams();
     const navigate = useNavigate();
-  
     const [jogadores, setJogadores] = useState([]);
-  
     useEffect(() => {
       const carregarDadosPorLiga = (id) => {
         if (id === '71') {
@@ -37,29 +35,25 @@ function Time() {
           return null;
         }
       };
-  
       const dadosLiga = carregarDadosPorLiga(id);
-  
       if (dadosLiga) {
         const jogadoresDoTime = dadosLiga.response.filter(
           (jogador) => jogador.statistics[0].team.id === Number(idteam)
         );
-  
         setJogadores(jogadoresDoTime);
       }
     }, [id, idteam]);
-  
     return (
       <div>
         <Cabecalho/>
         <div className='Fundo'>
-        <img className="PerfilTimes" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/>
+        <h1 className = "TituloTimes">Jogadores</h1>
         <div className="ListaJogadores">
           <body className="CorpoLista">
-            <ul clasName = "Container-teste">
+            <ul className = "Container-teste">
               {jogadores.map((jogador) => (
                 <li className = "LocalJogadores" key={jogador.player.id}>
-                  <button className = "ImagemNomeJogador">
+                  <button onClick={() => navigate(`/stats/${id}/${jogador.player.id}`)}  className = "ImagemNomeJogador">
                     <img className="FotoJogadores" src={jogador.player.photo} alt={jogador.player.name} />
                     <p className = "NomesJogadores">{jogador.player.name}</p>
                   </button>  
