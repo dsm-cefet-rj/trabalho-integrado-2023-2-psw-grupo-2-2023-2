@@ -1,6 +1,6 @@
-import '../styles/Fundo.css'
-import Cabecalho from '../components/cabecalho'
-import perfil from "../assets/images/imagemPerfil.png"
+import '../styles/Fundo.css';
+import Cabecalho from '../components/cabecalho';
+import perfil from "../assets/images/imagemPerfil.png";
 import React, { useEffect, useState } from 'react';
 import { useNavigate,Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
