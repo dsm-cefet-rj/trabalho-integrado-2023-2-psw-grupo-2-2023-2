@@ -111,14 +111,8 @@ function Home(){
       }else{
         
       }
-    }
-    
-    console.log("teste")
-
-        
-      
+    }    
   
-
     return(
     <div>
         <Cabecalho/>
