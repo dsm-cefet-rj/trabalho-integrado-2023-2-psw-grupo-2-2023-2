@@ -21,16 +21,7 @@
   height: 90px; 
 }
 
-.Olho{
-  cursor: pointer; 
-  margin-left: 90%;
-  height: 100%;
-  margin-right: 10%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: -13%;
-  color: #F8CF2C;
-}
+
 
 .Formulario{
   display: flex;
@@ -46,10 +37,16 @@
   font-family: 'Oswald', sans-serif;
 }
 
-.Butoes{
+.Botoes{
   margin-top: 10%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media(max-width: 530px){
+  .Botoes{
+    flex-direction: column;
+  }
 }

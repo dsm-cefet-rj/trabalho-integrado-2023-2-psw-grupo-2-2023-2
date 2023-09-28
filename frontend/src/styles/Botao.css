@@ -16,3 +16,9 @@
 .Botao:hover{
     background-color: rgba(45, 36, 36, 0.616);
 }
+
+@media(max-width:530px){
+    .Botao{
+        width:300px;
+    }
+}

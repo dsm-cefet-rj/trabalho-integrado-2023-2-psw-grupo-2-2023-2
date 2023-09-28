@@ -45,7 +45,7 @@ const LoginForm = () => {
                           : <Eye size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
                      }
 
-                    <div className = "Butoes">
+                    <div className = "Botoes">
                         <Botao onClick={() => navigate("/home")} Text = "Login"/>
                         <Botao onClick={() => navigate("/cadastro")} Text= "Cadastrar"/>  
                     </div>

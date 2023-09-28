@@ -14,3 +14,9 @@
     font-family: 'Oswald', sans-serif;
     color:#F8CF2C
 }
+
+@media (max-width: 530px){
+    .Input{
+        width:300px;
+    }
+}
