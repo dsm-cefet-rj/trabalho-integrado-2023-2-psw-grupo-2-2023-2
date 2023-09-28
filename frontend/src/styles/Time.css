@@ -1,0 +1,111 @@
+.FotoJogadores{
+    height: 30px;
+}
+.Container-teste{
+    list-style: none;
+    padding: 0;
+    list-style: none;
+    padding: 0;
+    
+}
+.LocalJogadores{
+    display: inline-block;
+    margin-right: 10px;    
+}
+.CorpoLista{
+    display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Define a altura da tela inteira */
+  margin: 0;
+  padding: 0;
+  margin-left: -80%;
+  margin-top: 20%;
+}
+
+.ImagemNomeJogador{
+    margin: 10px;
+    display: flex;
+    align-items: center;  
+    background-color: #31131386; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px ;
+    height: 35px ;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+}
+
+.ImagemNomeJogadorStats{
+    margin: 10px;
+    display: flex;
+    align-items: center;  
+    background-color: #410a471f; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px ;
+    height: 35px ;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5%;
+
+}
+.BotoesJogadoresStats{
+    display: flex; 
+    justify-content: space-between;
+    margin-top: -40%;
+}
+
+.NomesJogadores{
+    margin-left: 30%;
+}
+.Titulo-Times{
+    font-size: 50px;
+    margin-bottom: -20%;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    color: #F8CF2C; 
+}
+
+
+.TituloTimes{
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    color: #F8CF2C; 
+    margin-left: 45%;
+    margin-bottom: 40%;
+    font-size: 40px
+}
+
+.ContainerFotoStats{
+    display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  height: 100vh; 
+  margin-top: -50%;
+  color: #F8CF2C; 
+  border-radius: 5px; 
+}
+
+
+.EstatisticasContainer {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    color: #F8CF2C; 
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    background-color: #410a471f; 
+    border: 1px solid #F8CF2C;
+    border-radius: 5px; 
+  }

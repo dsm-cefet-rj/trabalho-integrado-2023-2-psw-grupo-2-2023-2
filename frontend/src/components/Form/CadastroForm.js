@@ -8,13 +8,6 @@ import {EyeSlash, Eye } from 'phosphor-react'
 import Lista from '../ListaSuspensa'
 
 const CadastroForm = () => {
-    const Times = [
-        'Botafogo',
-        'Flamengo',
-        'Fluminense',
-        'Vasco'
-
-    ]
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [showSenha, setShowSenha] = useState(false);
@@ -30,6 +23,7 @@ const CadastroForm = () => {
     const handleChange = (event, setText) => {
         setText(event.target.value);
     };
+
     return(
         <div className='container'> 
             <div className='logo-Container'>
@@ -37,7 +31,6 @@ const CadastroForm = () => {
             </div>
             <div>
                 <form className = "Formulario">
-                    
                     <Input
                         type="text"
                         name="username"
@@ -70,7 +63,7 @@ const CadastroForm = () => {
                           : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                      }  
 
-                    <Lista obrigatorio = {true} label = "Times" itens = {Times}/>
+                    <Lista obrigatorio = {true} />
 
                     <div className = "Butoes">
                         <Botao onClick={() => navigate("/home")} Text = "Salvar"/>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header class = 'Cabecalho'>  
+    <img  class = "Imagem" src = "./imagens/logo.png" alt = "Logo Site"/>
+    <link rel="stylesheet" href="./cabecalho.css">
+  </header>
+<div>
+    <Cabecalho/>
+    <div class='Fundo'>
+    <img class = "Perfil"  src = "./imagens/imagemPerfil.png" alt = "ImagemPerfil"/> 
+    <div class='Body'>
+      <div class='Container-Pesquisa'>
+        <input
+              class='InputPesquisa'
+             
+              placeholder="Digite o nome do time"
+              
+              
+            />
+            <button
+             class='BotaoPesquisa'
+             onClick={buscarTime}>Buscar</button>
+            <button
+            class='BotaoPesquisa' 
+            onClick={Navegar}>ir</button>
+        </div>     
+      
+      
+          <div class='Campeonatos'> 
+              <button class = "Link" > <img class = "Logo" src = "./imagens/Brasileirao.png" alt = "Brasileirao"/> Brasileirão </button>
+              <button class = "Link"  > <img class = "Logo" src = "./imagens/LaLiga.png" alt = "LaLiga"/> La Liga </button> 
+              <button class = "Link"  >  <img class = "Logo" src = "./imagens/PremierLeague.png" alt = "Premier League"/> Premier League</button> 
+              <button class = "Link"  > <img class = "Logo" src = "./imagens/SerieAtim.png" alt = "Serie Atim"/> Serie A tim </button> 
+              <button class = "Link"  >  <img class = "Logo" src = "./imagens/Bundesliga.png" alt = "Bundesliga"/> Bundesliga</button> 
+              <button class = "Link"  >  <img class = "Logo" src = "./imagens/Ligue1.png" alt = "Ligue one"/> Ligue One</button> 
+          </div> 
+    </div>         
+    </div>
+</div>
+<link rel="stylesheet" href="./Home.css">
+</html>

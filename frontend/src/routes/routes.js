@@ -5,6 +5,11 @@ import Login from '../pages/Login.js'
 import Cadastro from '../pages/Cadastro.js'
 import Perfil from '../pages/Perfil.js'
 import Time from '../pages/Time.js'
+import Campeonato from '../pages/Campeonato.js'
+import Estatisticas from '../pages/estatísticas.js'
+import EditarPerfil from '../pages/EditarPerfil.js'
+
+
 
 const RoutesApp = () => {
     return(
@@ -14,8 +19,11 @@ const RoutesApp = () => {
                     <Route path = "/" element = {<Login/>}/>
                     <Route path = "/cadastro" element = {<Cadastro/>}/>
                     <Route path = "/perfil" element = {<Perfil/>}/>
-                    <Route path = "/home" element = {<Home/>}/>
-                    <Route path = "/time" element = {<Time/>}/>
+                    <Route path = "/editarperfil" element = {<EditarPerfil/>}/>
+                    <Route path = "/home" element={<Home/>}/>
+                    <Route path = "/time/:id/:idteam" element = {<Time/>}/>
+                    <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
+                    <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
                     <Route path = "*" element = {<Login/>}/>
                 </Routes>
             </Fragment>
@@ -23,5 +31,7 @@ const RoutesApp = () => {
 
     );
 };
+
+
 
 export default RoutesApp;
