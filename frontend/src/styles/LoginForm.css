@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:26px;
+  gap: 10px;
 }
 
 .TituloInput{
@@ -40,7 +40,7 @@
 .eye-container{
   position: relative;
   left: 190px;
-  bottom: 62px;
+  bottom: 47px;
 }
 
 .Botoes{

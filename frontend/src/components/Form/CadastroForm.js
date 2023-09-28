@@ -46,11 +46,12 @@ const CadastroForm = () => {
                         placeholder="Senha"
                         onChange={(event) => handleChange(event, setSenha)}
                     />
+                    <div className ="eye-container1">
                      {showSenha
                           ? <EyeSlash size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
                           : <Eye size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
                      }
-
+                    </div>
                     <Input
                         type={showVerificaSenha ? "text" : "password"}
                         name="verificaPassword"
@@ -58,14 +59,15 @@ const CadastroForm = () => {
                         placeholder="Confirmar Senha"
                         onChange={(event) => handleChange(event, setVerificaSenha)}
                     />
+                    <div className ="eye-container2">
                      {showVerificaSenha
                           ? <EyeSlash size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                           : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                      }  
-
+                    </div>
                     <Lista obrigatorio = {true} />
 
-                    <div className = "Butoes">
+                    <div className = "Botoes">
                         <Botao onClick={() => navigate("/home")} Text = "Salvar"/>
                         <Botao onClick={() => navigate("/")} Text= "Cancelar"/>  
                     </div>

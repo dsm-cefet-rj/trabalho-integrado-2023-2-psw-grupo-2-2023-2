@@ -14,3 +14,8 @@
     font-family: 'Oswald', sans-serif;
     color: #F8CF2C
 }
+@media(max-width:530px){
+    .Lista{
+        width:300px;
+    }
+}

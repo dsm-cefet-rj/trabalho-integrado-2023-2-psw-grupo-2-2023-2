@@ -18,6 +18,19 @@
   height: 90px; 
 }
 
+.eye-container1{
+  position: relative;
+  left: 190px;
+  bottom: 47px;
+}
+
+.eye-container2{
+  position: relative;
+  left: 190px;
+  bottom: 47px;
+}
+
+
 .Olho{
   cursor: pointer; 
   margin-left: 90%;
@@ -34,7 +47,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:26px;
+  gap: 10px;
 }
 
 .TituloInput{
@@ -43,10 +56,21 @@
   font-family: 'Oswald', sans-serif;
 }
 
-.Butoes{
+.Botoes{
   margin-top: 10%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media(max-width:530px){
+
+  .eye-container1{
+    left: 95px;
+  }
+
+  .eye-container2{
+    left: 95px;
+  }
 }
