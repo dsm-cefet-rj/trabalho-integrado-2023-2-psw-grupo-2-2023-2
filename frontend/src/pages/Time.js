@@ -3,22 +3,6 @@ import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
 import '../styles/Time.css'
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import 
-function Time() {
-    const navigate = useNavigate();
-    return (
-        <div>
-            <Cabecalho />
-            <div className='Fundo'>
-                <img onClick={() => navigate("/perfil")} className="Perfil" src={perfil} alt="ImagemPerfil" />
-            </div>
-        </div>
-    )
-}
-
-export default Time
-=======
 import { useParams } from 'react-router-dom';
 import dadosBrasil from '../dados/Jogadores/DadosJogadoresBrasileiro.json'
 import dadosAlemanha from '../dados/Jogadores/DadosJogadoresAlemanha.json'
@@ -84,4 +68,4 @@ function Time() {
   }
   
   export default Time;
->>>>>>> main
+
