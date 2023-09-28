@@ -37,8 +37,13 @@
   font-family: 'Oswald', sans-serif;
 }
 
+.eye-container{
+  position: relative;
+  left: 190px;
+  bottom: 62px;
+}
+
 .Botoes{
-  margin-top: 10%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -48,5 +53,8 @@
 @media(max-width: 530px){
   .Botoes{
     flex-direction: column;
+  }
+  .eye-container{
+    left: 95px;
   }
 }

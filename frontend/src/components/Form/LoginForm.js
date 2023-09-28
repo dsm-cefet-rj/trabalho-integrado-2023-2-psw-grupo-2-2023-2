@@ -40,10 +40,12 @@ const LoginForm = () => {
                         placeholder="Senha"
                         onChange={(event) => handleChange(event, setSenha)}
                     />
+                    <div className='eye-container'>
                      {showSenha
                           ? <EyeSlash size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
                           : <Eye size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
-                     }
+                        }
+                    </div>
 
                     <div className = "Botoes">
                         <Botao onClick={() => navigate("/home")} Text = "Login"/>
