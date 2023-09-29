@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-.container{
+.containerCadastro{
   margin-bottom: 150px;
   display: flex;
   flex-direction: column;
@@ -18,16 +18,14 @@
   height: 90px; 
 }
 
-.eye-container1{
+.eye-container1Cadastro{
   position: relative;
-  left: 190px;
-  bottom: 47px;
+  bottom: -15px;
 }
 
-.eye-container2{
+.eye-container2Cadastro{
   position: relative;
-  left: 190px;
-  bottom: 47px;
+  bottom: -15px;
 }
 
 
@@ -42,12 +40,11 @@
   color: #F8CF2C;
 }
 
-.Formulario{
+.FormularioCadastro{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 
 .TituloInput{
@@ -64,13 +61,21 @@
   align-items: center;
 }
 
+.senhas{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 @media(max-width:530px){
 
-  .eye-container1{
-    left: 95px;
+  .eye-container1Cadastro{
+    left: -18px;
+    bottom: 11px;
   }
 
-  .eye-container2{
-    left: 95px;
+  .eye-container2Cadastro{
+    left: -18px;
+    bottom: 11px;
   }
 }

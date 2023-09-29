@@ -47,21 +47,20 @@ function Time() {
         <Cabecalho/>
         <div className='Fundo'>
         <h1 className = "TituloTimes">Jogadores</h1>
-        <div className="ListaJogadores">
           <body className="CorpoLista">
-            <ul className = "Container-teste">
+            <div className = "Container-teste">
               {jogadores.map((jogador) => (
+                <div className="Chegaaaaa">
                 <li className = "LocalJogadores" key={jogador.player.id}>
                   <button onClick={() => navigate(`/stats/${id}/${jogador.player.id}`)}  className = "ImagemNomeJogador">
                     <img className="FotoJogadores" src={jogador.player.photo} alt={jogador.player.name} />
                     <p className = "NomesJogadores">{jogador.player.name}</p>
                   </button>  
-                  
                 </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </body>
-          </div>
         </div>
       </div>
     );

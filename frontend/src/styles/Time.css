@@ -8,15 +8,16 @@
     padding: 0;
     
 }
-.LocalJogadores{
+.Chegaaaaa{
     display: inline-block;
     margin-right: 10px;    
 }
+
 .CorpoLista{
-    display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  height: 100vh; /* Define a altura da tela inteira */
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
   margin: 0;
   padding: 0;
   margin-left: -80%;
@@ -67,21 +68,14 @@
 .NomesJogadores{
     margin-left: 30%;
 }
-.Titulo-Times{
-    font-size: 50px;
-    margin-bottom: -20%;
-    font-weight: bold;
-    font-family: 'Oswald', sans-serif;
-    color: #F8CF2C; 
-}
-
 
 .TituloTimes{
+    bottom:90px;
     font-weight: bold;
     font-family: 'Oswald', sans-serif;
-    color: #F8CF2C; 
-    margin-left: 45%;
-    margin-bottom: 40%;
+    color: #F8CF2C;
+    margin-left:610px;
+    margin-bottom: 500px;
     font-size: 40px
 }
 
@@ -109,3 +103,14 @@
     border: 1px solid #F8CF2C;
     border-radius: 5px; 
   }
+
+@media(max-width:530px){
+    .TituloTimes{
+        bottom:60%;
+    }
+    .Container-teste{
+        display:flex;
+        flex-direction:column;
+        margin-top: 190px;
+    }
+}

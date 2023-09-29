@@ -25,12 +25,13 @@ const CadastroForm = () => {
     };
 
     return(
-        <div className='container'> 
+        <div className='containerCadastro'> 
             <div className='logo-Container'>
                  <img className = "logo" src = {Logo} alt = "Logo Site"/>
             </div>
             <div>
-                <form className = "Formulario">
+                <form className = "FormularioCadastro">
+                    <div className ="senhas">
                     <Input
                         type="text"
                         name="username"
@@ -46,7 +47,7 @@ const CadastroForm = () => {
                         placeholder="Senha"
                         onChange={(event) => handleChange(event, setSenha)}
                     />
-                    <div className ="eye-container1">
+                    <div className ="eye-container1Cadastro">
                      {showSenha
                           ? <EyeSlash size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
                           : <Eye size={30} weight="duotone" onClick={handleSenhaToggle} className = "Olho" />
@@ -59,11 +60,12 @@ const CadastroForm = () => {
                         placeholder="Confirmar Senha"
                         onChange={(event) => handleChange(event, setVerificaSenha)}
                     />
-                    <div className ="eye-container2">
+                    <div className ="eye-container2Cadastro">
                      {showVerificaSenha
                           ? <EyeSlash size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                           : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                      }  
+                    </div>
                     </div>
                     <Lista obrigatorio = {true} />
 
