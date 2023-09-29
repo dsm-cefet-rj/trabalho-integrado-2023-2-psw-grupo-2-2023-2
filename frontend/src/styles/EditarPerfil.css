@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.eyecontainer1Perfil{
+  position: relative;
+  left: 0px;
+  bottom: -15px;
+}
+
+.eyecontainer2Perfil{
+  position: relative;
+  left: 0px;
+  bottom: -15px;
+}
+
+
+.Olho{
+  cursor: pointer; 
+  margin-left: 90%;
+  height: 100%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -13%;
+  color: #F8CF2C;
+}
+
+.FormularioPerfil{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.TituloInput{
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.Botoes-Perfil{
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.InputPerfil{
+     display:flex;
+     flex-direction:column;
+     gap:10px;
+}
+
+@media(max-width:530px){
+  .eyecontainer1Perfil{
+    left: -15px;
+    bottom: 11px;
+  }
+  .eyecontainer2Perfil{
+    left: -15px;
+    bottom: 11px;
+  }
+  .Botoes-Perfil{
+     display:flex;
+     flex-direction: column;
+  }
+}

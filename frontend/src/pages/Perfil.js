@@ -14,7 +14,7 @@ function Perfil() {
   return (
     <div>
       <Cabecalho />
-      <div className='Fundo'>
+        <div className = "FundoPerfil">
         <div className = "Container-Time-Favorito">
             <h1> Time Favorito:</h1>
             {acMilanData && (
@@ -23,8 +23,8 @@ function Perfil() {
         </div>
          <div className='Container-Botoes-Perfil'>      
         <Botao onClick={() => navigate("/editarperfil")} Text = "Editar Perfil"/>
-        <Botao  Text= "Apagar Perfil"/>  
-        </div> 
+        <Botao  Text= "Apagar Perfil"/>
+        </div>
       </div>
     </div>
   );
