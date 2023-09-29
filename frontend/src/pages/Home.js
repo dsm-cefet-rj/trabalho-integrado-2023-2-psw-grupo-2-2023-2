@@ -116,8 +116,8 @@ function Home(){
     return(
     <div>
         <Cabecalho/>
-        <div className='Fundo'>
-        <img className = "Perfil" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/> 
+        <div className='FundoHome'>
+        <img className = "Foto" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"></img>
         <div className='Body'>
           <div className='Container-Pesquisa'>
             <input
