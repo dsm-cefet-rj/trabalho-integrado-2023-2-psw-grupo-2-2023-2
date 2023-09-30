@@ -46,9 +46,12 @@ function Time() {
       <div>
         <Cabecalho/>
         <div className='Fundo'>
+        <div className="Title">
         <h1 className = "TituloTimes">Jogadores</h1>
+        </div>
+        <div className = "Container-teste">
           <body className="CorpoLista">
-            <div className = "Container-teste">
+            
               {jogadores.map((jogador) => (
                 <div className="Chegaaaaa">
                 <li className = "LocalJogadores" key={jogador.player.id}>
@@ -59,12 +62,12 @@ function Time() {
                 </li>
                 </div>
               ))}
-            </div>
+            
           </body>
+          </div>
         </div>
       </div>
     );
   }
   
   export default Time;
-
