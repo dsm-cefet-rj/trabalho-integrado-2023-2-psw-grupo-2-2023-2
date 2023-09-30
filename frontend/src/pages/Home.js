@@ -27,14 +27,9 @@ import dadosItalia from '../dados/Jogadores/DadosJogadoresItaliano.json'
 function Home(){
     const navigate = useNavigate();
     const [nomePesquisa, setNomePesquisa] = useState('');
-    const [ligaDoTime, setLigaDoTime] = useState('');
-    const [idDoTime, setIdDoTime] = useState('');
-    const [idJogador, setIdJogador] = useState('');
     const buscarTime = () => {
       if (nomePesquisa.trim() === '') {
-
-        setLigaDoTime('');
-        setIdDoTime(null);
+          console.log("NOME INVÁLIDO")
       } else {
         const timeEspanha = JsonEspanha.response.find((data) => data.team.name === nomePesquisa);
         const timeBrasil = JsonBrasil.response.find((data) => data.team.name === nomePesquisa);
