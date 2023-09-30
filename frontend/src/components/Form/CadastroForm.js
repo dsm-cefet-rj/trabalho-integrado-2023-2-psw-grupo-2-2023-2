@@ -5,15 +5,20 @@ import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
-import Lista from '../ListaSuspensa'
-
+import teamsList from '../ListaTimes' 
+import useApi from "../../hooks/useApi"
 const CadastroForm = () => {
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [showSenha, setShowSenha] = useState(false);
     const [verificaSenha, setVerificaSenha] = useState("");
     const [showVerificaSenha, setShowVerificaSenha] = useState(false);
+    const [idTeam, setIdTeam] = useState(null);
     const navigate = useNavigate();
+    const handleTeamSelect = (event) => {
+        setIdTeam(event.target.value);
+      };
+  
     const handleSenhaToggle = () => {
         setShowSenha(!showSenha);
     };
@@ -24,13 +29,16 @@ const CadastroForm = () => {
         setText(event.target.value);
     };
 
+
+    
+
     return(
         <div className='containerCadastro'> 
             <div className='logo-Container'>
                  <img className = "logo" src = {Logo} alt = "Logo Site"/>
             </div>
             <div>
-                <form className = "FormularioCadastro">
+                <form className = "FormularioCadastro" >    {/* Depois adicionar onSubmit={handleEnvio}*/}
                     <div className ="senhas">
                     <Input
                         type="text"
@@ -67,10 +75,21 @@ const CadastroForm = () => {
                      }  
                     </div>
                     </div>
-                    <Lista obrigatorio = {true} />
+                    <select 
+                    className='Lista'
+                    onChange={handleTeamSelect}
+                    value={idTeam}
+
+                    >
+                    {teamsList.map((team, index) => (
+                    <option key={index} value={team.id}> 
+                            {team.name}
+                    </option>
+                    ))}
+                    </select>
 
                     <div className = "Botoes">
-                        <Botao onClick={() => navigate("/home")} Text = "Salvar"/>
+                        <Botao type = "submit" Text = "Salvar"/>
                         <Botao onClick={() => navigate("/")} Text= "Cancelar"/>  
                     </div>
                 </form>

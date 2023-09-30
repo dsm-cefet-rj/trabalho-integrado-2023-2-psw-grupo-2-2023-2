@@ -1,7 +1,6 @@
 import Input from '../Input'
 import Botao from '../Botao'
 import {EyeSlash, Eye } from 'phosphor-react'
-import Lista from '../ListaSuspensa'
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 
@@ -60,7 +59,7 @@ function EditarForm(){
                                 : <Eye size={30} weight="duotone" onClick={handleVerificaSenhaToggle} className = "Olho" />
                             }  
                               </div>
-                            <Lista obrigatorio = {true} />
+                            
                          </div>
 
                             <div className = "Botoes-Perfil">
