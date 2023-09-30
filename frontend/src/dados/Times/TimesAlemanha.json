@@ -13,146 +13,6 @@
     "response": [
         {
             "team": {
-                "id": 157,
-                "name": "Bayern Munich",
-                "code": "BAY",
-                "country": "Germany",
-                "founded": 1900,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/157.png"
-            },
-            "venue": {
-                "id": 700,
-                "name": "Allianz Arena",
-                "address": "Werner-Heisenberg-Allee 25",
-                "city": "M\u00fcnchen",
-                "capacity": 75000,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/700.png"
-            }
-        },
-        {
-            "team": {
-                "id": 160,
-                "name": "SC Freiburg",
-                "code": "FRE",
-                "country": "Germany",
-                "founded": 1904,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/160.png"
-            },
-            "venue": {
-                "id": 12717,
-                "name": "Europa-Park Stadion",
-                "address": "Achim-Stocker-Stra\u00dfe 1",
-                "city": "Freiburg im Breisgau",
-                "capacity": 34700,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/12717.png"
-            }
-        },
-        {
-            "team": {
-                "id": 161,
-                "name": "VfL Wolfsburg",
-                "code": "WOL",
-                "country": "Germany",
-                "founded": 1945,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/161.png"
-            },
-            "venue": {
-                "id": 752,
-                "name": "VOLKSWAGEN ARENA",
-                "address": "In den Allerwiesen 1",
-                "city": "Wolfsburg",
-                "capacity": 30000,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/752.png"
-            }
-        },
-        {
-            "team": {
-                "id": 162,
-                "name": "Werder Bremen",
-                "code": "WER",
-                "country": "Germany",
-                "founded": 1899,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/162.png"
-            },
-            "venue": {
-                "id": 755,
-                "name": "wohninvest WESERSTADION",
-                "address": "Franz-B\u00f6hmert-Stra\u00dfe 1c",
-                "city": "Bremen",
-                "capacity": 42358,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/755.png"
-            }
-        },
-        {
-            "team": {
-                "id": 163,
-                "name": "Borussia Monchengladbach",
-                "code": "MOE",
-                "country": "Germany",
-                "founded": 1900,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/163.png"
-            },
-            "venue": {
-                "id": 703,
-                "name": "Stadion im BORUSSIA-PARK",
-                "address": "Hennes-Weisweiler-Allee 1",
-                "city": "M\u00f6nchengladbach",
-                "capacity": 54057,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/703.png"
-            }
-        },
-        {
-            "team": {
-                "id": 164,
-                "name": "FSV Mainz 05",
-                "code": "MAI",
-                "country": "Germany",
-                "founded": 1905,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/164.png"
-            },
-            "venue": {
-                "id": 11899,
-                "name": "MEWA ARENA",
-                "address": "Eugen-Salomon-Stra\u00dfe 1",
-                "city": "Mainz",
-                "capacity": 34034,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/11899.png"
-            }
-        },
-        {
-            "team": {
-                "id": 165,
-                "name": "Borussia Dortmund",
-                "code": "DOR",
-                "country": "Germany",
-                "founded": 1909,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/165.png"
-            },
-            "venue": {
-                "id": 19381,
-                "name": "SIGNAL IDUNA PARK",
-                "address": "Strobelalle 50",
-                "city": "Dortmund",
-                "capacity": 81365,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/19381.png"
-            }
-        },
-        {
-            "team": {
                 "id": 167,
                 "name": "1899 Hoffenheim",
                 "code": "HOF",
@@ -189,6 +49,66 @@
                 "capacity": 30210,
                 "surface": "grass",
                 "image": "https://media-4.api-sports.io/football/venues/699.png"
+            }
+        },
+        {
+            "team": {
+                "id": 157,
+                "name": "Bayern Munich",
+                "code": "BAY",
+                "country": "Germany",
+                "founded": 1900,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/157.png"
+            },
+            "venue": {
+                "id": 700,
+                "name": "Allianz Arena",
+                "address": "Werner-Heisenberg-Allee 25",
+                "city": "M\u00fcnchen",
+                "capacity": 75000,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/700.png"
+            }
+        },
+        {
+            "team": {
+                "id": 165,
+                "name": "Borussia Dortmund",
+                "code": "DOR",
+                "country": "Germany",
+                "founded": 1909,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/165.png"
+            },
+            "venue": {
+                "id": 19381,
+                "name": "SIGNAL IDUNA PARK",
+                "address": "Strobelalle 50",
+                "city": "Dortmund",
+                "capacity": 81365,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/19381.png"
+            }
+        },
+        {
+            "team": {
+                "id": 163,
+                "name": "Borussia Monchengladbach",
+                "code": "MOE",
+                "country": "Germany",
+                "founded": 1900,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/163.png"
+            },
+            "venue": {
+                "id": 703,
+                "name": "Stadion im BORUSSIA-PARK",
+                "address": "Hennes-Weisweiler-Allee 1",
+                "city": "M\u00f6nchengladbach",
+                "capacity": 54057,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/703.png"
             }
         },
         {
@@ -233,22 +153,62 @@
         },
         {
             "team": {
-                "id": 172,
-                "name": "VfB Stuttgart",
-                "code": "STU",
+                "id": 180,
+                "name": "FC Heidenheim",
+                "code": "HEI",
                 "country": "Germany",
-                "founded": 1893,
+                "founded": 1946,
                 "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/172.png"
+                "logo": "https://media-4.api-sports.io/football/teams/180.png"
             },
             "venue": {
-                "id": 19928,
-                "name": "MHP Arena",
-                "address": "Mercedesstrasse 87",
-                "city": "Stuttgart",
-                "capacity": 60469,
+                "id": 723,
+                "name": "Voith-Arena",
+                "address": "Schlo\u00dfhaustra\u00dfe 160",
+                "city": "Heidenheim an der Brenz",
+                "capacity": 15000,
                 "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/19928.png"
+                "image": "https://media-4.api-sports.io/football/venues/723.png"
+            }
+        },
+        {
+            "team": {
+                "id": 192,
+                "name": "FC Koln",
+                "code": "KOL",
+                "country": "Germany",
+                "founded": 1948,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/192.png"
+            },
+            "venue": {
+                "id": 731,
+                "name": "RheinEnergieStadion",
+                "address": "Aachener Str. 999",
+                "city": "K\u00f6ln",
+                "capacity": 50076,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/731.png"
+            }
+        },
+        {
+            "team": {
+                "id": 164,
+                "name": "FSV Mainz 05",
+                "code": "MAI",
+                "country": "Germany",
+                "founded": 1905,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/164.png"
+            },
+            "venue": {
+                "id": 11899,
+                "name": "MEWA ARENA",
+                "address": "Eugen-Salomon-Stra\u00dfe 1",
+                "city": "Mainz",
+                "capacity": 34034,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/11899.png"
             }
         },
         {
@@ -273,42 +233,22 @@
         },
         {
             "team": {
-                "id": 176,
-                "name": "VfL BOCHUM",
-                "code": "BOC",
+                "id": 160,
+                "name": "SC Freiburg",
+                "code": "FRE",
                 "country": "Germany",
-                "founded": 1848,
+                "founded": 1904,
                 "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/176.png"
+                "logo": "https://media-4.api-sports.io/football/teams/160.png"
             },
             "venue": {
-                "id": 751,
-                "name": "Vonovia Ruhrstadion",
-                "address": "Castropher Stra\u00dfe 145",
-                "city": "Bochum",
-                "capacity": 30748,
+                "id": 12717,
+                "name": "Europa-Park Stadion",
+                "address": "Achim-Stocker-Stra\u00dfe 1",
+                "city": "Freiburg im Breisgau",
+                "capacity": 34700,
                 "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/751.png"
-            }
-        },
-        {
-            "team": {
-                "id": 180,
-                "name": "FC Heidenheim",
-                "code": "HEI",
-                "country": "Germany",
-                "founded": 1946,
-                "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/180.png"
-            },
-            "venue": {
-                "id": 723,
-                "name": "Voith-Arena",
-                "address": "Schlo\u00dfhaustra\u00dfe 160",
-                "city": "Heidenheim an der Brenz",
-                "capacity": 15000,
-                "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/723.png"
+                "image": "https://media-4.api-sports.io/football/venues/12717.png"
             }
         },
         {
@@ -353,22 +293,82 @@
         },
         {
             "team": {
-                "id": 192,
-                "name": "FC Koln",
-                "code": "KOL",
+                "id": 172,
+                "name": "VfB Stuttgart",
+                "code": "STU",
                 "country": "Germany",
-                "founded": 1948,
+                "founded": 1893,
                 "national": false,
-                "logo": "https://media-4.api-sports.io/football/teams/192.png"
+                "logo": "https://media-4.api-sports.io/football/teams/172.png"
             },
             "venue": {
-                "id": 731,
-                "name": "RheinEnergieStadion",
-                "address": "Aachener Str. 999",
-                "city": "K\u00f6ln",
-                "capacity": 50076,
+                "id": 19928,
+                "name": "MHP Arena",
+                "address": "Mercedesstrasse 87",
+                "city": "Stuttgart",
+                "capacity": 60469,
                 "surface": "grass",
-                "image": "https://media-4.api-sports.io/football/venues/731.png"
+                "image": "https://media-4.api-sports.io/football/venues/19928.png"
+            }
+        },
+        {
+            "team": {
+                "id": 176,
+                "name": "VfL BOCHUM",
+                "code": "BOC",
+                "country": "Germany",
+                "founded": 1848,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/176.png"
+            },
+            "venue": {
+                "id": 751,
+                "name": "Vonovia Ruhrstadion",
+                "address": "Castropher Stra\u00dfe 145",
+                "city": "Bochum",
+                "capacity": 30748,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/751.png"
+            }
+        },
+        {
+            "team": {
+                "id": 161,
+                "name": "VfL Wolfsburg",
+                "code": "WOL",
+                "country": "Germany",
+                "founded": 1945,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/161.png"
+            },
+            "venue": {
+                "id": 752,
+                "name": "VOLKSWAGEN ARENA",
+                "address": "In den Allerwiesen 1",
+                "city": "Wolfsburg",
+                "capacity": 30000,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/752.png"
+            }
+        },
+        {
+            "team": {
+                "id": 162,
+                "name": "Werder Bremen",
+                "code": "WER",
+                "country": "Germany",
+                "founded": 1899,
+                "national": false,
+                "logo": "https://media-4.api-sports.io/football/teams/162.png"
+            },
+            "venue": {
+                "id": 755,
+                "name": "wohninvest WESERSTADION",
+                "address": "Franz-B\u00f6hmert-Stra\u00dfe 1c",
+                "city": "Bremen",
+                "capacity": 42358,
+                "surface": "grass",
+                "image": "https://media-4.api-sports.io/football/venues/755.png"
             }
         }
     ]

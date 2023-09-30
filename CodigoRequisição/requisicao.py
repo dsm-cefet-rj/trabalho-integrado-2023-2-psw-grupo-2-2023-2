@@ -6,7 +6,7 @@ url = "https://api-football-v1.p.rapidapi.com/v3/teams"
 querystring = {"league":"61","season":"2023"}
 
 headers = {
-	"X-RapidAPI-Key": "b4db6ebd20mshb265f997a47083bp136314jsn44c4a7a2d2e2",
+	"X-RapidAPI-Key": "CHAVE API",
 	"X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
 }
 
