@@ -1,4 +1,4 @@
-import data from '../dados/Times/times_ordenados.json';
+import data from '../dados/Times/TodosTimes.json';
 
 
     const teamsData = data.response;
