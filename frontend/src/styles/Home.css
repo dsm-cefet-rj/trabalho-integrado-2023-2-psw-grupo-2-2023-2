@@ -56,7 +56,7 @@
 }
 
 .Tudo{
-    height: 300vh; /* Defina a altura maior do que a tela */
+    height: 300vh;
     background: linear-gradient(180deg, #4d4d4d 5%, #000000 100%);
     display: flex;
     justify-content: center;
@@ -79,5 +79,50 @@
     .Body{
         margin-left:20%;
         margin-bottom:10%;
+    }
+}
+
+@MEDIA(max-width:1024px){
+    .Tudo{
+        display:flex;
+        flex-direction: column;
+    }
+    .PerfilHome{
+        margin-left:0%;
+        margin-bottom:20%;
+    }
+    .Body{
+        margin-left:10%;
+        margin-bottom:30%;
+    }
+}
+
+@MEDIA(max-width:425px){
+    .Tudo{
+        display:flex;
+        flex-direction: column;
+    }
+    .PerfilHome{
+        margin-left:0%;
+        margin-bottom:50%;
+    }
+    .Body{
+        margin-left:22%;
+        margin-bottom:40%;
+    }
+}
+
+@MEDIA(max-width:320px){
+    .Tudo{
+        display:flex;
+        flex-direction: column;
+    }
+    .PerfilHome{
+        margin-left:0%;
+        margin-bottom:50%;
+    }
+    .Body{
+        margin-left:15%;
+        margin-bottom:40%;
     }
 }
