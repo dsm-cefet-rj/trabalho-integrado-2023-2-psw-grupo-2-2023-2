@@ -99,10 +99,12 @@
 
 @MEDIA(max-width:425px){
     .Tudo{
+        
         display:flex;
         flex-direction: column;
     }
     .PerfilHome{
+        padding: 15px;
         margin-left:0%;
         margin-bottom:50%;
     }
@@ -118,6 +120,7 @@
         flex-direction: column;
     }
     .PerfilHome{
+        padding: 15px;
         margin-left:0%;
         margin-bottom:50%;
     }

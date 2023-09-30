@@ -34,8 +34,6 @@ function Campeonato(){
             
                 <div>
                 {jsonTime && (
-                <div>
-                 
                     <ul className='Times' >
                         {jsonTime.response.map((time) => (
                         <li className='teste' key={time.team.id}>
@@ -47,20 +45,19 @@ function Campeonato(){
                         </li>
                         ))}
                     </ul>
-                </div>
                 )}
                 </div>
                 
 
          <div className = "jogos" 
                 id="wg-api-football-games"
-                data-host="api-football-beta.p.rapidapi.com "          
+                data-host="api-football-beta.p.rapidapi.com"          
                 data-key="7230cd40b3msh4c82dec94320fe8p146a87jsnb08449a06425"
                 data-date="24/09/2023"
                 data-league={id}
                 data-season="2023"
                 data-theme="dark"
-                data-refresh=""
+                data-refresh="0"
                 data-show-toolbar="true"
                 data-show-errors="false"
                 data-show-logos="true"
