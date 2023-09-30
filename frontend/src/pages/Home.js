@@ -99,7 +99,10 @@ function Home(){
     <div>
         <Cabecalho/>
         <div className='FundoHome'>
+        <div className='Tudo'>
+        <div className="PerfilHome">
         <img className = "Foto" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"></img>
+        </div>
         <div className='Body'>
           <div className='Container-Pesquisa'>
             <input
@@ -124,6 +127,7 @@ function Home(){
                   <button className = "Link" onClick={() => navigate(`/campeonato/61?json=${JSON.stringify(JsonFranca)}`)} >  <img className = "Logo" src = {França} alt = "Ligue one"/> Ligue One</button>
               </div>  */}
         </div>         
+        </div>
         </div>
     </div>
     )
