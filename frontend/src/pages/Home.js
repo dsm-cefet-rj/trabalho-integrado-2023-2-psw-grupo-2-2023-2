@@ -99,9 +99,18 @@ function Home(){
         setLigaDoTime(dadosAlemanha.parameters.league);
         setIdDoTime(jogadorAlemanha.statistics[0].team.id);
       } else{
-
+       BuscarCampeonato(nomePesquisa);
       }
     }
+
+    const BuscarCampeonato = (nomePesquisa)=>{
+      if(nomePesquisa=="Brasileirao"){
+        navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)
+      }
+
+    
+    }
+
 
     const Navegar = () =>{
       if (idJogador !== '') {
