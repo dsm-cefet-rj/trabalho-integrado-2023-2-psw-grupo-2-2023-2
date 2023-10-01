@@ -146,6 +146,11 @@ function Home(){
         <div className='Tudo'>
         <div className="PerfilHome">
         <img className = "Foto" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"></img>
+         <div className="Sair">
+          <button
+                 className='BotaoPesquisa'
+                 onClick={() => navigate(`/login`)}>Sair </button>
+          </div>
         </div>
         <div className='Body'>
           <div className='Container-Pesquisa'>
@@ -161,17 +166,12 @@ function Home(){
                  onClick={buscarTime}>Buscar</button>
             </div>     
           
+          <div className="Seguido">
           <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}`)} className='linkTimes'>
-                                <img  className = "logoTimes" src={userLogoTime} />
-                                
-                                <div className='Nomes'>{userNomeTime}</div>
+          <img  className = "logoTimes" src={userLogoTime} />                        
+          <div className='Nomes'>{userNomeTime}</div>
           </button>
-
-
-          <button
-                 className='BotaoPesquisa'
-                 onClick={() => navigate(`/login`)}>Sair </button>
-          
+          </div>
           {/* <div className='Campeonatos'>
                   <button className = "Link" onClick={() => navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)}> <img className = "Logo" src = {Brasil} alt = "Brasileirao"/> Brasileirão </button>
                   <button className = "Link" onClick={() => navigate(`/campeonato/140?json=${JSON.stringify(JsonEspanha)}`)} > <img className = "Logo" src = {Espanha} alt = "LaLiga"/> La Liga </button> 

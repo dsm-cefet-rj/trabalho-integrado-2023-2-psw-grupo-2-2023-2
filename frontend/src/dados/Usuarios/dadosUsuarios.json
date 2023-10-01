@@ -5,8 +5,8 @@
                 "Username": "Daniel",
                 "Senha": "1234",
                 "idTeam": 133,
-                "TeamsSequidos": [],
-                "CampeonatosSequidos": []
+                "TeamsSeguidos": [],
+                "CampeonatosSeguidos": []
             }
         },
         {
@@ -14,8 +14,8 @@
                 "Username": "Luiz",
                 "Senha": "1234",
                 "idTeam": 124,
-                "TeamsSequidos": [],
-                "CampeonatosSequidos": []
+                "TeamsSeguidos": [],
+                "CampeonatosSeguidos": []
             }
         },
         {
@@ -23,8 +23,8 @@
                 "Username": "DanielMendes",
                 "Senha": "1234",
                 "idTeam": 127,
-                "TeamsSequidos": [],
-                "CampeonatosSequidos": []
+                "TeamsSeguidos": [],
+                "CampeonatosSeguidos": []
             }
         },
         {
@@ -32,8 +32,8 @@
                 "Username": "Felipe",
                 "Senha": "1234",
                 "idTeam": 133,
-                "TeamsSequidos": [],
-                "CampeonatosSequidos": []
+                "TeamsSeguidos": [],
+                "CampeonatosSeguidos": []
             }
         }
 
