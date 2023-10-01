@@ -1,0 +1,42 @@
+{
+    "Dados": [
+        {
+            "Usuários": {
+                "Username": "Daniel",
+                "Senha": "1234",
+                "idTeam": 133,
+                "TeamsSequidos": [],
+                "CampeonatosSequidos": []
+            }
+        },
+        {
+            "Usuários": {
+                "Username": "Luiz",
+                "Senha": "1234",
+                "idTeam": 124,
+                "TeamsSequidos": [],
+                "CampeonatosSequidos": []
+            }
+        },
+        {
+            "Usuários": {
+                "Username": "DanielMendes",
+                "Senha": "1234",
+                "idTeam": 127,
+                "TeamsSequidos": [],
+                "CampeonatosSequidos": []
+            }
+        },
+        {
+            "Usuários": {
+                "Username": "Felipe",
+                "Senha": "1234",
+                "idTeam": 133,
+                "TeamsSequidos": [],
+                "CampeonatosSequidos": []
+            }
+        }
+
+        
+    ]
+}

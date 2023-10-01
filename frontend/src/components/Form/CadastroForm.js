@@ -5,16 +5,17 @@ import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
-import teamsList from '../ListaTimes' 
-import useApi from "../../hooks/useApi"
+import teamsList from '../ListaTimes' ;
+
 const CadastroForm = () => {
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const [showSenha, setShowSenha] = useState(false);
     const [verificaSenha, setVerificaSenha] = useState("");
     const [showVerificaSenha, setShowVerificaSenha] = useState(false);
-    const [idTeam, setIdTeam] = useState(null);
+    const [idTeam, setIdTeam] = useState(null);;
     const navigate = useNavigate();
+    
     const handleTeamSelect = (event) => {
         setIdTeam(event.target.value);
       };
@@ -29,7 +30,12 @@ const CadastroForm = () => {
         setText(event.target.value);
     };
 
+   
 
+    const handleSubmit = async (event) => {
+      
+    };
+    
     
 
     return(
@@ -38,7 +44,7 @@ const CadastroForm = () => {
                  <img className = "logo" src = {Logo} alt = "Logo Site"/>
             </div>
             <div>
-                <form className = "FormularioCadastro" >    {/* Depois adicionar onSubmit={handleEnvio}*/}
+                <form className = "FormularioCadastro" onSubmit={handleSubmit} >    
                     <div className ="senhas">
                     <Input
                         type="text"
@@ -89,7 +95,10 @@ const CadastroForm = () => {
                     </select>
 
                     <div className = "Botoes">
-                        <Botao type = "submit" Text = "Salvar"/>
+                        <Botao 
+                        type = "submit"
+                        Text = "Salvar"
+                        />
                         <Botao onClick={() => navigate("/")} Text= "Cancelar"/>  
                     </div>
                 </form>

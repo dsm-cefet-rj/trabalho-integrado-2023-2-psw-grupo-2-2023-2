@@ -20,7 +20,7 @@ const RoutesApp = () => {
                     <Route path = "/cadastro" element = {<Cadastro/>}/>
                     <Route path = "/perfil" element = {<Perfil/>}/>
                     <Route path = "/editarperfil" element = {<EditarPerfil/>}/>
-                    <Route path = "/home" element={<Home/>}/>
+                    <Route path = "/home/:idteam" element={<Home/>}/>
                     <Route path = "/time/:id/:idteam" element = {<Time/>}/>
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>

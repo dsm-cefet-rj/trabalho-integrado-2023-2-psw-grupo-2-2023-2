@@ -5,7 +5,7 @@ import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png'
 import { useNavigate } from "react-router-dom";
 import {EyeSlash, Eye } from 'phosphor-react'
-
+import JsonUsuario from "../../dados/Usuarios/dadosUsuarios.json"
 const LoginForm = () => {
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
@@ -17,13 +17,26 @@ const LoginForm = () => {
     const handleChange = (event, setText) => {
         setText(event.target.value);
     };
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const jsonData = JsonUsuario;
+        const matchingUser = jsonData.Dados.find(user => user.Usuários.Username === username && user.Usuários.Senha === senha);
+        const idTeam = matchingUser.Usuários.idTeam;
+        if (matchingUser) {
+            navigate(`/home/${idTeam}`);
+        } else {
+            alert("Nome de usuário ou senha inválidos. Por favor, tente novamente.");
+        }
+    };
+
+    console.log(JsonUsuario)
     return(
         <div className='container'> 
             <div className='logo-Container'>
                  <img className = "logo" src = {Logo} alt = "Logo Site"/>
             </div>
             <div >
-                <form className = "Formulario">
+                <form className = "Formulario" onSubmit={handleLogin}>
                     
                     <Input
                         type="text"
@@ -48,7 +61,7 @@ const LoginForm = () => {
                     </div>
 
                     <div className = "Botoes">
-                        <Botao onClick={() => navigate("/home")} Text = "Login"/>
+                        <Botao type = "submit" Text = "Login"/>
                         <Botao onClick={() => navigate("/cadastro")} Text= "Cadastrar"/>  
                     </div>
                 </form>

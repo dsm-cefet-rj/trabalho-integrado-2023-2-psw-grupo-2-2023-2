@@ -55,10 +55,4 @@
     font-family: 'Oswald', sans-serif;
     font-size: 10px;
   }
-  .Fundo {
-    display: flex;
-    justify-content: space-between; /* Alinha os elementos à esquerda e à direita */
-    align-items: flex-start; /* Alinha verticalmente no topo */
-    height: 100vh; /* Altura total da tela */
-    padding: 20px; /* Adiciona algum espaço entre os elementos */
-  }
+ 
