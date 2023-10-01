@@ -2,8 +2,8 @@ import '../styles/Fundo.css'
 import Cabecalho from '../components/cabecalho'
 import '../styles/Home.css'
 import perfil from "../assets/images/imagemPerfil.png"
-import { useNavigate  } from "react-router-dom";
-import React, { useState } from 'react';
+import { useNavigate,useParams  } from "react-router-dom";
+import React, { useEffect,useState } from 'react';
 import '../styles/BotaoCampeonato.css'
 import Brasil from '../assets/images/Brasileirao.png'
 import Alemanha from '../assets/images/Bundesliga.png'
@@ -25,8 +25,52 @@ import dadosEspanha from '../dados/Jogadores/DadosJogadoresEspanhol.json'
 import dadosItalia from '../dados/Jogadores/DadosJogadoresItaliano.json'
 
 function Home(){
+    const {idteam} = useParams();
+    const [TimeUsuario, setTimeUsuario] = useState();
     const navigate = useNavigate();
     const [nomePesquisa, setNomePesquisa] = useState('');
+    const [idUserCampeonato, setIdUserCampeonato] = useState('');
+    const [userNomeTime, setUserNomeTime] = useState('');
+    const [userLogoTime, setUserLogoTime] = useState('');
+    
+    useEffect(() => {
+      const TimeBrasil = JsonBrasil.response.find((item) => item.team.id === idteam);
+      const TimeAlemanha = JsonAlemanha.response.find((item) => item.team.id === idteam);
+      const TimeEspanha = JsonEspanha.response.find((item) => item.team.id === idteam);
+      const TimeInglaterra = JsonInglaterra.response.find((item) => item.team.id === idteam);
+      const TimeItalia = JsonItalia.response.find((item) => item.team.id === idteam);
+      const TimeFranca = JsonFranca.response.find((item) => item.team.id === idteam);
+    
+      if (TimeBrasil && TimeBrasil.team.id === idteam) {
+        setIdUserCampeonato(71);
+        setUserNomeTime(TimeBrasil.team.name); // Corrigido para usar TimeBrasil
+        setUserLogoTime(TimeBrasil.team.logo); // Corrigido para usar TimeBrasil
+        
+      } else if (TimeEspanha && TimeEspanha.team.id === idteam) {
+        setIdUserCampeonato(140);
+        setUserNomeTime(TimeEspanha.team.name); // Corrigido para usar TimeEspanha
+        setUserLogoTime(TimeEspanha.team.logo); // Corrigido para usar TimeEspanha
+      } else if (TimeAlemanha && TimeAlemanha.team.id === idteam) {
+        setIdUserCampeonato(78);
+        setUserNomeTime(TimeAlemanha.team.name); // Corrigido para usar TimeAlemanha
+        setUserLogoTime(TimeAlemanha.team.logo); // Corrigido para usar TimeAlemanha
+      } else if (TimeFranca && TimeFranca.team.id === idteam) {
+        setIdUserCampeonato(61);
+        setUserNomeTime(TimeFranca.team.name); // Corrigido para usar TimeFranca
+        setUserLogoTime(TimeFranca.team.logo); // Corrigido para usar TimeFranca
+      } else if (TimeItalia && TimeItalia.team.id === idteam) {
+        setIdUserCampeonato(135);
+        setUserNomeTime(TimeItalia.team.name); // Corrigido para usar TimeItalia
+        setUserLogoTime(TimeItalia.team.logo); // Corrigido para usar TimeItalia
+      } else if (TimeInglaterra && TimeInglaterra.team.id === idteam) {
+        setIdUserCampeonato(39); // Corrigido para usar 76 para a Inglaterra
+        setUserNomeTime(TimeInglaterra.team.name); // Corrigido para usar TimeInglaterra
+        setUserLogoTime(TimeInglaterra.team.logo); // Corrigido para usar TimeInglaterra
+      } 
+    }, [idteam, JsonBrasil.response, JsonAlemanha.response, JsonEspanha.response, JsonInglaterra.response, JsonItalia.response, JsonFranca.response]);
+
+
+    
     const buscarTime = () => {
       if (nomePesquisa.trim() === '') {
           console.log("NOME INVÁLIDO")
@@ -117,6 +161,16 @@ function Home(){
                  onClick={buscarTime}>Buscar</button>
             </div>     
           
+          <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}`)} className='linkTimes'>
+                                <img  className = "logoTimes" src={userLogoTime} />
+                                
+                                <div className='Nomes'>{userNomeTime}</div>
+          </button>
+
+
+          <button
+                 className='BotaoPesquisa'
+                 onClick={() => navigate(`/login`)}>Sair </button>
           
           {/* <div className='Campeonatos'>
                   <button className = "Link" onClick={() => navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)}> <img className = "Logo" src = {Brasil} alt = "Brasileirao"/> Brasileirão </button>
