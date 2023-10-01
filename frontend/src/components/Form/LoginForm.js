@@ -19,10 +19,9 @@ const LoginForm = () => {
     };
     const handleLogin = (event) => {
         event.preventDefault();
-        const jsonData = JsonUsuario;
-        const matchingUser = jsonData.Dados.find(user => user.Usuários.Username === username && user.Usuários.Senha === senha);
-        const idTeam = matchingUser.Usuários.idTeam;
+        const matchingUser = JsonUsuario.Dados.find(user => user.Usuários.Username === username && user.Usuários.Senha === senha);
         if (matchingUser) {
+            const idTeam = matchingUser.Usuários.idTeam;
             navigate(`/home/${idTeam}`);
         } else {
             alert("Nome de usuário ou senha inválidos. Por favor, tente novamente.");

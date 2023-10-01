@@ -34,40 +34,42 @@ function Home(){
     const [userLogoTime, setUserLogoTime] = useState('');
     
     useEffect(() => {
-      const TimeBrasil = JsonBrasil.response.find((item) => item.team.id === idteam);
-      const TimeAlemanha = JsonAlemanha.response.find((item) => item.team.id === idteam);
-      const TimeEspanha = JsonEspanha.response.find((item) => item.team.id === idteam);
-      const TimeInglaterra = JsonInglaterra.response.find((item) => item.team.id === idteam);
-      const TimeItalia = JsonItalia.response.find((item) => item.team.id === idteam);
-      const TimeFranca = JsonFranca.response.find((item) => item.team.id === idteam);
-    
-      if (TimeBrasil && TimeBrasil.team.id === idteam) {
+      const idteamNumber = parseInt(idteam);
+      const TimeBrasil = JsonBrasil.response.find((item) => item.team.id === idteamNumber);
+      const TimeAlemanha = JsonAlemanha.response.find((item) => item.team.id === idteamNumber);
+      const TimeEspanha = JsonEspanha.response.find((item) => item.team.id === idteamNumber);
+      const TimeInglaterra = JsonInglaterra.response.find((item) => item.team.id === idteamNumber);
+      const TimeItalia = JsonItalia.response.find((item) => item.team.id === idteamNumber);
+      const TimeFranca = JsonFranca.response.find((item) => item.team.id === idteamNumber);
+      
+      console.log(JsonBrasil)
+      if (TimeBrasil !== undefined) {
         setIdUserCampeonato(71);
-        setUserNomeTime(TimeBrasil.team.name); // Corrigido para usar TimeBrasil
-        setUserLogoTime(TimeBrasil.team.logo); // Corrigido para usar TimeBrasil
+        setUserNomeTime(TimeBrasil.team.name); 
+        setUserLogoTime(TimeBrasil.team.logo); 
         
-      } else if (TimeEspanha && TimeEspanha.team.id === idteam) {
+      } else if (TimeEspanha !== undefined ) {
         setIdUserCampeonato(140);
-        setUserNomeTime(TimeEspanha.team.name); // Corrigido para usar TimeEspanha
-        setUserLogoTime(TimeEspanha.team.logo); // Corrigido para usar TimeEspanha
-      } else if (TimeAlemanha && TimeAlemanha.team.id === idteam) {
+        setUserNomeTime(TimeEspanha.team.name); 
+        setUserLogoTime(TimeEspanha.team.logo); 
+      } else if (TimeAlemanha !== undefined) {
         setIdUserCampeonato(78);
-        setUserNomeTime(TimeAlemanha.team.name); // Corrigido para usar TimeAlemanha
-        setUserLogoTime(TimeAlemanha.team.logo); // Corrigido para usar TimeAlemanha
-      } else if (TimeFranca && TimeFranca.team.id === idteam) {
+        setUserNomeTime(TimeAlemanha.team.name); 
+        setUserLogoTime(TimeAlemanha.team.logo); 
+      } else if (TimeFranca !== undefined) {
         setIdUserCampeonato(61);
-        setUserNomeTime(TimeFranca.team.name); // Corrigido para usar TimeFranca
-        setUserLogoTime(TimeFranca.team.logo); // Corrigido para usar TimeFranca
-      } else if (TimeItalia && TimeItalia.team.id === idteam) {
+        setUserNomeTime(TimeFranca.team.name); 
+        setUserLogoTime(TimeFranca.team.logo); 
+      } else if (TimeItalia !== undefined) {
         setIdUserCampeonato(135);
-        setUserNomeTime(TimeItalia.team.name); // Corrigido para usar TimeItalia
-        setUserLogoTime(TimeItalia.team.logo); // Corrigido para usar TimeItalia
-      } else if (TimeInglaterra && TimeInglaterra.team.id === idteam) {
-        setIdUserCampeonato(39); // Corrigido para usar 76 para a Inglaterra
-        setUserNomeTime(TimeInglaterra.team.name); // Corrigido para usar TimeInglaterra
-        setUserLogoTime(TimeInglaterra.team.logo); // Corrigido para usar TimeInglaterra
+        setUserNomeTime(TimeItalia.team.name); 
+        setUserLogoTime(TimeItalia.team.logo); 
+      } else if (TimeInglaterra !== undefined) {
+        setIdUserCampeonato(39); 
+        setUserNomeTime(TimeInglaterra.team.name); 
+        setUserLogoTime(TimeInglaterra.team.logo); 
       } 
-    }, [idteam, JsonBrasil.response, JsonAlemanha.response, JsonEspanha.response, JsonInglaterra.response, JsonItalia.response, JsonFranca.response]);
+    }, []);
 
 
     
@@ -125,7 +127,7 @@ function Home(){
     }
 
     const BuscarCampeonato = (nomePesquisa)=>{
-      if(nomePesquisa==="Brasileirao"){
+      if(nomePesquisa==="Brasileirão"){
         navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)
       }else if(nomePesquisa==="Laliga"){
         navigate(`/campeonato/140?json=${JSON.stringify(JsonEspanha)}`)}
@@ -172,14 +174,14 @@ function Home(){
           <div className='Nomes'>{userNomeTime}</div>
           </button>
           </div>
-          {/* <div className='Campeonatos'>
+           <div className='Campeonatos'>
                   <button className = "Link" onClick={() => navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)}> <img className = "Logo" src = {Brasil} alt = "Brasileirao"/> Brasileirão </button>
                   <button className = "Link" onClick={() => navigate(`/campeonato/140?json=${JSON.stringify(JsonEspanha)}`)} > <img className = "Logo" src = {Espanha} alt = "LaLiga"/> La Liga </button> 
                   <button className = "Link" onClick={() => navigate(`/campeonato/39?json=${JSON.stringify(JsonInglaterra)}`)} >  <img className = "Logo" src = {Inglaterra} alt = "Premier League"/> Premier League</button> 
                   <button className = "Link" onClick={() => navigate(`/campeonato/135?json=${JSON.stringify(JsonItalia)}`)} > <img className = "Logo" src = {Italia} alt = "Serie Atim"/> Serie A tim </button> 
                   <button className = "Link" onClick={() => navigate(`/campeonato/78?json=${JSON.stringify(JsonAlemanha)}`)} >  <img className = "Logo" src = {Alemanha} alt = "Bundesliga"/> Bundesliga</button> 
                   <button className = "Link" onClick={() => navigate(`/campeonato/61?json=${JSON.stringify(JsonFranca)}`)} >  <img className = "Logo" src = {França} alt = "Ligue one"/> Ligue One</button>
-              </div>  */}
+              </div>  
         </div>         
         </div>
         </div>
