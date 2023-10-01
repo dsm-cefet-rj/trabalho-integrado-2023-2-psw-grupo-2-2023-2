@@ -13,7 +13,7 @@ const CadastroForm = () => {
     const [showSenha, setShowSenha] = useState(false);
     const [verificaSenha, setVerificaSenha] = useState("");
     const [showVerificaSenha, setShowVerificaSenha] = useState(false);
-    const [idTeam, setIdTeam] = useState(null);;
+    const [idTeam, setIdTeam] = useState("");;
     const navigate = useNavigate();
     
     const handleTeamSelect = (event) => {
@@ -33,7 +33,35 @@ const CadastroForm = () => {
    
 
     const handleSubmit = async (event) => {
-      
+      event.preventDefault();
+
+      if (senha !== verificaSenha) {
+        console.error('Senhas não coincidem');
+        return;
+    }
+    try {
+        // Lógica para enviar dados para o servidor
+        const response = await fetch('http://localhost:3000/db.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username,
+            senha
+            // outros dados necessários
+        }),
+        });
+
+    
+        if (!response.ok) {
+          throw new Error('Erro no cadastro.');
+        }
+    
+        // Tratar sucesso (pode redirecionar o usuário, mostrar uma mensagem, etc.)
+      } catch (error) {
+        console.error('Erro no cadastro.', error);
+      }
     };
     
     
