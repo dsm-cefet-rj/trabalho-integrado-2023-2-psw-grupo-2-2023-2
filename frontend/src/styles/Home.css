@@ -47,7 +47,6 @@
     margin-left:410%;
 }
 
-
 .Body{
     display: flex;
     flex-direction:column;
@@ -85,9 +84,6 @@
     height: 100vh;
     position: fixed;   
 }
-
-
-
 
 @media(max-width:530px){
     .Tudo{

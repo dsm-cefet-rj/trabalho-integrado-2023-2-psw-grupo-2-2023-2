@@ -49,7 +49,7 @@ function Campeonato(){
                 </div>
                 
 
-         <div className = "jogos" 
+         <div className = "jogosCampeonato" 
                 id="wg-api-football-games"
                 data-host="api-football-beta.p.rapidapi.com"          
                 data-key="7230cd40b3msh4c82dec94320fe8p146a87jsnb08449a06425"

@@ -52,7 +52,7 @@ function PlayerDetails({ jogador }) {
   const [activeTab, setActiveTab] = useState('geral');
 
   return (
-    <div>
+    <div className= "pInfo">
       <div className = "ContainerFotoStats">
         <img src={jogador.player.photo} alt={jogador.player.name} />
         <h2>{jogador.player.name}</h2>

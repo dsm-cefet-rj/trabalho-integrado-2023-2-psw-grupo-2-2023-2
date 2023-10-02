@@ -1,26 +1,25 @@
 .ImagemPerfil {
     position: relative;
-    top:15%;
-    left:10%;
+    bottom:35%;
+    left:30%;
   }
   
-  .jogos {
-    text-align: right; /* Alinha o conteúdo à direita */
+  .jogosCampeonato {
+    text-align: right;
     width: 450px;
-    height: 200px;
-    margin-top:90px;
-    margin-right:40px;
-    /* Restante  dos estilos para .jogos permanece o mesmo */
+    height: 400px;
+    margin-bottom:-100px;
+    margin-right:-40%;
   }
-  
+
   .Times {
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
     flex-grow: 1; /* Permite que a lista cresça verticalmente */
-    margin-top:80px;
-    margin-right: -350px; /* Espaço entre a lista e .jogos */
+    margin-top:70px;
+    margin-left: -250%; /* Espaço entre a lista e .jogos */
   }
   
   .Times li {

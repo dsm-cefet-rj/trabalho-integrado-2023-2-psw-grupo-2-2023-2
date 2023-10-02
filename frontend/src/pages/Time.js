@@ -58,7 +58,7 @@ function Time() {
                   <button onClick={() => navigate(`/stats/${id}/${jogador.player.id}`)}  className = "ImagemNomeJogador">
                     <img className="FotoJogadores" src={jogador.player.photo} alt={jogador.player.name} />
                     <p className = "NomesJogadores">{jogador.player.name}</p>
-                  </button>  
+                  </button>
                 </li>
                 </div>
               ))}
