@@ -34,14 +34,13 @@ const CadastroForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
     if (senha !== verificaSenha) {
       console.error('Senhas não coincidem');
       return;
     }
   
     try {
-        const response = await fetch('http://localhost:3000/usuarios', {
+        const response = await fetch('http://localhost:5000/usuarios', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -49,6 +48,7 @@ const CadastroForm = () => {
             body: JSON.stringify({
               username,
               senha,
+              verificaSenha,
               idTeam: parseInt(idTeam),
             }),
           });
@@ -58,10 +58,10 @@ const CadastroForm = () => {
         throw new Error('Erro no cadastro.');
       }
   
-      console.log('Cadastro bem-sucedido!');
-      navigate('/'); // Redireciona para a página inicial após o cadastro.
+      alert('Cadastro bem-sucedido!');
+      navigate('/'); 
     } catch (error) {
-      console.error('Erro no cadastro.', error);
+      alert('Username já cadastrado.');
     }
   };
   
