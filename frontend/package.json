@@ -18,7 +18,10 @@
     "styled-components": "^6.0.7",
     "web-vitals": "^2.1.4"
   },
+  
   "scripts": {
+    "start": "npm-run-all -p start-react start-server",
+    "start": "json-server --watch db.json --port 3000",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -12,12 +12,11 @@
                 <input class="Input" type="text" name="username" id="username" placeholder="Username"
                     onchange="handleChange(event, setUsername)" />
 
-                <input class="Input" type="{showSenha ? 'text' : 'password'}" name="password" id="password"
-                    placeholder="Senha" onchange="handleChange(event, setSenha)" />
+                <input class="Input" type="password" name="password" id="password" placeholder="Senha"
+                    onchange="handleChange(event, setSenha)" />
 
-                <input class="Input" type="{showVerificaSenha ? 'text' : 'password'}" name="verificaPassword"
-                    id="verificaPassword" placeholder="Confirmar Senha"
-                    onchange="handleChange(event, setVerificaSenha)" />
+                <input class="Input" type="password" name="verificaPassword" id="verificaPassword"
+                    placeholder="Confirmar Senha" onchange="handleChange(event, setVerificaSenha)" />
 
                 <input id="idTeam" class="Input" placeholder="time" />
 
@@ -36,16 +35,14 @@
 <script>
     function adicionarUsuario() {
         const novoUsuario = {
-            Usuários: {
-                Username: document.getElementById('username').value,
-                Senha: document.getElementById('password').value,
-                idTeam: parseInt(document.getElementById('idTeam').value),
-                TeamsSeguidos: [],
-                CampeonatosSeguidos: []
-            }
+            username: document.getElementById('username').value,
+            senha: document.getElementById('password').value,
+            idTeam: parseInt(document.getElementById('idTeam').value),
+            TeamsSeguidos: [],
+            CampeonatosSeguidos: []
         };
 
-        const url = 'http://localhost:3000/usuarios';
+        const url = 'http://localhost:3000/usuarios'; // Alterado para '/usuarios'
 
         fetch(url, {
             method: 'POST',
@@ -62,6 +59,7 @@
                 console.error('Erro ao adicionar novo usuário:', error);
             });
     }
+
 
     function handleChange(event, setState) {
         setState(event.target.value);
