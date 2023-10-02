@@ -1,50 +1,80 @@
-import '../../styles/CadastroForm.css'
+import '../../styles/CadastroForm.css';
 import React, { useState } from "react";
 import Input from '../Input';
 import Botao from '../Botao';
-import Logo from '../../assets/images/logo.png'
+import Logo from '../../assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
-import {EyeSlash, Eye } from 'phosphor-react'
-import teamsList from '../ListaTimes' ;
+import { EyeSlash, Eye } from 'phosphor-react';
+import teamsList from '../ListaTimes';
 
 const CadastroForm = () => {
-    const [username, setUsername] = useState("");
-    const [senha, setSenha] = useState("");
-    const [showSenha, setShowSenha] = useState(false);
-    const [verificaSenha, setVerificaSenha] = useState("");
-    const [showVerificaSenha, setShowVerificaSenha] = useState(false);
-    const [idTeam, setIdTeam] = useState(null);;
-    const navigate = useNavigate();
-    
-    const handleTeamSelect = (event) => {
-        setIdTeam(event.target.value);
-      };
+  const [username, setUsername] = useState("");
+  const [senha, setSenha] = useState("");
+  const [showSenha, setShowSenha] = useState(false);
+  const [verificaSenha, setVerificaSenha] = useState("");
+  const [showVerificaSenha, setShowVerificaSenha] = useState(false);
+  const [idTeam, setIdTeam] = useState("");
+  const navigate = useNavigate();
+
+  const handleTeamSelect = (event) => {
+    setIdTeam(event.target.value);
+  };
+
+  const handleSenhaToggle = () => {
+    setShowSenha(!showSenha);
+  };
+
+  const handleVerificaSenhaToggle = () => {
+    setShowVerificaSenha(!showVerificaSenha);
+  };
+
+  const handleChange = (event, setText) => {
+    setText(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (senha !== verificaSenha) {
+      console.error('Senhas não coincidem');
+      return;
+    }
   
-    const handleSenhaToggle = () => {
-        setShowSenha(!showSenha);
-    };
-     const handleVerificaSenhaToggle = () => {
-        setShowVerificaSenha(!showVerificaSenha);
-    };  
-    const handleChange = (event, setText) => {
-        setText(event.target.value);
-    };
-
-   
-
-    const handleSubmit = async (event) => {
-      
-    };
+    try {
+        const response = await fetch('http://localhost:5000/usuarios', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username,
+              senha,
+              verificaSenha,
+              idTeam: parseInt(idTeam),
+            }),
+          });
+          
+  
+      if (!response.ok) {
+        throw new Error('Erro no cadastro.');
+      }
+  
+      alert('Cadastro bem-sucedido!');
+      navigate('/'); 
+    } catch (error) {
+      alert('Username já cadastrado.');
+    }
+  };
+  
     
     
 
-    return(
-        <div className='containerCadastro'> 
+    return (
+        <div className='containerCadastro'>
             <div className='logo-Container'>
-                 <img className = "logo" src = {Logo} alt = "Logo Site"/>
-            </div>
-            <div>
-                <form className = "FormularioCadastro" onSubmit={handleSubmit} >    
+                <img className="logo" src={Logo} alt="Logo Site" />
+        </div>
+        <div>
+                <form className="FormularioCadastro" onSubmit={handleSubmit}>    
                     <div className ="senhas">
                     <Input
                         type="text"
@@ -108,4 +138,4 @@ const CadastroForm = () => {
  
 }
 
-export default CadastroForm
+export default CadastroForm;

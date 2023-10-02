@@ -7,18 +7,21 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.0",
-    "json-server": "^0.17.3",
+    "json-server": "^0.17.4",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.15.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "sass": "^1.66.1",
     "styled-components": "^6.0.7",
     "web-vitals": "^2.1.4"
   },
+  
   "scripts": {
+    "start": "npm-run-all -p start-react start-server",
+    "start": "json-server --watch db.json --port 3000",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
