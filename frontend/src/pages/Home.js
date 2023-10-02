@@ -148,6 +148,12 @@ function Home(){
         <div className='Tudo'>
         <div className="PerfilHome">
         <img className = "Foto" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"></img>
+        <div className="Seguido">
+          <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}`)} className='linkTimes'>
+          <img  className = "logoTimes" src={userLogoTime} />                        
+          <div className='Nomes'>{userNomeTime}</div>
+          </button>
+          </div>
          <div className="Sair">
           <button
                  className='BotaoPesquisa'
@@ -168,12 +174,6 @@ function Home(){
                  onClick={buscarTime}>Buscar</button>
             </div>     
           
-          <div className="Seguido">
-          <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}`)} className='linkTimes'>
-          <img  className = "logoTimes" src={userLogoTime} />                        
-          <div className='Nomes'>{userNomeTime}</div>
-          </button>
-          </div>
            <div className='Campeonatos'>
                   <button className = "Link" onClick={() => navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)}> <img className = "Logo" src = {Brasil} alt = "Brasileirao"/> Brasileirão </button>
                   <button className = "Link" onClick={() => navigate(`/campeonato/140?json=${JSON.stringify(JsonEspanha)}`)} > <img className = "Logo" src = {Espanha} alt = "LaLiga"/> La Liga </button> 
