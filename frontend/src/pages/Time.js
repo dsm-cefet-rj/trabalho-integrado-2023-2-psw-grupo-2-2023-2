@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Fundo.css'
-import Cabecalho from '../components/cabecalho'
 import '../styles/Time.css'
+import "../styles/cabecalho.css";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import dadosBrasil from '../dados/Jogadores/DadosJogadoresBrasileiro.json'
@@ -10,10 +10,10 @@ import dadosInglaterra from '../dados/Jogadores/DadosJogadoresInglaterra.json'
 import dadosFranca from '../dados/Jogadores/DadosJogadoresFrances.json'
 import dadosEspanha from '../dados/Jogadores/DadosJogadoresEspanhol.json'
 import dadosItalia from '../dados/Jogadores/DadosJogadoresItaliano.json'
-
+import logo from '../assets/images/logo.png'
 
 function Time() {
-    const { id, idteam } = useParams();
+    const { id, idteam,idteamUsuario } = useParams();
     const navigate = useNavigate();
     const [jogadores, setJogadores] = useState([]);
     useEffect(() => {
@@ -44,7 +44,9 @@ function Time() {
     }, [id, idteam]);
     return (
       <div>
-        <Cabecalho/>
+        <header className = 'Cabecalho'>  
+          <img onClick={() => navigate(`/home/${idteamUsuario}`)} className = "Imagem" src = {logo} alt = "Logo Site"/>
+        </header>
         <div className='Fundo'>
         <div className="Title">
         <h1 className = "TituloTimes">Jogadores</h1>
@@ -55,7 +57,7 @@ function Time() {
               {jogadores.map((jogador) => (
                 <div className="Chegaaaaa">
                 <li className = "LocalJogadores" key={jogador.player.id}>
-                  <button onClick={() => navigate(`/stats/${id}/${jogador.player.id}`)}  className = "ImagemNomeJogador">
+                  <button onClick={() => navigate(`/stats/${id}/${jogador.player.id}/${idteamUsuario}`)}  className = "ImagemNomeJogador">
                     <img className="FotoJogadores" src={jogador.player.photo} alt={jogador.player.name} />
                     <p className = "NomesJogadores">{jogador.player.name}</p>
                   </button>

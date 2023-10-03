@@ -1,6 +1,6 @@
 import '../styles/Fundo.css'
-import Cabecalho from '../components/cabecalho'
 import '../styles/Home.css'
+import "../styles/cabecalho.css";
 import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate,useParams  } from "react-router-dom";
 import React, { useEffect,useState } from 'react';
@@ -23,6 +23,7 @@ import dadosInglaterra from '../dados/Jogadores/DadosJogadoresInglaterra.json'
 import dadosFranca from '../dados/Jogadores/DadosJogadoresFrances.json'
 import dadosEspanha from '../dados/Jogadores/DadosJogadoresEspanhol.json'
 import dadosItalia from '../dados/Jogadores/DadosJogadoresItaliano.json'
+import logo from '../assets/images/logo.png'
 
 function Home(){
     const {idteam} = useParams();
@@ -85,17 +86,17 @@ function Home(){
         const timeInglaterra = JsonInglaterra.response.find((data) => data.team.name === nomePesquisa);
     
         if (timeEspanha !== undefined) {
-          navigate(`/time/${JsonEspanha.parameters.league}/${timeEspanha.team.id}`)
+          navigate(`/time/${JsonEspanha.parameters.league}/${timeEspanha.team.id}/${idteam}`)
         } else if (timeBrasil !== undefined) {
-          navigate(`/time/${JsonBrasil.parameters.league}/${timeBrasil.team.id}`)
+          navigate(`/time/${JsonBrasil.parameters.league}/${timeBrasil.team.id}/${idteam}`)
         } else if (timeAlemanha !== undefined) {
-          navigate(`/time/${JsonAlemanha.parameters.league}/${timeAlemanha.team.id}`)
+          navigate(`/time/${JsonAlemanha.parameters.league}/${timeAlemanha.team.id}/${idteam}`)
         } else if (timeFranca !== undefined) {
-          navigate(`/time/${JsonFranca.parameters.league}/${timeFranca.team.id}`)
+          navigate(`/time/${JsonFranca.parameters.league}/${timeFranca.team.id}/${idteam}`)
         } else if (timeItalia !== undefined) {
-          navigate(`/time/${JsonItalia.parameters.league}/${timeItalia.team.id}`)
+          navigate(`/time/${JsonItalia.parameters.league}/${timeItalia.team.id}/${idteam}`)
         } else if (timeInglaterra !== undefined) {
-          navigate(`/time/${JsonInglaterra.parameters.league}/${timeInglaterra.team.id}`)
+          navigate(`/time/${JsonInglaterra.parameters.league}/${timeInglaterra.team.id}/${idteam}`)
         } else {
           BuscarJogador(nomePesquisa);
         }
@@ -110,17 +111,17 @@ function Home(){
       const jogadorItalia = dadosItalia.response.find((data) => data.player.name === nomePesquisa);
       const jogadorAlemanha = dadosAlemanha.response.find((data) => data.player.name === nomePesquisa);
       if (jogadorEspanha !== undefined) {
-        navigate(`/stats/${dadosEspanha.parameters.league}/${jogadorEspanha.player.id}`)
+        navigate(`/stats/${dadosEspanha.parameters.league}/${jogadorEspanha.player.id}/${idteam}`)
       } else if (jogadorBrasil !== undefined) {
-        navigate(`/stats/${dadosBrasil.parameters.league}/${jogadorBrasil.player.id}`)
+        navigate(`/stats/${dadosBrasil.parameters.league}/${jogadorBrasil.player.id}/${idteam}`)
       } else if (jogadorFranca !== undefined) {
-        navigate(`/stats/${dadosFranca.parameters.league}/${jogadorFranca.player.id}`)
+        navigate(`/stats/${dadosFranca.parameters.league}/${jogadorFranca.player.id}/${idteam}`)
       } else if (jogadorInglaterra !== undefined) {
-        navigate(`/stats/${dadosInglaterra.parameters.league}/${jogadorInglaterra.player.id}`)
+        navigate(`/stats/${dadosInglaterra.parameters.league}/${jogadorInglaterra.player.id}/${idteam}`)
       } else if (jogadorItalia !== undefined) {
-        navigate(`/stats/${dadosItalia.parameters.league}/${jogadorItalia.player.id}`)
+        navigate(`/stats/${dadosItalia.parameters.league}/${jogadorItalia.player.id}/${idteam}`)
       } else if (jogadorAlemanha !== undefined) {
-        navigate(`/stats/${dadosAlemanha.parameters.league}/${jogadorAlemanha.player.id}`)
+        navigate(`/stats/${dadosAlemanha.parameters.league}/${jogadorAlemanha.player.id}/${idteam}`)
       } else{
        BuscarCampeonato(nomePesquisa);
       }
@@ -128,28 +129,30 @@ function Home(){
 
     const BuscarCampeonato = (nomePesquisa)=>{
       if(nomePesquisa==="Brasileirão"){
-        navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)
+        navigate(`/campeonato/${idteam}/71?json=${JSON.stringify(JsonBrasil)}`)
       }else if(nomePesquisa==="Laliga"){
-        navigate(`/campeonato/140?json=${JSON.stringify(JsonEspanha)}`)}
+        navigate(`/campeonato/${idteam}/140?json=${JSON.stringify(JsonEspanha)}`)}
       else if(nomePesquisa==="Bundesliga"){
-        navigate(`/campeonato/78?json=${JSON.stringify(JsonAlemanha)}`)}
+        navigate(`/campeonato/${idteam}/78?json=${JSON.stringify(JsonAlemanha)}`)}
       else if(nomePesquisa==="Premier League"){
-        navigate(`/campeonato/39?json=${JSON.stringify(JsonInglaterra)}`)} 
+        navigate(`/campeonato/${idteam}/39?json=${JSON.stringify(JsonInglaterra)}`)} 
       else if(nomePesquisa==="Ligue One"){
-        navigate(`/campeonato/61?json=${JSON.stringify(JsonFranca)}`)}
+        navigate(`/campeonato/${idteam}/61?json=${JSON.stringify(JsonFranca)}`)}
       else if(nomePesquisa==="Serie A"){
-        navigate(`/campeonato/135?json=${JSON.stringify(JsonItalia)}`)}
+        navigate(`/campeonato/${idteam}/135?json=${JSON.stringify(JsonItalia)}`)}
   }  
   
     return(
     <div>
-        <Cabecalho/>
+          <header className = 'Cabecalho'>  
+          <img onClick={() => navigate(`/home/${idteam}`)} className = "Imagem" src = {logo} alt = "Logo Site"/>
+        </header>
         <div className='FundoHome'>
         <div className='Tudo'>
         <div className="PerfilHome">
-        <img className = "Foto" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"></img>
+        <img className = "Foto" onClick={() => navigate(`/perfil/${idteam}`)}  src = {perfil} alt = "ImagemPerfil"></img>
         <div className="Seguido">
-          <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}`)} className='linkTimes'>
+          <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}/${idteam}`)} className='linkTimes'>
           <img  className = "logoTimes" src={userLogoTime} />                        
           <div className='Nomes'>{userNomeTime}</div>
           </button>
@@ -175,12 +178,12 @@ function Home(){
             </div>     
           
            <div className='Campeonatos'>
-                  <button className = "Link" onClick={() => navigate(`/campeonato/71?json=${JSON.stringify(JsonBrasil)}`)}> <img className = "Logo" src = {Brasil} alt = "Brasileirao"/> Brasileirão </button>
-                  <button className = "Link" onClick={() => navigate(`/campeonato/140?json=${JSON.stringify(JsonEspanha)}`)} > <img className = "Logo" src = {Espanha} alt = "LaLiga"/> La Liga </button> 
-                  <button className = "Link" onClick={() => navigate(`/campeonato/39?json=${JSON.stringify(JsonInglaterra)}`)} >  <img className = "Logo" src = {Inglaterra} alt = "Premier League"/> Premier League</button> 
-                  <button className = "Link" onClick={() => navigate(`/campeonato/135?json=${JSON.stringify(JsonItalia)}`)} > <img className = "Logo" src = {Italia} alt = "Serie Atim"/> Serie A tim </button> 
-                  <button className = "Link" onClick={() => navigate(`/campeonato/78?json=${JSON.stringify(JsonAlemanha)}`)} >  <img className = "Logo" src = {Alemanha} alt = "Bundesliga"/> Bundesliga</button> 
-                  <button className = "Link" onClick={() => navigate(`/campeonato/61?json=${JSON.stringify(JsonFranca)}`)} >  <img className = "Logo" src = {França} alt = "Ligue one"/> Ligue One</button>
+                  <button className = "Link" onClick={() => navigate(`/campeonato/${idteam}/71?json=${JSON.stringify(JsonBrasil)}`)}> <img className = "Logo" src = {Brasil} alt = "Brasileirao"/> Brasileirão </button>
+                  <button className = "Link" onClick={() => navigate(`/campeonato/${idteam}/140?json=${JSON.stringify(JsonEspanha)}`)} > <img className = "Logo" src = {Espanha} alt = "LaLiga"/> La Liga </button> 
+                  <button className = "Link" onClick={() => navigate(`/campeonato/${idteam}/39?json=${JSON.stringify(JsonInglaterra)}`)} >  <img className = "Logo" src = {Inglaterra} alt = "Premier League"/> Premier League</button> 
+                  <button className = "Link" onClick={() => navigate(`/campeonato/${idteam}/135?json=${JSON.stringify(JsonItalia)}`)} > <img className = "Logo" src = {Italia} alt = "Serie Atim"/> Serie A tim </button> 
+                  <button className = "Link" onClick={() => navigate(`/campeonato/${idteam}/78?json=${JSON.stringify(JsonAlemanha)}`)} >  <img className = "Logo" src = {Alemanha} alt = "Bundesliga"/> Bundesliga</button> 
+                  <button className = "Link" onClick={() => navigate(`/campeonato/${idteam}/61?json=${JSON.stringify(JsonFranca)}`)} >  <img className = "Logo" src = {França} alt = "Ligue one"/> Ligue One</button>
               </div>  
         </div>         
         </div>

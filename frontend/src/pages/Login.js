@@ -1,5 +1,6 @@
 import '../styles/Login.css'
 import '../styles/Fundo.css'
+import "../styles/cabecalho.css";
 import Form from '../components/Form/LoginForm' 
 
  

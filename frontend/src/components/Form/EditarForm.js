@@ -1,11 +1,12 @@
 import Input from '../Input'
 import Botao from '../Botao'
 import {EyeSlash, Eye } from 'phosphor-react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import React, { useState } from "react";
 
 function EditarForm(){
      const navigate = useNavigate();
+     const {idteamUsuario} = useParams();
      const [username, setUsername] = useState("");
      const [senha, setSenha] = useState("");
      const [showSenha, setShowSenha] = useState(false);
@@ -63,8 +64,8 @@ function EditarForm(){
                          </div>
 
                             <div className = "Botoes-Perfil">
-                                <Botao onClick={() => navigate("/perfil")} Text = "Salvar"/>
-                                <Botao onClick={() => navigate("/perfil")} Text= "Cancelar"/>  
+                                <Botao onClick={() => navigate(`/perfil/${idteamUsuario}`)} Text = "Salvar"/>
+                                <Botao onClick={() => navigate(`/perfil/${idteamUsuario}`)} Text= "Cancelar"/>  
                             </div>
                         </form>
           </div>

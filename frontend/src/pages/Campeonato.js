@@ -1,14 +1,15 @@
 import '../styles/Fundo.css';
-import Cabecalho from '../components/cabecalho';
+import "../styles/cabecalho.css";
 import perfil from "../assets/images/imagemPerfil.png";
 import React, { useEffect, useState } from 'react';
 import { useNavigate,Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import '../styles/Campeonato.css'
 import { useLocation } from 'react-router-dom';
+import logo from '../assets/images/logo.png'
 function Campeonato(){
     const navigate = useNavigate();
-    const { id } = useParams();
+    const {idteam,id} = useParams();
     const location = useLocation();
     const [jsonTime, setJsonTime] = useState(null);
 
@@ -27,7 +28,9 @@ function Campeonato(){
         }, [location]);
     return(
     <div>
-        <Cabecalho/>
+       <header className = 'Cabecalho'>  
+          <img onClick={() => navigate(`/home/${idteam}`)} className = "Imagem" src = {logo} alt = "Logo Site"/>
+        </header>
         <div className='Fundo'>
                
         <img className = "ImagemPerfil" onClick={() => navigate("/perfil")}  src = {perfil} alt = "ImagemPerfil"/> 
@@ -37,7 +40,7 @@ function Campeonato(){
                     <ul className='Times' >
                         {jsonTime.response.map((time) => (
                         <li className='teste' key={time.team.id}>
-                            <button onClick={() => navigate(`/time/${id}/${time.team.id}`)} className='linkTimes'>
+                            <button onClick={() => navigate(`/time/${id}/${time.team.id}/${idteam}`)} className='linkTimes'>
                                 <img  className = "logoTimes" src={time.team.logo} alt={time.team.name} />
                                 
                                 <div className='Nomes'>{time.team.name}</div>
@@ -51,8 +54,8 @@ function Campeonato(){
 
          <div className = "jogosCampeonato" 
                 id="wg-api-football-games"
-                data-host="api-football-beta.p.rapidapi.com"          
-                data-key="7230cd40b3msh4c82dec94320fe8p146a87jsnb08449a06425"
+                data-host="api-football-v1.p.rapidapi.com"          
+                data-key="85e13ac972msh0a28d2865f77831p138879jsnbbd24a9f2d99"
                 data-date="24/09/2023"
                 data-league={id}
                 data-season="2023"

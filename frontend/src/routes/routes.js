@@ -19,12 +19,12 @@ const RoutesApp = () => {
                 <Routes>
                     <Route path = "/" element = {<Login/>}/>
                     <Route path = "/cadastro" element = {<Cadastro/>}/>
-                    <Route path = "/perfil" element = {<Perfil/>}/>
-                    <Route path = "/editarperfil" element = {<EditarPerfil/>}/>
+                    <Route path = "/perfil/:idteam" element = {<Perfil/>}/>
+                    <Route path = "/editarperfil/:idteamUsuario" element = {<EditarPerfil/>}/>
                     <Route path = "/home/:idteam" element={<Home/>}/>
-                    <Route path = "/time/:id/:idteam" element = {<Time/>}/>
-                    <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
-                    <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
+                    <Route path = "/time/:id/:idteam/:idteamUsuario" element = {<Time/>}/>
+                    <Route path = "/stats/:ligaId/:jogadorId/:idteam" element = {<Estatisticas/>}/>
+                    <Route path = "/campeonato/:idteam/:id" element = {<Campeonato/>}/>
                     <Route path = "*" element = {<Login/>}/>
                 </Routes>
             </Fragment>

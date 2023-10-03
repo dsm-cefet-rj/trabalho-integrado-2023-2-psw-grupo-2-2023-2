@@ -1,5 +1,6 @@
+import "../styles/cabecalho.css";
 import React, { useState, useEffect } from 'react';
-import PlayerDetails from './PlayerDetails'; // Importe o componente PlayerDetails
+import PlayerDetails from './PlayerDetails'; 
 import dadosBrasil from '../dados/Jogadores/DadosJogadoresBrasileiro.json';
 import dadosAlemanha from '../dados/Jogadores/DadosJogadoresAlemanha.json';
 import dadosInglaterra from '../dados/Jogadores/DadosJogadoresInglaterra.json';
@@ -7,12 +8,15 @@ import dadosFranca from '../dados/Jogadores/DadosJogadoresFrances.json';
 import dadosEspanha from '../dados/Jogadores/DadosJogadoresEspanhol.json';
 import dadosItalia from '../dados/Jogadores/DadosJogadoresItaliano.json';
 import { useParams } from 'react-router-dom';
-import Cabecalho from '../components/cabecalho'
+import { useNavigate } from "react-router-dom";
+import logo from '../assets/images/logo.png'
+
 function Estatisticas() {
   const [jogadores, setJogadores] = useState([]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [botaoVisivel, setBotaoVisivel] = useState(true);
-  const { ligaId, jogadorId } = useParams(); 
+  const { ligaId, jogadorId,idteam } = useParams(); 
+  const navigate = useNavigate();
   const handleButtonClick = (jogador) => {
     setSelectedPlayer(jogador);
     setBotaoVisivel(false); 
@@ -39,7 +43,7 @@ function Estatisticas() {
       }
     };
 
-    // Encontre o jogador com base no jogadorId
+  
     const dadosLiga = carregarDadosPorLiga(ligaId);
 
     if (dadosLiga) {
@@ -55,7 +59,9 @@ function Estatisticas() {
 
   return (
     <div>
-        <Cabecalho/>
+         <header className = 'Cabecalho'>  
+          <img onClick={() => navigate(`/home/${idteam}`)} className = "Imagem" src = {logo} alt = "Logo Site"/>
+        </header>
         <div className='Fundo'>
             <ul className = "Container-teste">
                 {jogadores.map((jogador) => (
