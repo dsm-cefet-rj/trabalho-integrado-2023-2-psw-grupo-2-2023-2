@@ -40,34 +40,30 @@ const CadastroForm = () => {
     }
   
     try {
-        const response = await fetch('http://localhost:5000/usuarios', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              username,
-              senha,
-              verificaSenha,
-              idTeam: parseInt(idTeam),
-            }),
-          });
-          
-  
+      const response = await fetch('http://localhost:5000/Usuarios', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Usuário: { 
+            Username: username,
+            Senha: senha,
+            idTeam: parseInt(idTeam),
+          },
+        }),
+      });
+
       if (!response.ok) {
         throw new Error('Erro no cadastro.');
       }
-  
+
       alert('Cadastro bem-sucedido!');
-      navigate('/'); 
+      navigate('/');
     } catch (error) {
       alert('Username já cadastrado.');
     }
   };
-  
-    
-    
-
     return (
         <div className='containerCadastro'>
             <div className='logo-Container'>
