@@ -25,6 +25,13 @@ const RoutesApp = () => {
                     <Route path = "/time/:id/:idteam" element = {<Time/>}/>
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
+                    <Route path = "/homeAdmin" element={<HomeAdmin/>}/>
+                    <Route path = "/editarCampeonatos" element={<EditarCampeonatos/>}/>
+                    <Route path = "/editarJogadores" element={<EditarJogadores/>}/>
+                    <Route path = "/editarTimes" element={<EditarTimes/>}/>
+                    <Route path = "/time/:id/:idteam/:idteamUsuario" element = {<Time/>}/>
+                    <Route path = "/stats/:ligaId/:jogadorId/:idteam" element = {<Estatisticas/>}/>
+                    <Route path = "/campeonato/:idteam/:id" element = {<Campeonato/>}/>
                     <Route path = "*" element = {<Login/>}/>
                 </Routes>
             </Fragment>
