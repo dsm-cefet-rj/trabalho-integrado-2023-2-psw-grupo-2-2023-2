@@ -15,7 +15,7 @@ let jogadores =  [
 
 ]
 
-router.route('/')
+router.route('/jogadores')
 .get((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
@@ -33,7 +33,7 @@ router.route('/')
 })
 
 
-router.route('/:id')
+router.route('/jogadores/:id')
 .delete((req, res, next) => {
 
     jogadores = jogadores.filter(function(value, index, arr){

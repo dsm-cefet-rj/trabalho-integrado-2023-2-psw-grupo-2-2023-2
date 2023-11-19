@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
-const campeonatos = mongoose.campeonatos;
-
+const Schema = mongoose.Schema;
+const normalize = requise('normalize-mongoose');
 const campeonatosSchema = new Schema({
-  //digitar esquema  
+    nome:{
+      type: String,
+      required:true,
+    },
+    sigla:{
+      type: String,
+      required: true,
+    }
 })
 
-module.exports = campeonatosSchema;
+campeonatosSchema.plugin(normalize);
+var campeonatos = mongoose.model('Campeonatos', campeonatosSchema);
+
+module.exports = campeonatos;

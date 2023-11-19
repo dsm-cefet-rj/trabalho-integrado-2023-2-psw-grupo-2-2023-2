@@ -6,54 +6,66 @@ const campeonatos = require('../models/campeonatos')
 router.use(bodyParser.json());
 
 
+router.route('/campeonato')
+.get(async (req, res, next) => {
 
-
-router.route('/')
-.get((req, res, next) => {
-
- campeonatos.find({})
-    .then((campeonatosBanco) =>{
+    try{
+        const campeonatosBanco = await campeonatos.find({}).maxTime(1000);
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json')
+        res.setHeader('Content-Type', 'application/json');
         res.json(campeonatosBanco);
+    }catch(err){
+        next(err);
+    }
+
+})
+
+.post((req, res, next) => {
+    
+    campeonatos.create(req.body)
+    .then((campeonato) =>{
+        console.log('Campeonato criado' , campeonato);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(campeonato);
     }, (err) => next(err))
     .catch((err) => next(err));
 
 })
 
-.post((req, res, next) => {
-    let proxId = 1 + campeonatos.map(p=>p.id).reduce((x, y) => Math.max(x,y));
-    let campeonato = [{...req.body, id:proxId}];
-    campeonatos.push(campeonato);
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(campeonato);
+router.route('/campeonato/:id')
+.get((req, res, next) => {
+    campeonatos.findById(req.params.id)
+        .then((resp) => {
+            res.statuscode = 200;
+            res.setHeader('Content-Type', 'application/json')
+            res.json(resp);
+        
+        },(err) => next(err))
+        .catch((err) => next(err));
 })
-
-
-router.route('/:id')
 .delete((req, res, next) => {
-
-    campeonatos = campeonatos.filter(function(value, index, arr){
-        return value.id != req.params.id;
-    });
-
-    res.statuscode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(req.params.id);
-
+    campeonatos.findByIdAndRemove(req.params.id)
+    .then((resp) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(resp.id);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
 
 .put((req, res, next) => {
-
-    let index = campeonatos.map(p=> p.id).indexOf(req.params.id);
-    campeonatos.splice(index,1,req.body);
-
-    res.statuscode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(req.body);
-
+    campeonatos.findOneAndUpdate(req.params.id,{
+        $set: req.body
+    }, { new: true})
+    .then((campeonato) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(campeonato);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
 
 

@@ -15,7 +15,7 @@ let times =  [
 
 ]
 
-router.route('/')
+router.route('/time')
 .get((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
@@ -33,7 +33,7 @@ router.route('/')
 })
 
 
-router.route('/:id')
+router.route('/time/:id')
 .delete((req, res, next) => {
 
     times = times.filter(function(value, index, arr){

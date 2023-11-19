@@ -17,7 +17,7 @@ let usuarios =  [
 
 ]
 
-router.route('/')
+router.route('/users')
 .get((req, res, next) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json')
@@ -35,7 +35,7 @@ router.route('/')
 })
 
 
-router.route('/:id')
+router.route('/users/:id')
 .delete((req, res, next) => {
 
   usuarios = usuarios.filter(function(value, index, arr){
