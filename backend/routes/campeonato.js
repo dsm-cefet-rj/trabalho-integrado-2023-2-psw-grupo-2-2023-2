@@ -1,25 +1,24 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require('body-parser');
+const campeonatos = require('../models/campeonatos')
 
-let campeonatos =  [
-    {
-        "nome" : "Brasileirão",
-        "sigla" : "BRA",
-        "id" : 1
-    },
-    {
-        "nome" : "Premier League",
-        "sigla" : "ING",
-        "id" : 2
-    }
+router.use(bodyParser.json());
 
-]
+
+
 
 router.route('/')
 .get((req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(campeonatos);
+
+ campeonatos.find({})
+    .then((campeonatosBanco) =>{
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(campeonatosBanco);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+
 })
 
 .post((req, res, next) => {
