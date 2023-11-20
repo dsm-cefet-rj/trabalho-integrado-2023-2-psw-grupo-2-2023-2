@@ -8,6 +8,10 @@ import Time from '../pages/Time.js'
 import Campeonato from '../pages/Campeonato.js'
 import Estatisticas from '../pages/estatísticas.js'
 import EditarPerfil from '../pages/EditarPerfil.js'
+import EditarJogadores from '../pages/EditarJogadores.js'
+import EditarCampeonatos from '../pages/EditarCampeonatos.js'
+import EditarTimes from '../pages/EditarTimes.js'
+import HomeAdmin from '../pages/HomeAdmin.js'
 
 
 
