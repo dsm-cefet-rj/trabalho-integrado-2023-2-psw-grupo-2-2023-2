@@ -12,6 +12,9 @@ import EditarJogadores from '../pages/EditarJogadores.js'
 import EditarCampeonatos from '../pages/EditarCampeonatos.js'
 import EditarTimes from '../pages/EditarTimes.js'
 import HomeAdmin from '../pages/HomeAdmin.js'
+import TimesADM from '../pages/TimesADM.js'
+import JogadoresADM from '../pages/JogadoresADM.js'
+import CampeonatosADM from '../pages/CampeonatosADM.js'
 
 
 
@@ -30,6 +33,9 @@ const RoutesApp = () => {
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
                     <Route path = "/homeAdmin" element={<HomeAdmin/>}/>
+                    <Route path = "/timesAdmin" element={<TimesADM/>}/>
+                    <Route path = "/campeonatosAdmin" element={<CampeonatosADM/>}/>
+                    <Route path = "/jogadoresAdmin" element={<JogadoresADM/>}/>
                     <Route path = "/editarCampeonatos" element={<EditarCampeonatos/>}/>
                     <Route path = "/editarJogadores" element={<EditarJogadores/>}/>
                     <Route path = "/editarTimes" element={<EditarTimes/>}/>

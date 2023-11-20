@@ -159,9 +159,10 @@ import logo from '../assets/images/logo.png'
           </div>
           <div className='Body'>
           <div className='BotoesHomeADM'>
-                  <button onClick={()=> navigate('/jogadoresAdmin')} className = "LinkADM">Jogadores </button>
                   <button onClick={()=> navigate('/timesAdmin')} className = "LinkADM">Times </button> 
-                  <button onClick={()=> navigate('/campeonatosAdmin')} className = "LinkADM">Campeonatos </button> 
+                  <button onClick={()=> navigate('/campeonatosAdmin')} className = "LinkADM">Campeonatos </button>
+                  <button onClick={()=> navigate('/homeAdmin')} className = "LinkADM">Voltar </button> 
+                  
                </div>
           </div>
           </div>    
