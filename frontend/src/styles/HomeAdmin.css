@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.Pagina{
+    width:100vw;
+    height: 100vh;
+    background: rgb(77,77,77);
+    background: linear-gradient(180deg, rgba(77,77,77,1) 16%, rgba(14,14,14,1) 100%);
+}
+
+.Container{
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.PerfilHomeAdm{
+    margin-left:20%;
+    margin-top: -25%;
+}
+.SairAdm{
+    margin-left:8%;
+    margin-bottom: 80%;
+}
+
+.BotoesHomeADM{
+    text-align: center;
+    margin-top: -5%;
+    margin-left: 20%;
+    width:250px;
+   
+}
+
+.Container-Pesquisa{
+    margin-left: -21%;
+    margin-top: -20%;
+    margin-right: -50%;
+    margin-bottom: 20%;
+}
+.Seguido{
+    margin-left: 75%;
+    margin-top: -10%;
+    margin-right: -30%;
+    margin-bottom: 15%;
+    width:300px;
+}
+
+.Body{
+    margin-left: -30%;
+}
+
+.Tudo{
+    height: 300vh;
+    background: linear-gradient(180deg, #4d4d4d 5%, #000000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;   
+}

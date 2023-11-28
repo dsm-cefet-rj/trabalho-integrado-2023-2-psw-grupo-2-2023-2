@@ -14,7 +14,10 @@
 
 .PerfilHome{
     margin-left:40%;
+<<<<<<< HEAD
     margin-right:30%;
+=======
+>>>>>>> origin/Mudanças
     margin-top: -30%;
     width: 20px;
 }
@@ -32,19 +35,36 @@
 .Campeonatos{
     text-align: center;
     margin-top: -5%;
+<<<<<<< HEAD
     margin-left: -40%;
+=======
+    margin-left: -62%;
+>>>>>>> origin/Mudanças
    
 }
 
 .Container-Pesquisa{
+<<<<<<< HEAD
     margin-left: -9%;
+=======
+    margin-left: -21%;
+>>>>>>> origin/Mudanças
     margin-top: -20%;
-    margin-right: -20%;
+    margin-right: -50%;
     margin-bottom: 20%;
 }
+<<<<<<< HEAD
 
 .Foto{
     margin-left:410%;
+=======
+.Seguido{
+    margin-left: 75%;
+    margin-top: -10%;
+    margin-right: -30%;
+    margin-bottom: 15%;
+    width:300px;
+>>>>>>> origin/Mudanças
 }
 
 .Body{
