@@ -1,64 +1,72 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require('body-parser');
+const times = require('../models/times')
 
-let times =  [
-    {
-        "nome" : "Vasco",
-        "sigla" : "CRVG",
-        "id" : 1
-    },
-    {
-        "nome" : "Barcelona",
-        "sigla" : "BAR",
-        "id" : 2
+router.use(bodyParser.json());
+
+
+router.route('/times')
+.get(async (req, res, next) => {
+
+    try{
+        const timesBanco = await times.find({}).maxTime(1000);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(timesBanco);
+    }catch(err){
+        next(err);
     }
 
-]
-
-router.route('/time')
-.get((req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(times);
 })
 
 .post((req, res, next) => {
-    let proxId = 1 + times.map(p=>p.id).reduce((x, y) => Math.max(x,y));
-    let time = [{...req.body, id:proxId}];
-    times.push(time);
+    
+    times.create(req.body)
+    .then((time) =>{
+        console.log('time criado' , time);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(time);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(time);
 })
 
-
 router.route('/time/:id')
+.get((req, res, next) => {
+    times.findById(req.params.id)
+        .then((resp) => {
+            res.statuscode = 200;
+            res.setHeader('Content-Type', 'application/json')
+            res.json(resp);
+        
+        },(err) => next(err))
+        .catch((err) => next(err));
+})
 .delete((req, res, next) => {
-
-    times = times.filter(function(value, index, arr){
-        return value.id != req.params.id;
-    });
-
-    res.statuscode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(req.params.id);
-
+    times.findByIdAndRemove(req.params.id)
+    .then((resp) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(resp.id);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
 
 .put((req, res, next) => {
-
-    let index = times.map(p=> p.id).indexOf(req.params.id);
-    times.splice(index,1,req.body);
-
-    res.statuscode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(req.body);
-
+    times.findOneAndUpdate(req.params.id,{
+        $set: req.body
+    }, { new: true})
+    .then((time) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(time);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
-
-
-
 
 
 module.exports = router;

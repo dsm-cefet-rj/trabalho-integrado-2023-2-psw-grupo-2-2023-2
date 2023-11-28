@@ -1,37 +1,36 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require('body-parser');
+const usuarios = require('../models/usuarios')
+router.use(bodyParser.json());
 
-let usuarios =  [
-  {
-      "nome" : "Daniel",
-      "senha" : "123",
-      "id" : 1,
-      "idTeams" : 1
-  },
-  {
-      "nome" : "Luiz",
-      "senha" : "123",
-      "id" : 2,
-      "idTeams" : 12
-  }
-
-]
 
 router.route('/users')
-.get((req, res, next) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json')
-  res.json(usuarios);
+.get(async (req, res, next) => {
+
+  try{
+      const usuariosBanco = await usuarios.find({}).maxTime(1000);
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(usuariosBanco);
+  }catch(err){
+      next(err);
+  }
+
 })
 
-.post((req, res, next) => {
-  let proxId = 1 + usuarios.map(p=>p.id).reduce((x, y) => Math.max(x,y));
-  let usuario = [{...req.body, id:proxId}];
-  usuarios.push(usuario);
 
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json')
-  res.json(usuario);
+.post((req, res, next) => {
+    
+  usuarios.create(req.body)
+  .then((usuario) =>{
+      console.log('usuario criado' , usuario);
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(usuario);
+  }, (err) => next(err))
+  .catch((err) => next(err));
+
 })
 
 
@@ -57,6 +56,51 @@ router.route('/users/:id')
   res.setHeader('Content-Type', 'application/json')
   res.json(req.body);
 
+})
+
+
+module.exports = router;
+
+
+
+
+
+
+
+
+router.route('/campeonato/:id')
+.get((req, res, next) => {
+    campeonatos.findById(req.params.id)
+        .then((resp) => {
+            res.statuscode = 200;
+            res.setHeader('Content-Type', 'application/json')
+            res.json(resp);
+        
+        },(err) => next(err))
+        .catch((err) => next(err));
+})
+.delete((req, res, next) => {
+    campeonatos.findByIdAndRemove(req.params.id)
+    .then((resp) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(resp.id);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
+})
+
+.put((req, res, next) => {
+    campeonatos.findOneAndUpdate(req.params.id,{
+        $set: req.body
+    }, { new: true})
+    .then((campeonato) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(campeonato);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
 
 

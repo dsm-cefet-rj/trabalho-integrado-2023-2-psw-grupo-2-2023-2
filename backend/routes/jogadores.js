@@ -1,60 +1,71 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require('body-parser');
+const jogadores = require('../models/jogadores')
 
-let jogadores =  [
-    {
-        "nome" : "Drimit Payet",
-        "sigla" : "DP",
-        "id" : 1
-    },
-    {
-        "nome" : "leo garden",
-        "sigla" : "LG",
-        "id" : 2
-    }
+router.use(bodyParser.json());
 
-]
 
 router.route('/jogadores')
-.get((req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(jogadores);
+.get(async (req, res, next) => {
+
+    try{
+        const jogadoresBanco = await jogadores.find({}).maxTime(1000);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(jogadoresBanco);
+    }catch(err){
+        next(err);
+    }
+
 })
 
 .post((req, res, next) => {
-    let proxId = 1 + jogadores.map(p=>p.id).reduce((x, y) => Math.max(x,y));
-    let jogador = [{...req.body, id:proxId}];
-    jogadores.push(jogador);
+    
+    jogadores.create(req.body)
+    .then((jogador) =>{
+        console.log('jogador criado' , jogador);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(jogador);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(jogador);
 })
 
-
-router.route('/jogadores/:id')
+router.route('/jogador/:id')
+.get((req, res, next) => {
+    jogadores.findById(req.params.id)
+        .then((resp) => {
+            res.statuscode = 200;
+            res.setHeader('Content-Type', 'application/json')
+            res.json(resp);
+        
+        },(err) => next(err))
+        .catch((err) => next(err));
+})
 .delete((req, res, next) => {
-
-    jogadores = jogadores.filter(function(value, index, arr){
-        return value.id != req.params.id;
-    });
-
-    res.statuscode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(req.params.id);
-
+    jogadores.findByIdAndRemove(req.params.id)
+    .then((resp) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(resp.id);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
 
 .put((req, res, next) => {
-
-    let index = jogadores.map(p=> p.id).indexOf(req.params.id);
-    jogadores.splice(index,1,req.body);
-
-    res.statuscode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(req.body);
-
+    jogadores.findOneAndUpdate(req.params.id,{
+        $set: req.body
+    }, { new: true})
+    .then((jogador) => {
+        res.statuscode = 200;
+        res.setHeader('Content-Type', 'application/json')
+        res.json(jogador);
+    
+    },(err) => next(err))
+    .catch((err) => next(err));
 })
 
 
