@@ -23,7 +23,7 @@ const jogadoresSchema = new Schema({
     team_id:{
       type: int,
       required: true,
-    }
+    },
     team_name:{
       type: String,
       required: true,
@@ -44,12 +44,56 @@ const jogadoresSchema = new Schema({
       type: String,
       required: true,
     },
-    total:{
+    shots_total:{
       type: int,
       required: true,
     },
     on:{
-      type: String,
+      type: int,
+      required: true,
+    },
+    goals_total:{
+      type: int,
+      required: true,
+    },
+    assists:{
+      type: int,
+      required: true,
+    },
+    passes_total:{
+      type: int,
+      required: true,
+    },
+    accuracy:{
+      type: int,
+      required: true,
+    },
+    duels_total:{
+      type: int,
+      required: true,
+    },
+    won:{
+      type: int,
+      required: true,
+    },
+    attempts:{
+      type: int,
+      required: true,
+    },
+    succes:{
+      type: int,
+      required: true,
+    },
+    commited:{
+      type: int,
+      required: true,
+    },
+    yellow:{
+      type: int,
+      required: true,
+    },
+    red:{
+      type: int,
       required: true,
     }
 })
@@ -58,31 +102,3 @@ jogadoresSchema.plugin(normalize);
 var jogadores = mongoose.model('Jogadores', jogadoresSchema);
 
 module.exports = jogadores;
-{
-  "shots": {
-    "total": 0,
-    "on": 0
-  },
-  "goals": {
-    "total": 0,
-    "assists": 0
-  },
-  "passes": {
-    "total": 0,
-    "accuracy": 0
-  },
-  "duels": {
-    "total": 0,
-    "won": 0
-  },
-  "dribbles": {
-    "attempts": 0,
-    "success": 0
-  },
-  "fouls": {
-    "committed": 0
-  },
-  "cards": {
-    "yellow": 0,
-    "red": 0
-  }
