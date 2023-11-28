@@ -2,12 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const normalize = requise('normalize-mongoose');
 const usuariosSchema = new Schema({
-    nome:{
+    Username:{
       type: String,
       required:true,
     },
-    sigla:{
+    senha:{
       type: String,
+      required: true,
+    },
+    id:{
+      type: int,
+      required: true,
+    },
+    idTeam:{
+      type: int,
       required: true,
     }
 })
