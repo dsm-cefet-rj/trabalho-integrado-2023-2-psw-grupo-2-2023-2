@@ -11,7 +11,7 @@ const jogadoresSchema = new Schema({
       required: true,
     },
     firstname:{
-      type: int,
+      type: String,
       required: true,
     }
     ,
