@@ -151,16 +151,15 @@ function Home(){
         <div className='Tudo'>
         <div className="PerfilHome">
         <img className = "Foto" onClick={() => navigate(`/perfil/${idteam}`)}  src = {perfil} alt = "ImagemPerfil"></img>
-        <div className="Seguido">
+        <div className="SeguidoPrincipal">
           <button onClick={() => navigate(`/time/${idUserCampeonato}/${idteam}/${idteam}`)} className='linkTimes'>
           <img  className = "logoTimes" src={userLogoTime} />                        
           <div className='Nomes'>{userNomeTime}</div>
           </button>
           </div>
          <div className="Sair">
-          <button
-                 className='BotaoPesquisa'
-                 onClick={() => navigate(`/login`)}>Sair </button>
+          <button className='BotaoSairPrincipal'
+                onClick={() => navigate(`/login`)}>Sair </button>
           </div>
         </div>
         <div className='Body'>
@@ -173,8 +172,8 @@ function Home(){
                   onChange={(e) => setNomePesquisa(e.target.value)}
                 />
                 <button
-                 className='BotaoPesquisa'
-                 onClick={buscarTime}>Buscar</button>
+                className='BotaoPesquisa'
+                onClick={buscarTime}>Buscar</button>
             </div>     
           
            <div className='Campeonatos'>

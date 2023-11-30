@@ -5,7 +5,6 @@
     background: rgb(77,77,77);
     background: linear-gradient(180deg, rgba(77,77,77,1) 16%, rgba(14,14,14,1) 100%);
 }
-
 .Container{
     justify-content: center;
     align-items: center;
@@ -14,57 +13,31 @@
 
 .PerfilHome{
     margin-left:40%;
-<<<<<<< HEAD
-    margin-right:30%;
-=======
->>>>>>> origin/Mudanças
     margin-top: -30%;
     width: 20px;
 }
-.Sair{
-    margin-left:323%;
-    margin-bottom: 0%;
 
-}
-.Seguido{
-    margin-left: -25%;
+.Nomes{
+    margin-left: -35%;
     margin-top: -30%;
-    width:10px;
 }
-
 .Campeonatos{
     text-align: center;
     margin-top: -5%;
-<<<<<<< HEAD
-    margin-left: -40%;
-=======
     margin-left: -62%;
->>>>>>> origin/Mudanças
-   
 }
 
 .Container-Pesquisa{
-<<<<<<< HEAD
-    margin-left: -9%;
-=======
     margin-left: -21%;
->>>>>>> origin/Mudanças
     margin-top: -20%;
     margin-right: -50%;
     margin-bottom: 20%;
 }
-<<<<<<< HEAD
 
-.Foto{
-    margin-left:410%;
-=======
-.Seguido{
-    margin-left: 75%;
+.SeguidoPrincipal{
+    margin-left: -450%;
     margin-top: -10%;
-    margin-right: -30%;
     margin-bottom: 15%;
-    width:300px;
->>>>>>> origin/Mudanças
 }
 
 .Body{
@@ -73,7 +46,6 @@
     margin-left: -60%;
     margin-bottom:-10%;
 }
-
 .BotaoPesquisa{
     font-weight: bold;
     font-family: 'Oswald', sans-serif;
@@ -82,6 +54,17 @@
     border: 1px solid #F8CF2C;
     width: 100px;
     height: 30px;
+}
+
+.BotaoSairPrincipal{
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    background-color: #31131386; 
+    color: #F8CF2C; 
+    border: 1px solid #F8CF2C;
+    width: 100px;
+    height: 30px;
+    margin-left:-75%;
 }
 
 .InputPesquisa{
@@ -93,7 +76,6 @@
     width: 200px;
     height: 26px;
 }
-
 .Tudo{
     height: 300vh;
     background: linear-gradient(180deg, #4d4d4d 5%, #000000 100%);
@@ -103,67 +85,4 @@
     width: 100vw;
     height: 100vh;
     position: fixed;   
-}
-
-@media(max-width:530px){
-    .Tudo{
-        display:flex;
-        flex-direction: column;
-    }
-    .PerfilHome{
-        margin-left:0%;
-        margin-bottom:50%;
-    }
-    .Body{
-        margin-left:20%;
-        margin-bottom:10%;
-    }
-}
-
-@MEDIA(max-width:1024px){
-    .Tudo{
-        display:flex;
-        flex-direction: column;
-    }
-    .PerfilHome{
-        margin-left:0%;
-        margin-bottom:20%;
-    }
-    .Body{
-        margin-left:10%;
-        margin-bottom:30%;
-    }
-}
-
-@MEDIA(max-width:425px){
-    .Tudo{
-        
-        display:flex;
-        flex-direction: column;
-    }
-    .PerfilHome{
-        padding: 15px;
-        margin-left:0%;
-        margin-bottom:50%;
-    }
-    .Body{
-        margin-left:22%;
-        margin-bottom:40%;
-    }
-}
-
-@MEDIA(max-width:320px){
-    .Tudo{
-        display:flex;
-        flex-direction: column;
-    }
-    .PerfilHome{
-        padding: 15px;
-        margin-left:0%;
-        margin-bottom:50%;
-    }
-    .Body{
-        margin-left:25%;
-        margin-bottom:40%;
-    }
 }
