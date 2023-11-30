@@ -39,8 +39,8 @@ app.use(session({
 
 
 function auth (req, res, next){
-    console.log(req.headers);
-    if(!req.signedCookies.user){
+    console.log(req.session);
+    if(!req.session.user){
         var authHeader = req.headers.authorization;
         if(!authHeader){
             var err = new Error('You are not authenticated');
@@ -54,7 +54,7 @@ function auth (req, res, next){
         var user = auth[0];
         var pass = auth[1];
         if (user == 'admin' && pass == 'password'){
-            res.cookie('user', 'admin', {signed:true});
+            req.session.user = 'admin';
             next();
         }else{
             var err = new Error('You are not authenticated!');
@@ -63,7 +63,8 @@ function auth (req, res, next){
             next(err);
         }
     }else{
-        if(req.signedCookies.user == 'admin'){
+        if(req.session.user == 'admin'){
+            console.log('req.session: ', req.session); 
             next();
         }else{
             var err = new Error('You are not authenticated!');
