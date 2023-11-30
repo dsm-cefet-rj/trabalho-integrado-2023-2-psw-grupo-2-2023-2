@@ -19,6 +19,10 @@ const timesSchema = new Schema({
       type: String,
       required:true,
     },
+    jogadres:[{
+      type: mongoose.Schema.Types.ObjectId ,
+      ref:'jogadores'
+    }]
 })
 
 timesSchema.plugin(normalize);

@@ -8,69 +8,34 @@ router.use(bodyParser.json());
 router.route('/users')
 .get(async (req, res, next) => {
 
-  try{
-      const usuariosBanco = await usuarios.find({}).maxTime(1000);
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
-      res.json(usuariosBanco);
-  }catch(err){
-      next(err);
-  }
+    try{
+        const usuariosBanco = await usuarios.find({}).maxTime(1000);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(usuariosBanco);
+    }catch(err){
+        next(err);
+    }
 
 })
 
-
 .post((req, res, next) => {
     
-  usuarios.create(req.body)
-  .then((usuario) =>{
-      console.log('usuario criado' , usuario);
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
-      res.json(usuario);
-  }, (err) => next(err))
-  .catch((err) => next(err));
+    usuarios.create(req.body)
+    .then((usuario) =>{
+        console.log('Usuário criado' , usuario);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(usuario);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 
 })
 
 
 router.route('/users/:id')
-.delete((req, res, next) => {
-
-  usuarios = usuarios.filter(function(value, index, arr){
-      return value.id != req.params.id;
-  });
-
-  res.statuscode = 200;
-  res.setHeader('Content-Type', 'application/json')
-  res.json(req.params.id);
-
-})
-
-.put((req, res, next) => {
-
-  let index = usuarios.map(p=> p.id).indexOf(req.params.id);
-  usuarios.splice(index,1,req.body);
-
-  res.statuscode = 200;
-  res.setHeader('Content-Type', 'application/json')
-  res.json(req.body);
-
-})
-
-
-module.exports = router;
-
-
-
-
-
-
-
-
-router.route('/campeonato/:id')
 .get((req, res, next) => {
-    campeonatos.findById(req.params.id)
+    usuarios.findById(req.params.id)
         .then((resp) => {
             res.statuscode = 200;
             res.setHeader('Content-Type', 'application/json')
@@ -80,7 +45,7 @@ router.route('/campeonato/:id')
         .catch((err) => next(err));
 })
 .delete((req, res, next) => {
-    campeonatos.findByIdAndRemove(req.params.id)
+    usuarios.findByIdAndRemove(req.params.id)
     .then((resp) => {
         res.statuscode = 200;
         res.setHeader('Content-Type', 'application/json')
@@ -91,13 +56,13 @@ router.route('/campeonato/:id')
 })
 
 .put((req, res, next) => {
-    campeonatos.findOneAndUpdate(req.params.id,{
+    usuarios.findOneAndUpdate(req.params.id,{
         $set: req.body
     }, { new: true})
-    .then((campeonato) => {
+    .then((usuario) => {
         res.statuscode = 200;
         res.setHeader('Content-Type', 'application/json')
-        res.json(campeonato);
+        res.json(usuario);
     
     },(err) => next(err))
     .catch((err) => next(err));
@@ -105,3 +70,6 @@ router.route('/campeonato/:id')
 
 
 module.exports = router;
+
+
+

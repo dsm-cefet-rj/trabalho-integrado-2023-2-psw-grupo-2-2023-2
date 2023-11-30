@@ -13,7 +13,11 @@ const campeonatosSchema = new Schema({
     photo:{
       type: String,
       required: true,
-    }
+    },
+    times:[{
+      type: mongoose.Schema.Types.ObjectId ,
+      ref:'times'
+    }]
 })
 
 campeonatosSchema.plugin(normalize);

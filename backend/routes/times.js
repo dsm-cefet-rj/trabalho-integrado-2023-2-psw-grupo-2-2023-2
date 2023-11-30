@@ -6,7 +6,7 @@ const times = require('../models/times')
 router.use(bodyParser.json());
 
 
-router.route('/times')
+router.route('/time')
 .get(async (req, res, next) => {
 
     try{
@@ -34,7 +34,7 @@ router.route('/times')
 })
 
 router.route('/time/:id')
-.get((req, res, next) => {
+.get(async (req, res, next) => {
     times.findById(req.params.id)
         .then((resp) => {
             res.statuscode = 200;

@@ -33,7 +33,7 @@ router.route('/jogadores')
 
 })
 
-router.route('/jogador/:id')
+router.route('/jogadores/:id')
 .get((req, res, next) => {
     jogadores.findById(req.params.id)
         .then((resp) => {
