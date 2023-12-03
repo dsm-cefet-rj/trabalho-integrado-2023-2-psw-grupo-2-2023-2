@@ -1,17 +1,9 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-const normalize = requise('normalize-mongoose');
+var passportLocalMongoose = require('passport-local0')
+ 
 var User = new Schema({
-    Username:{
-      type: String,
-      required:true,
-      unique: true
-    },
-    senha:{
-      type: String,
-      required: true,
-    },
     id:{
       type: int,
       required: true,
@@ -26,6 +18,6 @@ var User = new Schema({
     }
 })
 
-User.plugin(normalize);
+User.plugin(passportLocalMongoose);
 module.exports = mongoose.model('User', User);
 
