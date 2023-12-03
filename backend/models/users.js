@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
+
 const normalize = requise('normalize-mongoose');
-const usuariosSchema = new Schema({
+var User = new Schema({
     Username:{
       type: String,
       required:true,
+      unique: true
     },
     senha:{
       type: String,
@@ -17,10 +19,13 @@ const usuariosSchema = new Schema({
     idTeam:{
       type: int,
       required: true,
+    },
+    admin:{
+      type: Boolean,
+      default: false
     }
 })
 
-usuariosSchema.plugin(normalize);
-var usuarios = mongoose.model('Usuarios', timesSchema);
+User.plugin(normalize);
+module.exports = mongoose.model('User', User);
 
-module.exports = usuarios;

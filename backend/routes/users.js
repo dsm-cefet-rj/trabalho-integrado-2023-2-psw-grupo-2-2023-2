@@ -1,75 +1,84 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
-const usuarios = require('../models/usuarios')
+const User = require('../models/users')
 router.use(bodyParser.json());
 
-
-router.route('/users')
-.get(async (req, res, next) => {
-
-    try{
-        const usuariosBanco = await usuarios.find({}).maxTime(1000);
+router.post('/signup', (req, res, next) => {
+    UserActivation.findOne({username: req.body.username})
+    .then((user) => {
+        if(user != null){
+            var err = new Error('User' + req.body.username + ' already exists!');
+            err.status = 403;
+            next(err);
+        }
+        else{
+            return User.create({
+                username: req.body.username,
+                password: req.body.password});
+            }
+      })
+    .then((user) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(usuariosBanco);
-    }catch(err){
-        next(err);
-    }
-
-})
-
-.post((req, res, next) => {
-    
-    usuarios.create(req.body)
-    .then((usuario) =>{
-        console.log('Usuário criado' , usuario);
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(usuario);
+        res.json({status: 'Registration Successful!', user: user})
     }, (err) => next(err))
     .catch((err) => next(err));
+});
 
-})
+router.post('/login', (req, res, next) => {
 
-
-router.route('/users/:id')
-.get((req, res, next) => {
-    usuarios.findById(req.params.id)
-        .then((resp) => {
-            res.statuscode = 200;
-            res.setHeader('Content-Type', 'application/json')
-            res.json(resp);
-        
-        },(err) => next(err))
-        .catch((err) => next(err));
-})
-.delete((req, res, next) => {
-    usuarios.findByIdAndRemove(req.params.id)
-    .then((resp) => {
-        res.statuscode = 200;
-        res.setHeader('Content-Type', 'application/json')
-        res.json(resp.id);
+    if(!req.session.user){
+        var authHeader = req.headers.authorization;
     
-    },(err) => next(err))
-    .catch((err) => next(err));
+        if(!authHeader){
+            var err = new Error('You are not authencticated!');
+            res.setHeader('WWW-Authenticate', 'Basic');
+            err.status = 401;
+            return next(err);
+        }
+
+        var auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
+        var username = auth[0];
+        var password = auth[1];
+
+        User.findOne({username: username})
+        .then((user) => {
+            if (user == null){
+                var err = new Error('User ' + username + ' does not exist!');
+                err.status = 403;
+                return next(err);
+        }
+        else if (user.password !== password){
+            var err = new Error('Your password is incorrect!');
+            err.status = 403;
+            return next(err);
+        }
+        else if(user.username === username && user.password === password){
+            req.session.user = 'authenticated';
+            req.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('You are authenticated!')
+        }
+        })
+        .cath((err) => next(err)); 
+    }
+    else{
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('You are already authenticated!');
+    }
 })
 
-.put((req, res, next) => {
-    usuarios.findOneAndUpdate(req.params.id,{
-        $set: req.body
-    }, { new: true})
-    .then((usuario) => {
-        res.statuscode = 200;
-        res.setHeader('Content-Type', 'application/json')
-        res.json(usuario);
-    
-    },(err) => next(err))
-    .catch((err) => next(err));
-})
-
-
-module.exports = router;
-
-
-
+router.get('/logout', (req, res) => {
+    if(req.session){
+        req.session.destroy();
+        res.clearCookie('session-id');
+        res.redirect('/');
+    }
+    else{
+        var err = new Error('You are not logged in!');
+        err.Status = 403;
+        next(err);
+    }
+});
