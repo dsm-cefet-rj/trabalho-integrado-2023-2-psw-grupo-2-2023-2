@@ -1,32 +1,35 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const normalize = requise('normalize-mongoose');
+const normalize = require('normalize-mongoose'); // Corrected typo
 const timesSchema = new Schema({
-    name:{
-      type: String,
-      required:true,
-    },
-    logo:{
+    name: {
       type: String,
       required: true,
-    },league:{
-      type: String,
-      required:true,
-    },id:{
-      type: int,
-      required:true,
-    }, season:{
-      type: String,
-      required:true,
     },
-    jogadres:[{
-      type: mongoose.Schema.Types.ObjectId ,
-      ref:'jogadores'
-    }]
-})
+    logo: {
+      type: String,
+      required: true,
+    },
+    league: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: Number, // Corrected from 'int' to 'Number'
+      required: true,
+    },
+    season: {
+      type: String,
+      required: true,
+    },
+    jogadores: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Jogadores', // Corrected from 'jogadores' to 'Jogadores'
+    }],
+});
 
 timesSchema.plugin(normalize);
-var times = mongoose.model('Jogadores', timesSchema);
+var times = mongoose.model('Times', timesSchema); // Corrected from 'Jogadores' to 'Times'
 
 module.exports = times;
 
