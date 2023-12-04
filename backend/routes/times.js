@@ -2,12 +2,13 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 const times = require('../models/times')
+var authenticate = require('../authenticate');
 
 router.use(bodyParser.json());
 
 
 router.route('/time')
-.get(async (req, res, next) => {
+.get(authenticate.verifyUser, async (req, res, next) => {
 
     try{
         const timesBanco = await times.find({}).maxTime(1000);
@@ -20,7 +21,7 @@ router.route('/time')
 
 })
 
-.post((req, res, next) => {
+.post(authenticate.verifyUser, (req, res, next) => {
     
     times.create(req.body)
     .then((time) =>{
@@ -34,7 +35,7 @@ router.route('/time')
 })
 
 router.route('/time/:id')
-.get(async (req, res, next) => {
+.get(authenticate.verifyUser, async (req, res, next) => {
     times.findById(req.params.id)
         .then((resp) => {
             res.statuscode = 200;
@@ -44,7 +45,7 @@ router.route('/time/:id')
         },(err) => next(err))
         .catch((err) => next(err));
 })
-.delete((req, res, next) => {
+.delete(authenticate.verifyUser, (req, res, next) => {
     times.findByIdAndRemove(req.params.id)
     .then((resp) => {
         res.statuscode = 200;
@@ -55,7 +56,7 @@ router.route('/time/:id')
     .catch((err) => next(err));
 })
 
-.put((req, res, next) => {
+.put(authenticate.verifyUser, (req, res, next) => {
     times.findOneAndUpdate(req.params.id,{
         $set: req.body
     }, { new: true})

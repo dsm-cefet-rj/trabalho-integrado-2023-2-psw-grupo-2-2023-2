@@ -2,13 +2,14 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 const campeonatos = require('../models/campeonatos')
+var authenticate = require('../authenticate');
+
 
 router.use(bodyParser.json());
 
 
 router.route('/campeonato')
-.get(async (req, res, next) => {
-
+.get(authenticate.verifyUser, async (req, res, next) => {
     try{
         const campeonatosBanco = await campeonatos.find({}).maxTime(1000);
         res.statusCode = 200;
@@ -20,7 +21,7 @@ router.route('/campeonato')
 
 })
 
-.post((req, res, next) => {
+.post(authenticate.verifyUser, (req, res, next) => {
     
     campeonatos.create(req.body)
     .then((campeonato) =>{
@@ -34,7 +35,7 @@ router.route('/campeonato')
 })
 
 router.route('/campeonato/:id')
-.get((req, res, next) => {
+.get(authenticate.verifyUser, (req, res, next) => {
     campeonatos.findById(req.params.id)
         .then((resp) => {
             res.statuscode = 200;
@@ -44,7 +45,7 @@ router.route('/campeonato/:id')
         },(err) => next(err))
         .catch((err) => next(err));
 })
-.delete((req, res, next) => {
+.delete(authenticate.verifyUser, (req, res, next) => {
     campeonatos.findByIdAndRemove(req.params.id)
     .then((resp) => {
         res.statuscode = 200;
@@ -55,7 +56,7 @@ router.route('/campeonato/:id')
     .catch((err) => next(err));
 })
 
-.put((req, res, next) => {
+.put(authenticate.verifyUser, (req, res, next) => {
     campeonatos.findOneAndUpdate(req.params.id,{
         $set: req.body
     }, { new: true})
