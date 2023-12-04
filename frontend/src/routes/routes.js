@@ -35,6 +35,7 @@ const RoutesApp = () => {
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
                     <Route path = "/homeAdmin" element={<HomeAdmin/>}/>
+                    <Route path = "/formTimes" element={<FormTimes/>}/>
                     <Route path = "/timesAdmin" element={<TimesADM/>}/>
                     <Route path = "/campeonatosAdmin" element={<CampeonatosADM/>}/>
                     <Route path = "/jogadoresAdmin" element={<JogadoresADM/>}/>
