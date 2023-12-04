@@ -2,12 +2,13 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 const jogadores = require('../models/jogadores')
+var authenticate = require('../authenticate');
 
 router.use(bodyParser.json());
 
 
 router.route('/jogadores')
-.get(async (req, res, next) => {
+.get(authenticate.verifyUser, async (req, res, next) => {
 
     try{
         const jogadoresBanco = await jogadores.find({}).maxTime(1000);
@@ -20,7 +21,7 @@ router.route('/jogadores')
 
 })
 
-.post((req, res, next) => {
+.post(authenticate.verifyUser, (req, res, next) => {
     
     jogadores.create(req.body)
     .then((jogador) =>{
@@ -34,7 +35,7 @@ router.route('/jogadores')
 })
 
 router.route('/jogadores/:id')
-.get((req, res, next) => {
+.get(authenticate.verifyUser, (req, res, next) => {
     jogadores.findById(req.params.id)
         .then((resp) => {
             res.statuscode = 200;
@@ -44,7 +45,7 @@ router.route('/jogadores/:id')
         },(err) => next(err))
         .catch((err) => next(err));
 })
-.delete((req, res, next) => {
+.delete(authenticate.verifyUser, (req, res, next) => {
     jogadores.findByIdAndRemove(req.params.id)
     .then((resp) => {
         res.statuscode = 200;
@@ -55,7 +56,7 @@ router.route('/jogadores/:id')
     .catch((err) => next(err));
 })
 
-.put((req, res, next) => {
+.put(authenticate.verifyUser, (req, res, next) => {
     jogadores.findOneAndUpdate(req.params.id,{
         $set: req.body
     }, { new: true})
