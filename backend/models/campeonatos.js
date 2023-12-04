@@ -7,7 +7,7 @@ const campeonatosSchema = new Schema({
       required:true,
     },
     id:{
-      type: int,
+      type: Number,
       required: true,
     },
     photo:{
