@@ -102,3 +102,4 @@ jogadoresSchema.plugin(normalize);
 var jogadores = mongoose.model('Jogadores', jogadoresSchema);
 
 module.exports = jogadores;
+

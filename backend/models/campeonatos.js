@@ -24,3 +24,4 @@ campeonatosSchema.plugin(normalize);
 var campeonatos = mongoose.model('Campeonatos', campeonatosSchema);
 
 module.exports = campeonatos;
+
