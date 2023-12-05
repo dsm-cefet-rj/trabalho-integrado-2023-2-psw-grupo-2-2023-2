@@ -11,11 +11,7 @@ var campeonatosRouter = require('./routes/campeonatos');
 const mongoose = require('mongoose');
 const url='mongodb+srv://admin:1234@scoutball.mgalr3w.mongodb.net/?retryWrites=true&w=majority';
 const connect = mongoose.connect(url);
-
-connect.then((db)=>{
-    console.log("Conectado ao servidor");
-},(err) => {console.log(err);})
-
+const connecToDataBase = require('./connect');
 
 var app = express();
 
@@ -29,5 +25,7 @@ app.use('/', indexRouter);
 app.use('/times', timesRouter);
 app.use('/campeonatos', campeonatosRouter);
 app.use('/jogadores', jogadoresRouter);
+
+connecToDataBase();
 
 module.exports = app;

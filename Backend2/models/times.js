@@ -23,10 +23,10 @@ const timesSchema = new Schema({
     },
     jogadores: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Jogadores', // Corrected from 'jogadores' to 'Jogadores'
+      ref: 'jogadores', // Corrected from 'jogadores' to 'Jogadores'
     }],
 });
 
-var times = mongoose.model('Times', timesSchema); // Corrected from 'Jogadores' to 'Times'
+var times = mongoose.model('times', timesSchema); // Corrected from 'Jogadores' to 'Times'
 
 module.exports = times;

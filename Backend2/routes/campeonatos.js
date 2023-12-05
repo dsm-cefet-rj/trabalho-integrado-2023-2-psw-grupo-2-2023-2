@@ -1,54 +1,71 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
+const campeonatos = require('../models/campeonatos');
 
 router.use(bodyParser.json());
-/* GET users listing. */
-//pra terminar isso direito eu preciso do redux pronto
-let campeonatos= [
-  {
-     "id": 96,
-     "name": "Toulouse",
-     "country": "France"
-   }
- ]
+
 router.route('/')
-.get((req, res, next) => {
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(campeonatos);
+.get(async(req, res, next) => {
 
+  try{
+    const campeonatosBanco = await campeonatos.find({});
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(campeonatosBanco);
+}catch(err){
+  err={};
+  err.statusCode=404;
+  res.json(err);
+}
 })
-.post((req, res, next) => {
-  let proxId = 1 + campeonatos.map(t=> t.id).reduce((x,y) =>Math.max(x,y));
-  let campeonatos = {...req.body, id: proxId}
-  campeonatos.push(campeonatos)
-
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(campeonatos);
-
-})
-//rota com id especifico(usar pra usar um .edit possivelmente mais tarde)
 router.route('/:id')
-.delete((req, res, next) => {
-
-  campeonatos - campeonatos.filter(function(value,inder,arr){//usando splice e usando ja o jsonserver pra pegar os dados
-      return value.id != req.params.id;
-  });
+.get(async (req, res, next) => {
+  let err;
+  res.setHeader('Content-Type', 'application/json')
+  try{
+  const resp= await campeonatos.findById(req.params.id);
+    if(resp != null){
+      res.statusCode = 200;
+      res.json(resp);
+    }else{
+      err={};
+      err.statusCode=404;
+      res.json(err);
+      }
   
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.params.id);
+}catch(errParam){
+crossOriginIsolated.log(errParam);
+res.statusCode=404;
+res.json({});
+}
+
 
 })
+.delete((req, res, next) => {campeonatos.findByIdAndRemove(req.params.id)
+  .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json')
+      res.json(resp.id);
+  },(err) => next(err))
+  .catch((err) => next(err));
+  
+})
+  
 .put((req, res, next) => {
-  let index = campeonatos.map(t=>t.id).indexOf(req.params.id);
-  campeonatos.splice(index,1,req.body);
 
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.body);
-  });
+  campeonatos.findByIdAndUpdate(req.params.id,{
+    $set: req.body
+}, { new: true})
+.then((campeonatos) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json')
+    res.json(campeonatos);
+},(err) => next(err))
+.catch((err) => next(err));
+});
 
+
+
+module.exports = router;
 module.exports = router;

@@ -19,8 +19,7 @@ const campeonatosSchema = new Schema({
     }]
 })
 
-campeonatosSchema.plugin(normalize);
-var campeonatos = mongoose.model('Campeonatos', campeonatosSchema);
+var campeonatos = mongoose.model('campeonatos', campeonatosSchema);
 
 module.exports = campeonatos;
 

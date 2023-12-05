@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const normalize = require('normalize-mongoose');
 const jogadoresSchema = new Schema({
     name:{
       type: String,
@@ -98,7 +97,6 @@ const jogadoresSchema = new Schema({
     }
 })
 
-//jogadoresSchema.plugin(normalize);
 var jogadores = mongoose.model('Jogadores', jogadoresSchema);
 
 module.exports = jogadores;
