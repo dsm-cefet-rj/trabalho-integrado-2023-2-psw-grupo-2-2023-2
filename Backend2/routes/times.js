@@ -12,6 +12,7 @@ router.route('/')
 .get(async(req, res, next) => {
 
   try{
+    Times.create({id: '2',name:'trembolona fc',logo:'logo192.png',league:'Brasileirao',season:'2024'})
     const timesBanco = await Times.find({});
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
