@@ -10,7 +10,7 @@ const campeonatosSchema = new Schema({
       type: Number,
       required: true,
     },
-    photo:{
+    country:{
       type: String,
       required: true,
     },
