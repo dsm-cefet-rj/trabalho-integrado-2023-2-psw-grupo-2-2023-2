@@ -1,31 +1,19 @@
-import React, {useState} from 'react';
-
+import React from 'react';
+import {Link} from 'react-router-dom';
 export default function ListagemCampeonato(props){
-    const[campeonatos, setCampeonato] = useState({name: 'teste1', country:'brasil'},
-                                                  {name: 'teste2', country:'brasil'},
-                                                  {name: 'teste3', country:'brasil'},)
+   
     
-       
-        setTimeout(() => {setCampeonato(
-                {campeonatos : [{name:'teste4', country:'Brazil'}].concat(this.state.campeonatos)}
-                )}, 2000);
-                this.handleClickExcluirCampeonato = this.handleClickExcluirCampeonato.bind(this);
-    
-    function handleClickNovoCampeonato(param){
-        alert(param);
-    }
 
     function handleClickExcluirCampeonato(name){
-        setCampeonato(campeonatos.filter((value) => value.name !== name));
+        props.setCampeonato(props.campeonatos.filter((value) => value.name !== name));
     }    
 
    
         return(
             <>
-                <div id ='titulo_pagina'> Listagem de Campeonatos</div> <br/>
-                    <button id="Novo Campeonato" name ="btn_novo_campeonato" onClick={() =>  this.handleClickNovoCampeonato('msg')} > Novo Campeonato</button><br/><br/>
-                    <TabelaCampeonato campeonatos ={this.state.campeonatos} onClickExcluirCampeonato = {this.handleClickExcluirCampeonato}/>
-                
+              <div id ='titulo_pagina'> Listagem de Campeonatos</div> <br/>
+                    <Link to= "/campeonatos/novo"><button id="Novo Campeonato" name ="btn_novo_campeonato"> Novo Campeonato</button></Link><br/><br/>
+                    <TabelaCampeonato campeonatos ={props.campeonatos} onClickExcluirCampeonato = {handleClickExcluirCampeonato}/>
             </>
             );
     
@@ -33,9 +21,6 @@ export default function ListagemCampeonato(props){
  
 
 }
-
-
-
 
 
 const LinhaCampeonato = (props)=>{

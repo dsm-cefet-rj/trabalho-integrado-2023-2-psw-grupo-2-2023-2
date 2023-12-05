@@ -16,8 +16,8 @@ import TimesADM from '../pages/TimesADM.js'
 import JogadoresADM from '../pages/JogadoresADM.js'
 import CampeonatosADM from '../pages/CampeonatosADM.js'
 
-
-
+import FormCampeonato from '../redux/campeonato/FormCampeonato.js'
+import ListagemCampeonato from '../redux/campeonato/tabelaCampeonato'
 
 
 const RoutesApp = () => {
@@ -34,6 +34,8 @@ const RoutesApp = () => {
                     <Route path = "/time/:id/:idteam" element = {<Time/>}/>
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
+                    <Route path= "/campeonatos/novo" element={<FormCampeonato />} />
+                    <Route path=" /campeonatos" element={<ListagemCampeonato />} /> 
                     <Route path = "/homeAdmin" element={<HomeAdmin/>}/>
                     <Route path = "/timesAdmin" element={<TimesADM/>}/>
                     <Route path = "/campeonatosAdmin" element={<CampeonatosADM/>}/>

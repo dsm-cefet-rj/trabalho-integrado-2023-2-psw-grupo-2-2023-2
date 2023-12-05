@@ -4,10 +4,7 @@ import React, {useReducer} from 'react';
 
 function App() {
   return (
-
       <RoutesApp/>
-    
-
   );
 }
 
