@@ -6,6 +6,16 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var timesRouter = require('./routes/times');
 
+const mongoose = require('mongoose');
+
+const Times= require('./models/times');
+
+const url='mongodb+srv://admin:1234@scoutball.mgalr3w.mongodb.net/?retryWrites=true&w=majority';
+const connect = mongoose.connect(url);
+
+connect.then((db)=>{
+    console.log("Conectado ao servidor");
+},(err) => {console.log(err);})
 var app = express();
 
 app.use(logger('dev'));

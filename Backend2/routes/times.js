@@ -1,8 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
+const Times = require('../models/times');
 
 router.use(bodyParser.json());
+
+
+
+
 let times= [
   {
      "id": 96,
@@ -18,42 +23,62 @@ let times= [
 /* GET users listing. */
 //pra terminar isso direito eu preciso do redux pronto
 router.route('/')
-.get((req, res, next) => {
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(times);
+.get(async(req, res, next) => {
 
+  try{
+    const timesBanco = await Times.find({}).maxTime(1000);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(timesBanco);
+}catch(err){
+    next(err);
+}
 })
 .post((req, res, next) => {
-  let proxId = 1 + times.map(t=> t.id).reduce((x,y) =>Math.max(x,y));
-  let times = {...req.body, id: proxId}
-  times.push(times)
-
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(times);
-
-})
+  
+    Times.create(req.body)
+     .then((times)=>{
+      console.log('Time Criado', times);
+      res.statusCode=200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(times);
+     }, (err)=>next(err))
+     .catch((err)=> next(err));
+    })
 //rota com id especifico(usar pra usar um .edit possivelmente mais tarde)
 router.route('/:id')
-.delete((req, res, next) => {
-
-  times - times.filter(function(value,inder,arr){//usando splice e usando ja o jsonserver pra pegar os dados
-      return value.id != req.params.id;
-  });
+.get((req, res, next) => {Times.findById(req.params.id)
+  .then((resp) => {
+      res.statuscode = 200;
+      res.setHeader('Content-Type', 'application/json')
+      res.json(resp);
+  },(err) => next(err))
+  .catch((err) => next(err));
   
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.params.id);
-
 })
+.delete((req, res, next) => {Times.findByIdAndRemove(req.params.id)
+  .then((resp) => {
+      res.statuscode = 200;
+      res.setHeader('Content-Type', 'application/json')
+      res.json(resp.id);
+  },(err) => next(err))
+  .catch((err) => next(err));
+  
+})
+  
 .put((req, res, next) => {
-  let index = times.map(t=>t.id).indexOf(req.params.id);
-  times.splice(index,1,req.body);
 
-  res.statusCode=200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(req.body);
-  });
+  Times.findByIdAndUpdate(req.params.id,{
+    $set: req.body
+}, { new: true})
+.then((time) => {
+    res.statuscode = 200;
+    res.setHeader('Content-Type', 'application/json')
+    res.json(time);
+},(err) => next(err))
+.catch((err) => next(err));
+});
+
+
 
 module.exports = router;
