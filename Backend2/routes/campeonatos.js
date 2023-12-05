@@ -5,6 +5,13 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 /* GET users listing. */
 //pra terminar isso direito eu preciso do redux pronto
+let campeonatos= [
+  {
+     "id": 96,
+     "name": "Toulouse",
+     "country": "France"
+   }
+ ]
 router.route('/')
 .get((req, res, next) => {
   res.statusCode=200;

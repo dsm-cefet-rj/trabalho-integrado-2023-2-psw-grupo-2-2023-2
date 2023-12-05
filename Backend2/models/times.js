@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const normalize = require('normalize-mongoose'); // Corrected typo
 const timesSchema = new Schema({
     name: {
       type: String,
@@ -28,7 +27,6 @@ const timesSchema = new Schema({
     }],
 });
 
-//timesSchema.plugin(normalize);
 var times = mongoose.model('Times', timesSchema); // Corrected from 'Jogadores' to 'Times'
 
 module.exports = times;
