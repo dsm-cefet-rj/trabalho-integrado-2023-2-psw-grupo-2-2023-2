@@ -3,14 +3,6 @@ var router = express.Router();
 const bodyParser = require('body-parser');
 
 router.use(bodyParser.json());
-let campeonatos= [
-  {
-     "id": 96,
-     "name": "Toulouse",
-     "country": "France"
-   }
- ]
-
 /* GET users listing. */
 //pra terminar isso direito eu preciso do redux pronto
 router.route('/')
