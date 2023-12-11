@@ -68,4 +68,3 @@ res.json({});
 
 
 module.exports = router;
-module.exports = router;
