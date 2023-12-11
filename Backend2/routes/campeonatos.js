@@ -1,71 +1,88 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
-const campeonatos = require('../models/campeonatos');
+const Campeonatos = require('../models/campeonatos');
 
+const cors = require('./cors');
 router.use(bodyParser.json());
 
 router.route('/')
-.get(async(req, res, next) => {
-
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions,  async (req, res, next) => {
+  console.log(req.user);
   try{
-    const campeonatosBanco = await campeonatos.find({});
+    const campeonatosBanco = await Campeonatos.find({});
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.json(campeonatosBanco);
-}catch(err){
-  err={};
-  err.statusCode=404;
-  res.json(err);
-}
+  }catch(err){
+    err = {};
+    res.statusCode = 404;
+    res.json(err);
+  }
+    
 })
-router.route('/:id')
-.get(async (req, res, next) => {
-  let err;
-  res.setHeader('Content-Type', 'application/json')
-  try{
-  const resp= await campeonatos.findById(req.params.id);
-    if(resp != null){
-      res.statusCode = 200;
-      res.json(resp);
-    }else{
-      err={};
-      err.statusCode=404;
-      res.json(err);
-      }
+.post(cors.corsWithOptions,  (req, res, next) => {
   
-}catch(errParam){
-crossOriginIsolated.log(errParam);
-res.statusCode=404;
-res.json({});
-}
-
-
-})
-.delete((req, res, next) => {campeonatos.findByIdAndRemove(req.params.id)
-  .then((resp) => {
+  Campeonatos.create(req.body)
+  .then((campeonato) => {
+      console.log('Campeonato criado ', campeonato);
       res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json')
-      res.json(resp.id);
-  },(err) => next(err))
+      res.setHeader('Content-Type', 'application/json');
+      res.json(campeonato);
+  }, (err) => next(err))
   .catch((err) => next(err));
-  
+
 })
+
+router.route('/:id')
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, async (req, res, next) => {
+  let err;
+  res.setHeader('Content-Type', 'application/json');
+  try{
+    const campeonatos = await Campeonatos.findById(req.params.id).populate('times');
+    if(campeonatos != null){
+      res.statusCode = 200;
+      res.json(campeonatos);
+    }else{
+      err = {};
+      res.statusCode = 404;
+      res.json(err);
+    }
   
-.put((req, res, next) => {
+  }catch(errParam){
+    console.log(errParam);
+    res.statusCode = 404;
+    res.json({});
+  }  
 
-  campeonatos.findByIdAndUpdate(req.params.id,{
+})
+.delete(cors.corsWithOptions,  (req, res, next) => {
+  
+  Campeonatos.findByIdAndRemove(req.params.id)
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp.id);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+
+
+})
+.put(cors.corsWithOptions,  (req, res, next) => {
+  
+  Campeonatos.findByIdAndUpdate(req.params.id, {
     $set: req.body
-}, { new: true})
-.then((campeonatos) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(campeonatos);
-},(err) => next(err))
-.catch((err) => next(err));
-});
+  }, { new: true })
+  .then((campeonato) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(campeonato);
+  }, (err) => next(err))
+  .catch((err) => next(err));
+
+})
 
 
-
-module.exports = router;
 module.exports = router;

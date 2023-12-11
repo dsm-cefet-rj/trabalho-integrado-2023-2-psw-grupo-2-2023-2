@@ -15,6 +15,7 @@ import HomeAdmin from './pages/HomeAdmin.js';
 import TimesADM from './pages/TimesADM.js';
 import JogadoresADM from './pages/JogadoresADM.js';
 import CampeonatosADM from './pages/CampeonatosADM.js';
+import NovoCampeonato from './slices/campeonatos/FormCampeonato.js'
 import {store} from './Store.js';
 import { Provider } from 'react-redux';
 
@@ -33,6 +34,7 @@ function App() {
                     <Route path = "/time/:id/:idteam" element = {<Time/>}/>
                     <Route path = "/stats/:ligaId/:jogadorId" element = {<Estatisticas/>}/>
                     <Route path = "/campeonato/:id" element = {<Campeonato/>}/>
+                    <Route path = "/campeonatos/novo" element = {<NovoCampeonato/>}/>
                     <Route path = "/homeAdmin" element={<HomeAdmin/>}/>
                     <Route path = "/timesAdmin" element={<TimesADM/>}/>
                     <Route path = "/campeonatosAdmin" element={<CampeonatosADM/>}/>

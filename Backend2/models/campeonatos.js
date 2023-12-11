@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+
 const campeonatosSchema = new Schema({
     nome:{
       type: String,
       required:true,
-    },
-    id:{
-      type: Number,
-      required: true,
     },
     country:{
       type: String,
@@ -18,6 +16,8 @@ const campeonatosSchema = new Schema({
       ref:'times'
     }]
 })
+
+
 
 var campeonatos = mongoose.model('campeonatos', campeonatosSchema);
 

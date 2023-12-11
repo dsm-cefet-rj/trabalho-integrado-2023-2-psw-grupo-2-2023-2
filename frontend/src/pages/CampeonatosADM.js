@@ -6,8 +6,8 @@ import { useNavigate,useParams  } from "react-router-dom";
 import React, {useReducer, Provider} from 'react';
 import '../styles/BotaoCampeonato.css'
 import logo from '../assets/images/logo.png'
+import Listagem from '../slices/campeonatos/ListagemCampeonato'
 
-import {Routes, Route, Link } from 'react-router-dom';
 
 
 
@@ -43,6 +43,7 @@ const CampeonatoADM = (props) =>{
                     >
                       Sair
                     </button>
+                    <Listagem/>
                   </div>
                 </div>
                 <div className="Body">
