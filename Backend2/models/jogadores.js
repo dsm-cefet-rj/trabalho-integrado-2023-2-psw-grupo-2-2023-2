@@ -97,7 +97,7 @@ const jogadoresSchema = new Schema({
     }
 })
 
-var jogadores = mongoose.model('Jogadores', jogadoresSchema);
+var jogadores = mongoose.model('jogadores', jogadoresSchema);
 
 module.exports = jogadores;
 
