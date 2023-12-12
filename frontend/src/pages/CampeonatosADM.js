@@ -3,10 +3,10 @@ import '../styles/HomeAdmin.css'
 import "../styles/cabecalho.css";
 import perfil from "../assets/images/imagemPerfil.png"
 import { useNavigate,useParams  } from "react-router-dom";
-import React, {useReducer, Provider} from 'react';
+import React from 'react';
 import '../styles/BotaoCampeonato.css'
 import logo from '../assets/images/logo.png'
-import Listagem from '../slices/campeonatos/ListagemCampeonato'
+
 
 
 
@@ -43,7 +43,6 @@ const CampeonatoADM = (props) =>{
                     >
                       Sair
                     </button>
-                    <Listagem/>
                   </div>
                 </div>
                 <div className="Body">

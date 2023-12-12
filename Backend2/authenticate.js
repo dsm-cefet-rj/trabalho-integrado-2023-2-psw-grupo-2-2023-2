@@ -2,7 +2,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/users');
 var JwtStrategy = require('passport-jwt').Strategy;
-var ExtractJwt = require9('passport-jwt').ExtractJwt;
+var ExtractJwt = require('passport-jwt').ExtractJwt;
 var jwt = require('jsonwebtoken'); 
 
 var config = require('./config.js');
@@ -14,12 +14,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 exports.getToken = function(user) {
-     return jwt.sign(user, config.secretKey, {expiresIn: 3600});
+     return jwt.sign(user, '12345-67890-09876-76890', {expiresIn: 3600});
 };
 
 var opts = {};
-opts.jwtFromRequest = ExtractJwt.fromAuthHedaerAsBearerToken();
-opts.secretKey = config.secretKey;
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = '12345-67890-09876-76890'; // Use a chave secreta real
 
 exports.jwtPassport = passport.use(new JwtStrategy(opts,
      (jwt_payload, done) => {
@@ -38,4 +38,3 @@ exports.jwtPassport = passport.use(new JwtStrategy(opts,
      }));
 
 exports.verifyUser = passport.authenticate('jwt', {session: false});
-

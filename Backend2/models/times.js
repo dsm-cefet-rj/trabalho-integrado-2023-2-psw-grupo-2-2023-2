@@ -14,7 +14,7 @@ const timesSchema = new Schema({
       required: true,
     },
     id: {
-      type: Number, // Corrected from 'int' to 'Number'
+      type: Number, 
       required: true,
     },
     season: {
@@ -23,7 +23,7 @@ const timesSchema = new Schema({
     },
     jogadores: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'jogadores', // Corrected from 'jogadores' to 'Jogadores'
+      ref: 'jogadores', 
     }],
 });
 

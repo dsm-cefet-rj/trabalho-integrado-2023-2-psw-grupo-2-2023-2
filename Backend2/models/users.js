@@ -1,22 +1,25 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-  id: {
-    type: Number,
+  username:{
+    type: String,
+    required: true,
+  },
+  password:{
+    type: String,
     required: true,
   },
   idTeam: {
     type: Number,
     required: true,
-  },
-  admin: {
-    type: Boolean,
-    default: false
   }
+
 })
+UserSchema.plugin(passportLocalMongoose)
 
 var usuarios = mongoose.model('Usuarios', UserSchema); // Corrected from 'Jogadores' to 'Times'
 
-module.exports = times;
+module.exports = usuarios;

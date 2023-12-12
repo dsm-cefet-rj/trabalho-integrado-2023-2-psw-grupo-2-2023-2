@@ -6,7 +6,7 @@ import Logo from '../../assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
 import { EyeSlash, Eye } from 'phosphor-react';
 import teamsList from '../ListaTimes';
-
+import axios from 'axios';
 const CadastroForm = () => {
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
@@ -40,7 +40,7 @@ const CadastroForm = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/Usuarios', { 
+      const response = await axios.post('http://localhost:5000/user', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
