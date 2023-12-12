@@ -1,61 +1,57 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
+const User = require('../models/users');
+var passport = require('passport');
+var authenticate = require('../authenticate');
 const cors = require('./cors');
+
 router.use(bodyParser.json());
 
-// Array para armazenar os usuários
-let users = [{
-     "id": 1,
-     "name": "admin",
-     "password": "123",
-     'idteam':'12'
-    }
-];
-
-/* GET users listing. */
-router.route('/')
-  .get( cors.corsWithOptions,(req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(users);
-  })
-  .post( cors.corsWithOptions,(req, res, next) => {
-    // Inicializa o array se estiver vazio
-    if (users.length === 0) {
-      users = [{ id: 0 }]; // Adiciona um valor inicial
-    }
-
-    // Calcula o próximo ID
-    let proxId = 1 + users.map(t => t.id).reduce((x, y) => Math.max(x, y), 0);
-
-    // Adicionando o novo usuário ao array
-    let newUser = { ...req.body, id: proxId };
-    users.push(newUser);
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(newUser);
-  });
-
-// Rota com id específico
-router.route('/:id')
-  .delete( cors.corsWithOptions,(req, res, next) => {
-    users = users.filter(function (value, index, arr) {
-      return value.id != req.params.id;
+router.post('/signup', cors.corsWithOptions, (req, res, next) => {
+    User.register(
+        new User({ username: req.body.username }),
+        req.body.password, 
+    (err, user) => {
+        if (err) {
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.json({ err: err });
+        } else {
+            passport.authenticate('local')(req, res, () => {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json({ 
+                    success: true, 
+                    status: 'Registration Sucessful!' 
+                });
+            });
+        }
     });
+});
 
+router.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req, res) => {
+    var token = authenticate.getToken({ _id: req.user._id });
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.json(req.params.id);
-  })
-  .put( cors.corsWithOptions,(req, res, next) => {
-    let index = users.map(t => t.id).indexOf(req.params.id);
-    users.splice(index, 1, req.body);
+    res.json({ 
+        success: true, 
+        user: req.user._id,
+        token: token,
+        // status: 'You are sucessfully logged in!' 
+    });
+});
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(req.body);
-  });
+router.get('/logout', cors.corsWithOptions, (req, res) => {
+    if (req.session) {
+        req.session.destroy();
+        res.clearCookie('session-id');
+        res.redirect('/');
+    } else {
+        var err = new Error('You are not logged in!');
+        err.status = 403;
+        next(err);
+    }
+});
 
 module.exports = router;
