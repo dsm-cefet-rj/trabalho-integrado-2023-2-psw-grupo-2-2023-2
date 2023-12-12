@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const normalize = require('normalize-mongoose');
 
 const campeonatosSchema = new Schema({
     id:{
@@ -18,7 +17,6 @@ const campeonatosSchema = new Schema({
 })
 
 
-campeonatosSchema.plugin(normalize);
 var campeonatos = mongoose.model('campeonatos', campeonatosSchema);
 
 module.exports = campeonatos;

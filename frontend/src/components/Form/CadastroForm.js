@@ -5,9 +5,12 @@ import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
 import { EyeSlash, Eye } from 'phosphor-react';
+import { useDispatch } from 'react-redux';
+import { signupUser } from './LoginSlice';
+import { useForm } from "react-hook-form";
 import teamsList from '../ListaTimes';
 import axios from 'axios';
-const CadastroForm = () => {
+function CadastroForm(props){
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
   const [showSenha, setShowSenha] = useState(false);
@@ -15,7 +18,8 @@ const CadastroForm = () => {
   const [showVerificaSenha, setShowVerificaSenha] = useState(false);
   const [idTeam, setIdTeam] = useState("");
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { handleSubmit, errors } = useForm();
   const handleTeamSelect = (event) => {
     setIdTeam(event.target.value);
   };
@@ -32,45 +36,27 @@ const CadastroForm = () => {
     setText(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (senha !== verificaSenha) {
-      console.error('Senhas não coincidem');
-      return;
-    }
-  
-    try {
-      const response = await axios.post('http://localhost:5000/user', { 
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          Usuário: { 
-            Username: username,
-            Senha: senha,
-            idTeam: parseInt(idTeam),
-          },
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro no cadastro.');
-      }
-
-      alert('Cadastro bem-sucedido!');
-      navigate('/');
-    } catch (error) {
-      alert('Username já cadastrado.');
-    }
-  };
+  const cadastro = () => {
+    let payload = {
+        username: username,
+        password: senha,
+        idTeam: idTeam,
+    };
+    console.log(payload);
+    dispatch(signupUser(payload))
+        .unwrap().then(() => {
+            navigate("/");
+        });
+};
+        
+ 
     return (
         <div className='containerCadastro'>
             <div className='logo-Container'>
                 <img className="logo" src={Logo} alt="Logo Site" />
         </div>
         <div>
-                <form className="FormularioCadastro" onSubmit={handleSubmit}>    
+                <form className="FormularioCadastro" onSubmit={handleSubmit(cadastro)}>    
                     <div className ="senhas">
                     <Input
                         type="text"

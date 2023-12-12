@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const normalize = require('normalize-mongoose');
+
 const venueSchema = new Schema({
   id: {
     type: Number,
@@ -61,8 +61,7 @@ const timesSchema = new Schema({
   venue: venueSchema,
 });
 
-timesSchema.plugin(normalize);
 
-var times = mongoose.model('times', timesSchema); // Corrected from 'Jogadores' to 'Times'
+var times = mongoose.model('times', timesSchema); 
 
 module.exports = times;

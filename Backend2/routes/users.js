@@ -10,7 +10,12 @@ router.use(bodyParser.json());
 
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
     User.register(
-        new User({ username: req.body.username }),
+        new User({ 
+            username: req.body.username,
+            password: req.body.password,
+            idTeam: req.body.idTeam
+        
+        }),
         req.body.password, 
     (err, user) => {
         if (err) {
@@ -38,7 +43,6 @@ router.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req
         success: true, 
         user: req.user._id,
         token: token,
-        // status: 'You are sucessfully logged in!' 
     });
 });
 

@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from '../Input';
 import Botao from '../Botao';
 import Logo from '../../assets/images/logo.png';
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, Link } from "react-router-dom";
 import { EyeSlash, Eye } from 'phosphor-react';
+import { useForm } from "react-hook-form";
+import { loginServer } from './LoginSlice';
 import '../../styles/LoginForm.css'
-const LoginForm = () => {
+
+const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
   const [showSenha, setShowSenha] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.login.status);
+
+  const { handleSubmit, errors } = useForm();
 
   const handleSenhaToggle = () => {
     setShowSenha(!showSenha);
@@ -19,37 +27,25 @@ const LoginForm = () => {
     setText(event.target.value);
   };
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-
-    const response = await fetch('http://localhost:5000/Usuarios');
-    
-    if (response.status === 200) {
-      const users = await response.json();
-      const matchingUser = users.find(user => user.Usuário && user.Usuário.Username === username && user.Usuário.Senha === senha);
-        if (matchingUser) {
-            if(matchingUser.Usuário.Username == "Admin"){
-                navigate(`/homeAdmin`);
-            }else{
-                const idTeam = matchingUser.Usuário.idTeam;
-                navigate(`/home/${idTeam}`);
-            }
-        } else {
-        // Credenciais inválidas
-        alert("Nome de usuário ou senha inválidos. Por favor, tente novamente.");
-        }
-    } else {
-      alert("Ocorreu um erro durante o login. Tente novamente mais tarde.");
-    }
+  const login = (data) => {
+    let payload = {
+      username: data.username,
+      password: data.password,
+    };
+    dispatch(loginServer(payload))
+      .unwrap()
+      .then(() => {
+        navigate("/home");
+      });
   };
 
   return (
-    <div className='container'>
-      <div className='logo-Container'>
+    <div className="container">
+      <div className="logo-Container">
         <img className="logo" src={Logo} alt="Logo Site" />
       </div>
       <div>
-        <form className="Formulario" onSubmit={handleLogin}>
+        <form className="Formulario" onSubmit={handleSubmit(login)}>
           <Input
             type="text"
             name="username"
@@ -65,11 +61,22 @@ const LoginForm = () => {
             placeholder="Senha"
             onChange={(event) => handleChange(event, setSenha)}
           />
-          <div className='eye-container'>
-            {showSenha
-              ? <EyeSlash size={30} weight="duotone" onClick={handleSenhaToggle} className="Olho" />
-              : <Eye size={30} weight="duotone" onClick={handleSenhaToggle} className="Olho" />
-            }
+          <div className="eye-container">
+            {showSenha ? (
+              <EyeSlash
+                size={30}
+                weight="duotone"
+                onClick={handleSenhaToggle}
+                className="Olho"
+              />
+            ) : (
+              <Eye
+                size={30}
+                weight="duotone"
+                onClick={handleSenhaToggle}
+                className="Olho"
+              />
+            )}
           </div>
 
           <div className="Botoes">
@@ -79,7 +86,7 @@ const LoginForm = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default LoginForm;
