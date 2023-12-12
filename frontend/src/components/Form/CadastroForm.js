@@ -36,17 +36,33 @@ function CadastroForm(props){
     setText(event.target.value);
   };
 
-  const cadastro = () => {
-    let payload = {
-        username: username,
-        password: senha,
-        idTeam: idTeam,
-    };
-    console.log(payload);
-    dispatch(signupUser(payload))
-        .unwrap().then(() => {
-            navigate("/");
-        });
+  const cadastro = async () => {
+    if (senha !== verificaSenha) {
+        alert("As senhas não coincidem.");
+        return;
+    }
+
+    try {
+        let payload = {
+            username: username,
+            password: senha,
+            idTeam: idTeam,
+        };
+
+        console.log(payload);
+        await dispatch(signupUser(payload))
+            .unwrap();
+        
+        alert("Cadastro feito com sucesso");
+        navigate("/");
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response && error.response.status === 409) {
+            alert("Username já existente. Escolha um username diferente.");
+        } else {
+            console.error(error);
+            alert("Username já existente. Escolha um username diferente.");
+        }
+    }
 };
         
  

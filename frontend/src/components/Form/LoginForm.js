@@ -29,13 +29,19 @@ const LoginForm = (props) => {
 
   const login = (data) => {
     let payload = {
-      username: data.username,
-      password: data.password,
+      username: username,
+      password: senha,
     };
     dispatch(loginServer(payload))
       .unwrap()
       .then(() => {
         navigate("/home");
+        alert("Bem-vindo ao SCOUTBALL");
+      })
+      .catch((error) => {
+        console.log(data);
+        console.error("Erro no login:", error);
+        alert("Erro no login, verifique o usuário e a senha");
       });
   };
 

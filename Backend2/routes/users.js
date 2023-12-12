@@ -12,11 +12,8 @@ router.post('/signup', cors.corsWithOptions, (req, res, next) => {
     User.register(
         new User({ 
             username: req.body.username,
-            password: req.body.password,
             idTeam: req.body.idTeam
-        
-        }),
-        req.body.password, 
+        }),req.body.password, 
     (err, user) => {
         if (err) {
             res.statusCode = 500;
