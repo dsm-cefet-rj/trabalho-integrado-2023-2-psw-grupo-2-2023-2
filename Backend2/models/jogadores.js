@@ -1,101 +1,157 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const normalize = require('normalize-mongoose');
 const jogadoresSchema = new Schema({
-    name:{
-      type: String,
-      required:true,
-    },
-    id:{
-      type: Number,
-      required: true,
-    },
-    firstname:{
-      type: String,
-      required: true,
-    }
-    ,
-    lastname:{
-      type: String,
-      required: true,
-    }
-    ,
-    team_id:{
-      type: Number,
-      required: true,
-    },
-    team_name:{
+  id: {
+    type: Number,
+    required: true,
+  },
+  age: {
+    type: Number,
+    required: true,
+  },
+  birth: {
+    date: {
       type: String,
       required: true,
     },
-    appearences:{
-      type: Number,
-      required: true,
-    },
-    position:{
+    place: {
       type: String,
       required: true,
     },
-    rating:{
-      type: Number,
-      required: true,
-    },
-    photo:{
+    country: {
       type: String,
       required: true,
     },
-    shots_total:{
-      type: Number,
-      required: true,
+  },
+  firstname: {
+    type: String,
+    required: true,
+  },
+  lastname: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  height: {
+    type: String,
+  },
+  injured: {
+    type: Boolean,
+  },
+  nationality: {
+    type: String,
+    required: true,
+  },
+  photo: {
+    type: String,
+  },
+  weight: {
+    type: String,
+  },
+  statistics: [
+    {
+      team: {
+        id: {
+          type: Number,
+        },
+        name: {
+          type: String,
+          required: true,
+        },
+        logo: {
+          type: String,
+        },
+      },
+      league: {
+        id: {
+          type: Number,
+
+        },
+        name: {
+          type: String,
+        },
+        country: {
+          type: String,
+        },
+        logo: {
+          type: String,
+        },
+        flag: {
+          type: String,
+        },
+        season: {
+          type: Number,
+        },
+      },
+      games: {
+        appearences: Number,
+        lineups: Number,
+        minutes: Number,
+        number: Number,
+        position: String,
+        rating: Number,
+        captain: Boolean,
+      },
+      substitutes: {
+        in: Number,
+        out: Number,
+        bench: Number,
+      },
+      shots: {
+        total: Number,
+        on: Number,
+      },
+      goals: {
+        total: Number,
+        conceded: Number,
+        assists: Number,
+        saves: Number,
+      },
+      passes: {
+        total: Number,
+        key: Number,
+        accuracy: Number,
+      },
+      tackles: {
+        total: Number,
+        blocks: Number,
+        interceptions: Number,
+      },
+      duels: {
+        total: Number,
+        won: Number,
+      },
+      dribbles: {
+        attempts: Number,
+        success: Number,
+        past: Number,
+      },
+      fouls: {
+        drawn: Number,
+        committed: Number,
+      },
+      cards: {
+        yellow: Number,
+        yellowred: Number,
+        red: Number,
+      },
+      penalty: {
+        won: Number,
+        commited: Number,
+        scored: Number,
+        missed: Number,
+        saved: Number,
+      },
     },
-    on:{
-      type: Number,
-      required: true,
-    },
-    goals_total:{
-      type: Number,
-      required: true,
-    },
-    assists:{
-      type: Number,
-      required: true,
-    },
-    passes_total:{
-      type: Number,
-      required: true,
-    },
-    accuracy:{
-      type: Number,
-      required: true,
-    },
-    duels_total:{
-      type: Number,
-      required: true,
-    },
-    won:{
-      type: Number,
-      required: true,
-    },
-    attempts:{
-      type: Number,
-      required: true,
-    },
-    succes:{
-      type: Number,
-      required: true,
-    },
-    commited:{
-      type: Number,
-      required: true,
-    },
-    yellow:{
-      type: Number,
-      required: true,
-    },
-    red:{
-      type: Number,
-      required: true,
-    }
-})
+  ],
+});
+
+
+jogadoresSchema.plugin(normalize);
 
 var jogadores = mongoose.model('jogadores', jogadoresSchema);
 

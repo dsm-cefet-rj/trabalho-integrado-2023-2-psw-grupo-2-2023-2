@@ -1,31 +1,67 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const timesSchema = new Schema({
-    name: {
-      type: String,
-      required: true,
-    },
-    logo: {
-      type: String,
-      required: true,
-    },
-    league: {
-      type: String,
-      required: true,
-    },
-    id: {
-      type: Number, 
-      required: true,
-    },
-    season: {
-      type: String,
-      required: true,
-    },
-    jogadores: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'jogadores', 
-    }],
+const normalize = require('normalize-mongoose');
+const venueSchema = new Schema({
+  id: {
+    type: Number,
+  },
+  name: {
+    type: String,
+  },
+  address: {
+    type: String,
+
+  },
+  city: {
+    type: String,
+
+  },
+  capacity: {
+    type: Number,
+
+  },
+  surface: {
+    type: String,
+
+  },
+  image: {
+    type: String,
+
+  },
 });
+
+const timesSchema = new Schema({
+  id: {
+    type: Number,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  code: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  founded: {
+    type: Number,
+    required: true,
+  },
+  national: {
+    type: Boolean,
+    required: true,
+  },
+  logo: {
+    type: String,
+  },
+  venue: venueSchema,
+});
+
+timesSchema.plugin(normalize);
 
 var times = mongoose.model('times', timesSchema); // Corrected from 'Jogadores' to 'Times'
 
