@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const normalize = requise('normalize-mongoose');
 const jogadoresSchema = new Schema({
     name:{
       type: String,
       required:true,
     },
     id:{
-      type: int,
+      type: Number,
       required: true,
     },
     firstname:{
@@ -21,7 +20,7 @@ const jogadoresSchema = new Schema({
     }
     ,
     team_id:{
-      type: int,
+      type: Number,
       required: true,
     },
     team_name:{
@@ -29,7 +28,7 @@ const jogadoresSchema = new Schema({
       required: true,
     },
     appearences:{
-      type: int,
+      type: Number,
       required: true,
     },
     position:{
@@ -37,7 +36,7 @@ const jogadoresSchema = new Schema({
       required: true,
     },
     rating:{
-      type: int,
+      type: Number,
       required: true,
     },
     photo:{
@@ -45,60 +44,60 @@ const jogadoresSchema = new Schema({
       required: true,
     },
     shots_total:{
-      type: int,
+      type: Number,
       required: true,
     },
     on:{
-      type: int,
+      type: Number,
       required: true,
     },
     goals_total:{
-      type: int,
+      type: Number,
       required: true,
     },
     assists:{
-      type: int,
+      type: Number,
       required: true,
     },
     passes_total:{
-      type: int,
+      type: Number,
       required: true,
     },
     accuracy:{
-      type: int,
+      type: Number,
       required: true,
     },
     duels_total:{
-      type: int,
+      type: Number,
       required: true,
     },
     won:{
-      type: int,
+      type: Number,
       required: true,
     },
     attempts:{
-      type: int,
+      type: Number,
       required: true,
     },
     succes:{
-      type: int,
+      type: Number,
       required: true,
     },
     commited:{
-      type: int,
+      type: Number,
       required: true,
     },
     yellow:{
-      type: int,
+      type: Number,
       required: true,
     },
     red:{
-      type: int,
+      type: Number,
       required: true,
     }
 })
 
-jogadoresSchema.plugin(normalize);
-var jogadores = mongoose.model('Jogadores', jogadoresSchema);
+var jogadores = mongoose.model('jogadores', jogadoresSchema);
 
 module.exports = jogadores;
+

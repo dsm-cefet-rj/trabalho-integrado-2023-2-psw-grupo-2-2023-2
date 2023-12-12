@@ -1,4 +1,9 @@
+import { useNavigate,useParams  } from "react-router-dom";
+import React, { useEffect,useState } from 'react';
+import logo from '../assets/images/logo.png'
 function EditarTimes(){
+       const {idteam} = useParams();
+     const navigate = useNavigate();
      return(
           <div>
                 <header className = 'Cabecalho'>  
@@ -7,7 +12,7 @@ function EditarTimes(){
                 <div className='FundoHome'>
                 <div className='Tudo'>
                 <div className="PerfilHome">
-                <img className = "Foto" onClick={() => navigate(`/perfil/${idteam}`)}  src = {perfil} alt = "ImagemPerfil"></img>
+                {/* <img className = "Foto" onClick={() => navigate(`/perfil/${idteam}`)}  src = {perfil} alt = "ImagemPerfil"></img> */}
                 <div className="Sair">
                 <button
                        className='BotaoPesquisa'
