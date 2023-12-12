@@ -1,6 +1,6 @@
 # SCOUTBALL
 
-Bem vindo ao SCOUTBALL, o site perfeito para você ficar por dentro de todos os jogos e estatísticas das 6 maiores ligas do mundo: Brasileirão, Premier League, Bundesliga, Laliga, Serie A tim e League One
+Bem vindo ao SCOUTBALL, o site perfeito para você ficar por dentro de todos os jogos e estatísticas das 6 maiores ligas do mundo: Brasileirão, Premier League, Bundesliga, Laliga, Serie A tim e Ligue One
 
 ## Instalação
 
