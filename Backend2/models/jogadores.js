@@ -2,39 +2,44 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const jogadoresSchema = new Schema({
+  player:{
   id: {
     type: Number,
-    required: true,
+    
   },
   age: {
     type: Number,
-    required: true,
+    
   },
   birth: {
     date: {
       type: String,
-      required: true,
+      
     },
     place: {
       type: String,
-      required: true,
+      
     },
     country: {
       type: String,
-      required: true,
+      
     },
-  },
-  firstname: {
-    type: String,
-    required: true,
-  },
-  lastname: {
-    type: String,
-    required: true,
   },
   name: {
     type: String,
-    required: true,
+    
+  },
+  firstname: {
+    type: String,
+    
+  },
+  lastname: {
+    type: String,
+    
+  },
+  name: {
+    type: String,
+    
   },
   height: {
     type: String,
@@ -44,7 +49,7 @@ const jogadoresSchema = new Schema({
   },
   nationality: {
     type: String,
-    required: true,
+    
   },
   photo: {
     type: String,
@@ -60,7 +65,7 @@ const jogadoresSchema = new Schema({
         },
         name: {
           type: String,
-          required: true,
+          
         },
         logo: {
           type: String,
@@ -148,6 +153,7 @@ const jogadoresSchema = new Schema({
       },
     },
   ],
+}
 });
 
 

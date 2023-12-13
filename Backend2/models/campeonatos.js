@@ -2,22 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const campeonatosSchema = new Schema({
-    id:{
-      type: Number,
-      required:true,
-    },
-    name:{
-      type: String,
-      required: true,
-    },
-    country:{
-      type: String,
-      required: true,
+    campeonato: {
+        id: {
+            type: Number,
+        },
+        name: {
+            type: String,
+        },
+        country: {
+            type: String,
+        }
     }
-})
+});
 
+const Campeonatos = mongoose.model('Campeonatos', campeonatosSchema);
 
-var campeonatos = mongoose.model('campeonatos', campeonatosSchema);
-
-module.exports = campeonatos;
-
+module.exports = Campeonatos;

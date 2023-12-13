@@ -28,37 +28,40 @@ const venueSchema = new Schema({
     type: String,
 
   },
+
 });
 
 const timesSchema = new Schema({
+  team:{
   id: {
     type: Number,
-    required: true,
+    
   },
   name: {
     type: String,
-    required: true,
+    
   },
   code: {
     type: String,
-    required: true,
+    
   },
   country: {
     type: String,
-    required: true,
+    
   },
   founded: {
     type: Number,
-    required: true,
+    
   },
   national: {
     type: Boolean,
-    required: true,
+    
   },
   logo: {
     type: String,
   },
-  venue: venueSchema,
+  venue: {venueSchema},
+}
 });
 
 

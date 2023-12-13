@@ -38,36 +38,33 @@ router.route('/')
 router.route('/:id')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
-  let err;
-  res.setHeader('Content-Type', 'application/json');
-  try{
-    const times = await times.findById(req.params.id).populate('times');
-    if(times != null){
+  times.findById(req.params.id)
+  .then((resp) => {
+    if (resp) {
       res.statusCode = 200;
-      res.json(times);
-    }else{
-      err = {};
-      res.statusCode = 404;
-      res.json(err);
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp);
+    } else {
+      res.status(404).json({ message: 'time não encontrado' });
     }
-  
-  }catch(errParam){
-    console.log(errParam);
-    res.statusCode = 404;
-    res.json({});
-  }  
+  })
+  .catch((err) => next(err));
+
 
 })
 .delete(cors.corsWithOptions, authenticate.verifyUser,  (req, res, next) => {
   
-  times.findByIdAndRemove(req.params.id)
-    .then((resp) => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(resp.id);
-    }, (err) => next(err))
-    .catch((err) => next(err));
-
+  times.findByIdAndDelete(req.params.id)
+  .then((resp) => {
+    if (resp) {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp.id);
+    } else {
+      res.status(404).json({ message: 'Time não encontrado' });
+    }
+  })
+  .catch((err) => next(err));
 
 })
 .put(cors.corsWithOptions, authenticate.verifyUser,  (req, res, next) => {

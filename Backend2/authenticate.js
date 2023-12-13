@@ -24,16 +24,16 @@ opts.secretOrKey = '12345-67890-09876-76890'; // Use a chave secreta real
 exports.jwtPassport = passport.use(new JwtStrategy(opts,
      (jwt_payload, done) => {
           console.log("Jwt payload: ", jwt_payload);
-          User.findOne({_id: jwt_payload._id}, (err, user) => {
-               if(err) {
-                    return done(err, false);
-               }
-               else if (user) {
-                    return done(null, user);
-               }
-               else {
-                    return done(null, false);
-               }
+          User.findOne({ _id: jwt_payload._id })
+          .then(user => {
+          if (user) {
+               return done(null, user);
+          } else {
+               return done(null, false);
+          }
+          })
+          .catch(err => {
+          return done(err, false);
           });
      }));
 

@@ -22,51 +22,50 @@ router.route('/')
   }
     
 })
-.post(cors.corsWithOptions, authenticate.verifyUser,  (req, res, next) => {
-  
+.post(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   Campeonatos.create(req.body)
-  .then((campeonato) => {
-      console.log('Campeonato criado ', campeonato);
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
-      res.json(campeonato);
-  }, (err) => next(err))
-  .catch((err) => next(err));
-
-})
+      .then((campeonato) => {
+          console.log('Campeonato criado', campeonato);
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'application/json');
+          res.json(campeonato);
+      })
+      .catch((err) => {
+          console.error('Erro ao criar o campeonato', err);
+          res.status(500).json({ error: 'Erro interno do servidor' });
+      });
+});
 
 router.route('/:id')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
-  let err;
-  res.setHeader('Content-Type', 'application/json');
-  try{
-    const campeonatos = await Campeonatos.findById(req.params.id).populate('times');
-    if(campeonatos != null){
+  Campeonatos.findById(req.params.id)
+  .then((resp) => {
+    if (resp) {
       res.statusCode = 200;
-      res.json(campeonatos);
-    }else{
-      err = {};
-      res.statusCode = 404;
-      res.json(err);
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp);
+    } else {
+      res.status(404).json({ message: 'Campeonato não encontrado' });
     }
-  
-  }catch(errParam){
-    console.log(errParam);
-    res.statusCode = 404;
-    res.json({});
-  }  
+  })
+  .catch((err) => next(err));
+
 
 })
 .delete(cors.corsWithOptions, authenticate.verifyUser,  (req, res, next) => {
   
-  Campeonatos.findByIdAndRemove(req.params.id)
-    .then((resp) => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(resp.id);
-    }, (err) => next(err))
-    .catch((err) => next(err));
+  Campeonatos.findByIdAndDelete(req.params.id)
+  .then((resp) => {
+    if (resp) {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp.id);
+    } else {
+      res.status(404).json({ message: 'Campeonato não encontrado' });
+    }
+  })
+  .catch((err) => next(err));;
 
 
 })
